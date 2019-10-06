@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "jd";
+  src: url("jd.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ritaglio";
+  src: url("ritaglio.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  background-color: #000000;
+}
+
+.container{
+  background: url("../images/scrollbg.png") no-repeat center center;
+  background-color: #000; 
+  background-size: 100% 100%;
+  padding-top: 100px;
+  padding-bottom: 200px;
+  padding-left: 100px;
+  max-width: 90%;
+  color: #fff;
+  text-align: left;
+
+}
+#favicon{
+  margin-top: 1px;
+  min-width: 23px;
+  width: 10%;
+  float: right;
+  margin-right: 40%;
+}
+#waxbutton{
+  width: 20%;
+  float: right;
+  margin-right: 1%;
+  
+}
+#twitterbutton{
+  width: 20%;
+  float: left;
+  margin-left: 15%;
+}
+
+
+#quote{
+  font-family: "jd";
+  font-size:3.5vw;
+  color: #000000;
+  margin-left: 6%;
+}
+#author{
+  font-family: "ritaglio";
+  font-size: 5vw;
+  color: #000000;
+  margin-right: 6%;
+  float: right;
+}
+
+#key{
+  font-family: "ritaglio";
+  font-size: 5vw;
+  color: #000000;
+  margin-right: 6%;
+}
+
+
+
+

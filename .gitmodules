@@ -1,0 +1,12 @@
+[submodule "portfolioentries/currentprojects/flames"]
+	path = portfolioentries/currentprojects/flames
+	url = https://github.com/roylouislgarcia/flames.git
+[submodule "portfolioentries/currentprojects/rhythmbrownbox"]
+	path = portfolioentries/currentprojects/rhythmbrownbox
+	url = https://github.com/roylouislgarcia/rhythmbrownbox.git
+[submodule "portfolioentries/currentprojects/rockpaperscissors"]
+	path = portfolioentries/currentprojects/rockpaperscissors
+	url = https://github.com/roylouislgarcia/rockpaperscissors.git
+[submodule "portfolioentries/recordedbliss"]
+	path = portfolioentries/recordedbliss
+	url = https://github.com/roylouisgarcia/recordedbliss

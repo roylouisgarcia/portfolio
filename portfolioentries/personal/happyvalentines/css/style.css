@@ -82,6 +82,13 @@ body{
    
 }
 
+#poem{
+	color: #fff;
+}
+
+.firstletters{
+    font-size: 1.8em;
+}
 
 @media screen and (max-width: 480px) {
 .message{

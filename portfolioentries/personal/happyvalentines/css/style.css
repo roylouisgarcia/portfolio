@@ -76,13 +76,15 @@ video#bgvid {
     font-family: "mystyle";     
 }
 
-body{
+body {
     color: #fff;
     background-color: #000;
+
    
 }
 
-#poem{
+#poem, .videointro{
+        font-size: 1.8em;
 	color: #fff;
 }
 

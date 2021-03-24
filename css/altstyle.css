@@ -51,7 +51,7 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.6em;
     line-height: 1.5;
-    color: #294b68;
+    color: #1d2951;
 }
 
 .redradioicon {
@@ -426,7 +426,7 @@ a:hover {
 }
 
 .black-text {
-    color: #000000;
+    color: #1d2951;
 }
 
 p.title{
@@ -524,7 +524,8 @@ h4 {
 }
 
 .jumbotron {
-    background-color: #294b68;
+    /*background-color: #1d2951;*/
+    background-color: #1d2951;
     /**background-image: url("/images/leather.png"); **/
     color: #fff;
     padding: 100px 25px;
@@ -583,12 +584,12 @@ h4 {
 }
 
 .logo-small {
-    color: #294b68;
+    color: #1d2951;
     font-size: 50px;
 }
 
 .logo {
-    color: #294b68;
+    color: #1d2951;
     font-size: 200px;
 }
 
@@ -614,15 +615,15 @@ h4 {
 .carousel-control.right,
 .carousel-control.left {
     background-image: none;
-    color: #294b68;
+    color: #1d2951;
 }
 
 .carousel-indicators li {
-    border-color: #294b68;
+    border-color: #1d2951;
 }
 
 .carousel-indicators li.active {
-    background-color: #294b68;
+    background-color: #1d2951;
 }
 
 .item h4 {
@@ -638,7 +639,7 @@ h4 {
 }
 
 .panel {
-    border: 1px solid #294b68;
+    border: 1px solid #1d2951;
     border-radius: 0 !important;
     transition: box-shadow 0.5s;
 }
@@ -648,14 +649,14 @@ h4 {
 }
 
 .panel-footer .btn:hover {
-    border: 1px solid #294b68;
+    border: 1px solid #1d2951;
     background-color: #fff !important;
-    color: #294b68;
+    color: #1d2951;
 }
 
 .panel-heading {
     color: #fff !important;
-    background-color: #294b68 !important;
+    background-color: #1d2951 !important;
     padding: 25px;
     padding: 25px;
     border-bottom: 1px solid transparent;
@@ -680,13 +681,13 @@ h4 {
 
 .panel-footer .btn {
     margin: 15px 0;
-    background-color: #294b68;
+    background-color: #1d2951;
     color: #fff;
 }
 
 .navbar {
     margin-bottom: 0;
-    background-color: #294b68;
+    background-color: #1d2951;
 /*    background-image: url("/images/leather.png");*/
     z-index: 9999;
     border: 0;
@@ -704,7 +705,7 @@ h4 {
 
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
-    color: #294b68 !important;
+    color: #1d2951 !important;
     background-color: #fff !important;
 }
 
@@ -721,7 +722,7 @@ footer .glyphicon {
 
 footer {
     color: #fff;
-    background-color: #294b68;
+    background-color: #1d2951;
 /*    background-image: url("/images/leather.png");    */
 }
 
@@ -1012,7 +1013,7 @@ p.title{
         margin-top:50px;
     }
     .black-text {
-        color: #000000;
+        color: #1d2951;
         font-size: .8em;
     }
     #stomp {

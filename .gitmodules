@@ -3,7 +3,7 @@
 	url = https://github.com/roylouislgarcia/flames.git
 [submodule "portfolioentries/currentprojects/rhythmbrownbox"]
 	path = portfolioentries/currentprojects/rhythmbrownbox
-	url = https://github.com/roylouislgarcia/rhythmbrownbox.git
+	url = https://github.com/roylouisgarcia/rhythmbrownbox.git
 [submodule "portfolioentries/currentprojects/rockpaperscissors"]
 	path = portfolioentries/currentprojects/rockpaperscissors
 	url = https://github.com/roylouislgarcia/rockpaperscissors.git

@@ -1,12 +1,12 @@
 @font-face {
   font-family: "jd";
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/904297/jd.ttf") format('truetype');
+  src: url("jd.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 .jumbotron{
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/904297/headerbackground.jpg);
+  background-image: url(../images/headerbg.jpeg);
   background-color: #F45C43;
   color: white;
   display: none; 
@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: "flower";
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/904297/flower.ttf') format('truetype');
+  src: url('flower.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 
@@ -23,7 +23,7 @@
 
 @font-face {
   font-family: "flower2";
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/904297/alphaflower.ttf') format('truetype');
+  src: url('AlphaFlower.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -36,11 +36,12 @@
 }
 
 body{
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/904297/love.png);
+  background-image: url(../images/love.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; 
   background-color: #F7BB97;
+  opacity: .9;
 }
 button{
   float: right;
@@ -77,9 +78,9 @@ button{
 }
 
 #cupid{
-  width: 100px;
+  width: 200px;
   float: left;
-  margin: 5px;
+  margin: 30px;
 }
 
 .bigLetter{
@@ -89,11 +90,11 @@ button{
 }
 
 .panel-footer{
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/904297/headerbackground.jpg);
+  background-image: url(../images/headerbg.jpeg);
   background-color: #F45C43;
   color: white;
   display: none;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 .panel-footer img{

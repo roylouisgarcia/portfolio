@@ -24,24 +24,21 @@ You can find the source code for Jekyll at GitHub:
 [jekyll][jekyll-organization] /
 [jekyll][ jekyll-organization ]
 
+## Other Links:
 
-
-## Links:
-
+[Tech Entjusiast Page][techenthusiast-page].
+[DMSX TECH][dmsx-tech]
 My [NostrA Blog][ nostra-blog ].
-
 My [Online Portfolio][ my-online-portfolio].
-
 My [Linkedin Profile.][ my-linkedin-profile]
-
 My [Twitter Page.][ my-twitter ]
-
 My [Github Page.][ my-github-page ]
 
-[nostra-blog]: https://nostra.dmsx.tech/	"NostrA Blog"
-
-[my-online-portfolio]: https://portfolio.dmsx.tech/	"My Online Portfolio"
+[dmsx-tech]: http://dmsx.tech/
+[techenthusiast-page]: https://techenthusiasts.github.io/
+[nostra-blog]: https://nostra.dmsx.tech/        "NostrA Blog"
+[my-online-portfolio]: https://portfolio.dmsx.tech/     "My Online Portfolio"
 [my-linkedin-profile]: https://www.linkedin.com/in/roylouisgarcia/
 [my-twitter]: https://twitter.com/roylouisgarcia/
 [my-github-page]: https://github.com/roylouisgarcia
-[jekyll-organization]: https://github.com/jekyll	"Jekyll Repo"
+[jekyll-organization]: https://github.com/jekyll "

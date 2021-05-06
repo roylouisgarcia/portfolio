@@ -26,7 +26,7 @@ You can find the source code for Jekyll at GitHub:
 
 ## Other Links:
 
-- [Tech Entjusiast Page][techenthusiast-page].
+- [Tech Enthusiast Page][techenthusiast-page].
 - [DMSX TECH][dmsx-tech]
 - My [NostrA Blog][ nostra-blog ].
 - My [Online Portfolio][ my-online-portfolio].

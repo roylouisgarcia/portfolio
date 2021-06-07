@@ -43,6 +43,7 @@ span{
 .heart {
   position: absolute;
   margin: auto;
+  opacity: 0.5;
   top: 0;
   right: 0;
   bottom: 0;
@@ -57,6 +58,7 @@ span{
 }
 .heart:after {
   background-color: red;
+  opacity: 0.5;
   content: "";
   border-radius: 50%;
   position: absolute;
@@ -67,6 +69,7 @@ span{
 }
 .heart:before {
   background-color: red;
+  opacity: 0.5;
   content: "";
   border-radius: 50%;
   position: absolute;

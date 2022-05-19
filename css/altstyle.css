@@ -95,8 +95,6 @@ img.logoBody {
     position: relative;
     border: 1px solid #E8E8E8;
     border-top: 60px solid #fdfd86;
-    /* font-family: 'Permanent Marker'; */
-    font-size: 1.0em;
     border-bottom-right-radius: 60px 5px;
     display: inline-block;
     background: #ffff88;
@@ -958,9 +956,7 @@ p.title{
         position: relative;
         border: 1px solid #E8E8E8;
         border-top: 60px solid #fdfd86;
-        /* font-family: 'Permanent Marker'; */
         line-height: 1;
-        font-size: .8em;
         border-bottom-right-radius: 60px 5px;
         display: inline-block;
         background: #ffff88;

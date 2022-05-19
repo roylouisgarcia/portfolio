@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 @font-face {
   font-family: "typewriter";
   src: url("typewriter.ttf") format('truetype');
@@ -60,6 +61,10 @@ img.logoBody {
     font-size: 1.1em;
 }
 
+.handwritten{
+    font-family: 'Nothing You Could Do', cursive;
+}
+
 .polaroid {
     background-image: url("/images/polaroid.png");
     background-repeat: no-repeat;
@@ -85,7 +90,7 @@ img.logoBody {
     position: relative;
     border: 1px solid #E8E8E8;
     border-top: 60px solid #fdfd86;
-    font-family: 'Nothing You Could Do', cursive;
+  
     font-size: 1.2em;
     border-bottom-right-radius: 60px 5px;
     display: inline-block;
@@ -952,7 +957,6 @@ figure video {
         position: relative;
         border: 1px solid #E8E8E8;
         border-top: 60px solid #fdfd86;
-        font-family: 'Nothing You Could Do', cursive;
         line-height: 55555.3;
         font-size: .9em;
         border-bottom-right-radius: 60px 5px;

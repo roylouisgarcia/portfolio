@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 @font-face {
   font-family: "typewriter";
   src: url("typewriter.ttf") format('truetype');
@@ -94,7 +95,7 @@ img.logoBody {
     position: relative;
     border: 1px solid #E8E8E8;
     border-top: 60px solid #fdfd86;
-    font-family: 'Permanent Marker';
+    /* font-family: 'Permanent Marker'; */
     font-size: 1.0em;
     border-bottom-right-radius: 60px 5px;
     display: inline-block;
@@ -957,7 +958,7 @@ p.title{
         position: relative;
         border: 1px solid #E8E8E8;
         border-top: 60px solid #fdfd86;
-        font-family: 'Permanent Marker';
+        /* font-family: 'Permanent Marker'; */
         line-height: 1;
         font-size: .8em;
         border-bottom-right-radius: 60px 5px;

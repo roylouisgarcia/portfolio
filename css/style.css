@@ -198,7 +198,7 @@ img.logoBody {
     color: aliceblue;
 }
 
-#link2Featured,
+/* #link2Featured,
 #link2Academic,
 #link2Professional,
 #link2Personal {
@@ -221,7 +221,7 @@ img.logoBody {
     padding-left: 0px;
     padding-right: 3px;
     color: black;
-}
+} */
 .projecttext {
     background-color:bisque;
     max-width: 811px;

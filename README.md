@@ -1,4 +1,4 @@
-## My Online Portfolio - a Jekyll powered site
+## My Online Portfolio 
 
 ## Screenshots:
 
@@ -10,35 +10,9 @@
 
 
 
-## Tools I used:
+## From being a deliverable to an actual site I loved:
 
-This blog is written in Jekyll and is using the default Minima theme. I have overridden the main.css file to alter the theme.
+This portfolio was built as a project for FreeCodeCamp's [Responsive Web Design course](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage). It is designed as a Single Page Application-like that should work well both on Desktop browsers and mobile devices. 
 
-You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Since then, I try my best to keep this portfolio updated. Although, I may be tempted to create other versions of my portfolio using other technology that I learn as I progress in my career as a developer. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll][ jekyll-organization ]
-
-## Other Links:
-
-- [Tech Enthusiast Page][techenthusiast-page].
-- [DMSX TECH][dmsx-tech]
-- My [NostrA Blog][ nostra-blog ].
-- My [Online Portfolio][ my-online-portfolio].
-- My [Linkedin Profile.][ my-linkedin-profile]
-- My [Twitter Page.][ my-twitter ]
-- My [Github Page.][ my-github-page ]
-
-[dmsx-tech]: http://dmsx.tech/
-[techenthusiast-page]: https://techenthusiasts.github.io/
-[nostra-blog]: https://nostra.dmsx.tech/
-[my-online-portfolio]: https://portfolio.dmsx.tech/
-[my-linkedin-profile]: https://www.linkedin.com/in/roylouisgarcia/
-[my-twitter]: https://twitter.com/roylouisgarcia/
-[my-github-page]: https://github.com/roylouisgarcia
-[jekyll-organization]: https://github.com/jekyll

@@ -90,6 +90,11 @@ p.title{
 }
 
 
+h3.handwritten{
+    font-family: 'Nothing You Could Do', cursive;
+    font-weight:bolder;
+    font-size: 1.4em;
+}
 
 .handwritten{
     font-family: 'Nothing You Could Do', cursive;

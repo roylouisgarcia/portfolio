@@ -10,7 +10,7 @@
 
 
 
-## From being a deliverable to an actual site I loved:
+## From being a MOOC deliverable to an actual site I loved:
 
 This portfolio was built as a project for FreeCodeCamp's [Responsive Web Design course](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage). It is designed as a Single Page Application-like that should work well both on Desktop browsers and mobile devices. 
 

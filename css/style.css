@@ -781,6 +781,11 @@ footer {
 /*    background-image: url("/images/leather.png");    */
 }
 
+.footer-image{
+    width: auto;
+    max-height: 100px;
+}
+
 .slideanim {
     visibility: hidden;
 }

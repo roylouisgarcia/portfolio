@@ -422,6 +422,7 @@ h3.handwritten{
     background-color: #f3c611;
     margin: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.4s;
 }
 
 .totiebtn a, a:visited{
@@ -579,7 +580,7 @@ h4 {
 .jumbotron {
     /*background-color: #1d2951;*/
     background-color: #1d2951;
-    background-image: url("/images/leather.png"); 
+    /* background-image: url("/images/leather.png");  */
     color: #fff;
     padding: 100px 25px;
     /**      font-family: Montserrat, sans-serif; **/
@@ -705,11 +706,7 @@ h4 {
 }
 
 .panel {
-    border: 1px solid #3c4a7a;
-    color:#e5cb12;
-    background-color: #f6f6f6;
-    background-image: url("/images/leather.png");
-    border-radius: 0 !important;
+    border: 0px solid #3c4a7a; 
     transition: box-shadow 0.5s;
 }
 
@@ -724,16 +721,15 @@ h4 {
 }
 
 .panel-heading {
-    color: #fff !important;
-    background-color: #040918 !important;
-    background-image: url("/images/leather.png");
+    color: #ffffff !important;
+    background-color: #4c67a5 !important;
     padding: 25px;
     padding: 25px;
     border-bottom: 1px solid transparent;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .panel-footer {
@@ -758,7 +754,7 @@ h4 {
 .navbar {
     margin-bottom: 0;
     background-color: #1d2951;
-    background-image: url("/images/leather.png");
+    /* background-image: url("/images/leather.png"); */
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -794,7 +790,7 @@ footer {
     color: #fff;
     background-color: #1d2951;
     width: 100%;
-    background-image: url("/images/leather.png");   
+    /* background-image: url("/images/leather.png");    */
 }
 
 .footer-image{

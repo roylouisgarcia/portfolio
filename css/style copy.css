@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 @font-face {
   font-family: "typewriter";
   src: url("typewriter.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Permanent Marker';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Permanent Marker Regular'), local('PermanentMarker-Regular'), url(https://fonts.gstatic.com/s/permanentmarker/v7/9vYsg5VgPHKK8SXYbf3sMsW72xVeg1938eUHStY_AJ4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
 }
 
 @font-face {
@@ -36,13 +46,21 @@
   font-weight: normal;
   font-style: normal;
 }
-
-
+ */
 body {
-    font-family: Lato, sans-serif;
-    font-size: 1.6em;
-    line-height: 1.5;
-    color: #294b68;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    /* ddfont-family: 'Roboto', sans-serif; */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+#childhood{
+    width: 80%;
+    max-width: 500px;
 }
 
 .redradioicon {
@@ -56,8 +74,37 @@ img.logoBody {
 }
 
 .typewriter{
-    font-family: 'typewriter';
-    font-size: 1.1em;
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 1.2em;
+}
+#nostraheader, #nostrafooter{
+    background-color: #444444;
+    width: 100%;
+}
+
+#redboxheader, #redboxfooter{
+    background-color: #e5cb12;
+    width: 100%;
+}
+p.title{
+    font-size: 1.9em;
+    /* font-family: 'Permanent Marker';     */
+    font-family: 'Nothing You Could Do', cursive;
+    color: #ffffff;
+    margin-top: 7px;
+}
+
+
+h3.handwritten{
+    font-family: 'Nothing You Could Do', cursive;
+    font-weight:bolder;
+    font-size: 1.4em;
+}
+
+.handwritten{
+    font-family: 'Nothing You Could Do', cursive;
+    font-weight:bolder;
+    font-size: 1em;
 }
 
 .polaroid {
@@ -74,19 +121,17 @@ img.logoBody {
 }
 
 .postit {
-    color: black;
+    color: #003153;
     line-height: 1.0;
-    text-align: center;
+    text-align: left;
     width: 275px;
-    margin: 25px;
+    margin: 20px;
     min-height: 250px;
     max-height: 250px;
     padding-top: 0px;
     position: relative;
     border: 1px solid #E8E8E8;
     border-top: 60px solid #fdfd86;
-    font-family: 'script2';
-    font-size: 1.2em;
     border-bottom-right-radius: 60px 5px;
     display: inline-block;
     background: #ffff88;
@@ -124,6 +169,9 @@ img.logoBody {
     transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
 
+#adulttext{
+    font-size: 5.5em;
+}
 .acadetails {
     display: none;
     margin-top: 0px;
@@ -186,7 +234,7 @@ img.logoBody {
     margin-bottom: 0px;
     padding-left: 10px;
     padding-right: 3px;
-    color: black;
+    color: #003153;
 }
 
 
@@ -198,7 +246,7 @@ img.logoBody {
 
 .btn:hover {
     background-color: bisque;
-    color: black;
+    color: #003153;
     
 }
 
@@ -215,7 +263,7 @@ img.logoBody {
     font-size: .7em;
     border-top: 1px;
     border-right: 1px;
-    border-color:black;
+    border-color:#003153;
     border-style:dotted;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -225,12 +273,12 @@ img.logoBody {
 .projecttext {
     background-color:bisque;
     text-align: left;
-    font-size: 1.2em;
+    font-size: .9em;
     line-height: 1.5;
     padding-top: 60px;
     padding-left: 50px;
     padding-right: 30px;
-    color: black;
+    color: #003153;
     border-top: 0px;
     border-right: 1px;
     border-left: 0px;
@@ -239,7 +287,7 @@ img.logoBody {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-style:groove;
-    border-color: black;
+    border-color: #003153;
 }
 
 .projecttext p{
@@ -328,18 +376,9 @@ img.logoBody {
 }
 .writing{
     font-family: 'script2';
+    font-size: 1.2em;
+    padding-top: 20px;
 }
-
-#nostraheader, #nostrafooter{
-    background-color: #444444;
-    width: 100%;
-}
-
-#redboxheader, #redboxfooter{
-    background-color: #e5cb12;
-    width: 100%;
-}
-
 
 #hartnellprojects,
 #hartnellcourses,
@@ -367,6 +406,12 @@ img.logoBody {
     
 }
 
+#about{
+    font-family: 'typewriter';
+    font-size: 1.2em;
+    color: #003153;
+}
+
 
 
 .totiebtn {
@@ -380,12 +425,12 @@ img.logoBody {
 }
 
 .totiebtn:hover {
-    color: black;
+    color: #FFF;
     background-color: darkorange;
 }
 
 .totiebtnActive {
-    color: black;
+    color: #003153;
     background-color: darkorange;
 }
 
@@ -423,12 +468,12 @@ a:visited {
 }
 
 a:hover {
-    color: black;
+    color: #003153;
     background-color: darkorange;
 }
 
-.black-text {
-    color: #000000;
+.blue-text {
+    color: #1d2951;
 }
 
 h1 {
@@ -460,6 +505,7 @@ h4 {
 }
 
 .adult, .boy, .teenager{
+    text-align: center;
     display: none;
     background-image: url("/images/spacewar.jpg");
     background-repeat: repeat;
@@ -519,21 +565,24 @@ h4 {
 }
 
 .jumbotron {
-    /*background-color: #294b68;*/
-    background-color: #000;
+    /*background-color: #1d2951;*/
+    background-color: #1d2951;
+    /**background-image: url("/images/leather.png"); **/
     color: #fff;
     padding: 100px 25px;
     /**      font-family: Montserrat, sans-serif; **/
     height: 10px;
+    width: 100%;
 }
 
 .container-fluid {
     padding: 60px 50px;
+    width: 70%;
 }
 
 #calgaryprojects,
 #redboxprojects {
-    background-color: black;
+    background-color: #003153;
     color: chartreuse;
     padding: 70px;
     margin-top: 0px;
@@ -578,12 +627,12 @@ h4 {
 }
 
 .logo-small {
-    color: #294b68;
+    color: #1d2951;
     font-size: 50px;
 }
 
 .logo {
-    color: #294b68;
+    color: #1d2951;
     font-size: 200px;
 }
 
@@ -599,7 +648,6 @@ h4 {
     height: 100%;
     margin-bottom: 10px;
 }
-
 .books-default{
     width: 100%;
     height: 100%;
@@ -612,7 +660,6 @@ h4 {
     margin-bottom: 10px;
     display:none;
 }
-
 .text-left {
     padding-left: 20px;
     font-size: 1.2em;
@@ -622,15 +669,15 @@ h4 {
 .carousel-control.right,
 .carousel-control.left {
     background-image: none;
-    color: #294b68;
+    color: #1d2951;
 }
 
 .carousel-indicators li {
-    border-color: #294b68;
+    border-color: #1d2951;
 }
 
 .carousel-indicators li.active {
-    background-color: #294b68;
+    background-color: #1d2951;
 }
 
 .item h4 {
@@ -646,7 +693,7 @@ h4 {
 }
 
 .panel {
-    border: 1px solid #294b68;
+    border: 1px solid #1d2951;
     border-radius: 0 !important;
     transition: box-shadow 0.5s;
 }
@@ -656,14 +703,15 @@ h4 {
 }
 
 .panel-footer .btn:hover {
-    border: 1px solid #294b68;
+    border: 1px solid #1d2951;
     background-color: #fff !important;
-    color: #294b68;
+    color: #1d2951;
 }
 
 .panel-heading {
     color: #fff !important;
-    background-color: #294b68 !important;
+    background-color: #1d2951 !important;
+    padding: 25px;
     padding: 25px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 0px;
@@ -687,13 +735,14 @@ h4 {
 
 .panel-footer .btn {
     margin: 15px 0;
-    background-color: #294b68;
+    background-color: #1d2951;
     color: #fff;
 }
 
 .navbar {
     margin-bottom: 0;
-    background-color: #294b68;
+    background-color: #1d2951;
+/*    background-image: url("/images/leather.png");*/
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -710,7 +759,7 @@ h4 {
 
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
-    color: #294b68 !important;
+    color: #1d2951 !important;
     background-color: #fff !important;
 }
 
@@ -721,13 +770,20 @@ h4 {
 
 footer .glyphicon {
     font-size: 20px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     color: #fff;
 }
 
 footer {
     color: #fff;
-    background-color: #294b68;
+    background-color: #1d2951;
+    width: 100%
+/*    background-image: url("/images/leather.png");    */
+}
+
+.footer-image{
+    width: auto;
+    max-height: 100px;
 }
 
 .slideanim {
@@ -871,6 +927,17 @@ figure video {
         margin-top: 0px;
         margin-bottom: 0px;
     }
+    
+p.title{
+    font-size: 1em;
+    /* font-family: 'Permanent Marker';     */
+    font-family: 'Nothing You Could Do', cursive;
+    color: #ffffff;
+    margin-top: 7px;
+    margin-left:7px;
+    
+}
+    
     h1 {
         font-size: .8em;
         text-transform: uppercase;
@@ -897,7 +964,6 @@ figure video {
         line-height: 1.6;
     }
     .jumbotron {
-        background-color: #294b68;
         color: #fff;
         padding: 30px 25px;
         height: 10px;
@@ -911,6 +977,7 @@ figure video {
     }
     .container-fluid {
         padding: 10px 10px;
+        width: 100%;
     }
     .projecttext{
         background-color:bisque;
@@ -921,7 +988,7 @@ figure video {
         padding-right: 9px;
         padding-bottom: 30px;
         margin-bottom: 0px;
-        color: black;
+        color: #003153;
     }
     .projecttext h3 {
         font-family: 'script2';
@@ -942,19 +1009,17 @@ figure video {
     }
     .postit {
         line-height: 1;
-        text-align: center;
-        width: 175px;
+        text-align: left;
+        width: 155px;
         margin: 10px;
         min-height: 250px;
         max-height: 400px;
-        padding-top: 0px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         position: relative;
         border: 1px solid #E8E8E8;
         border-top: 60px solid #fdfd86;
-        font-family: 'script2';
-        line-height: 1.3;
-        font-size: .9em;
+        line-height: 1;
         border-bottom-right-radius: 60px 5px;
         display: inline-block;
         background: #ffff88;
@@ -1007,9 +1072,9 @@ figure video {
     .lowered{
         margin-top:50px;
     }
-    .black-text {
-        color: #000000;
-        font-size: .8em;
+    .blue-text {
+        color: #1d2951;
+        /*font-size: .4em;*/
     }
     #stomp {
         width: 230px;
@@ -1036,11 +1101,11 @@ figure video {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .totiebtn:hover {
-        color: black;
+        color: #003153;
         background-color: darkorange;
     }
     .totiebtnActive {
-        color: black;
+        color: #003153;
         background-color: darkorange;
     }
     #associate,
@@ -1050,7 +1115,7 @@ figure video {
     }
     .typewriter{
     font-family: 'typewriter';
-    font-size: .8em;
+    font-size: .9em;
     }
 }
 

@@ -1,5 +1,10 @@
 $(document).ready(function(){
     
+    $("#link2Featured").removeClass("btnNonActive");
+    $("#link2Academic").addClass("btnNonActive");
+    $("#link2Professional").addClass("btnNonActive");
+    $("#link2Personal").addClass("btnNonActive");  
+    $(".featured").show("fast", function(){});  
  
  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
@@ -229,7 +234,7 @@ $(document).ready(function(){
         $(".academic").hide("slow", function(){});
         $(".professional").hide("slow", function(){});
         $(".personal").hide("slow", function(){});
-        $("#link2Featured").removeClass("btnNonActive");
+        // $("#link2Featured").removeClass("btnNonActive");
         $("#link2Academic").removeClass("btnNonActive");
         $("#link2Professional").removeClass("btnNonActive");
         $("#link2Personal").removeClass("btnNonActive"); 
@@ -239,7 +244,7 @@ $(document).ready(function(){
         $("#associate").css("opacity", "1");
         $("#bachelors").css("opacity", "1");
         $("#graduate").css("opacity", "1"); 
-        hideFeaturedProjects();
+        // hideFeaturedProjects();
         hideAcademicProjects();
         hideProProjects();
         hideLyricsProjects();

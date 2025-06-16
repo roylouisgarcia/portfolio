@@ -722,7 +722,7 @@ h4 {
 
 .panel-heading {
     color: #ffffff !important;
-    background-color: #4c67a5 !important;
+    background-color: #37358a !important;
     padding: 25px;
     padding: 25px;
     border-bottom: 1px solid transparent;
@@ -730,6 +730,44 @@ h4 {
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+.panel-interests {
+    color: #ffffff !important;
+    background-color: #4c67a5 !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* Responsive: allow content to wrap and scale */
+    box-sizing: border-box;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .panel-interests {
+    padding: 15px;
+    font-size: 1em;
+  }
+  .panel-interests h1 {
+    font-size: 1.3em;
+  }
+  .panel-interests img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel-interests {
+    padding: 8px;
+    font-size: 0.95em;
+  }
+  .panel-interests h1 {
+    font-size: 1.1em;
+  }
 }
 
 .panel-footer {

@@ -502,7 +502,7 @@ a:visited {
 }
 
 .img-responsive {
-/**  max-width: 200px; **/
+  /**  max-width: 200px; **/
   margin: 0 auto;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -798,6 +798,20 @@ h4 {
   .panel-interests img {
     max-width: 100%;
     height: auto;
+  }
+  .postit {
+    display: none !important;
+  }
+  #polanav {
+    justify-content: center !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+  #polanav > * {
+    margin-left: auto;
+    margin-right: auto;
+    float: none !important;
   }
 }
 
@@ -1259,5 +1273,21 @@ figure video {
     border-radius: 20px;
     margin: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+@media (max-width: 768px) {
+  .postit {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: 0.9em !important;
+  }
+}
+@media (max-width: 480px) {
+  .typewriter {
+    font-size: 0.8em !important;
   }
 }

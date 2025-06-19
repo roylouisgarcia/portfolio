@@ -283,3 +283,12 @@ $(document).ready(function(){
      }
 
 });
+
+
+// Hide .adult, .teenager, .boy when clicking outside #about
+$(document).on('mousedown touchstart', function(event) {
+  var $about = $('#about');
+  if ($about.length && !$about.is(event.target) && $about.has(event.target).length === 0) {
+    $('.adult, .teenager, .boy').hide('slow');
+  }
+});

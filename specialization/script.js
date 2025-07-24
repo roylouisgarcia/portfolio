@@ -3,32 +3,32 @@ let slides = [];
 
 // Image filenames array - moved outside for global access
 const imageFilenames = [
-    "images/ibm_specialization_ibmcybersecurityanalyst.jpg",
-    "images/ibm_specialization_securityanalystfundamentals.jpg",
-    "images/ibm_specialization_devopsandsoftwareengineering.jpg",
-    "images/ibm_specialization_devopscloudandagilefoundations.jpg",
-    "images/ibm_specialization_ibmdatawarehouseengineer.jpg",
-    "images/imperialcollegelondon_specialization_mathematicsformachinelearning.jpg",
-    "images/infosec_specialization_advpythonscripting4cybersecurity.jpg",
-    "images/deeplearningai_specialization_nlp.jpg",
-    "images/stanfordonline_specialization_machinelearning.jpg",
-    "images/dukeuniversity_specialization_pythonbashandsql4dataengineering.jpg",
-    "images/johnhopkinsuniversity_specialization_datascience.jpg"
+    "specialization/images/ibm_specialization_ibmcybersecurityanalyst.jpg",
+    "specialization/images/ibm_specialization_securityanalystfundamentals.jpg",
+    "specialization/images/ibm_specialization_devopsandsoftwareengineering.jpg",
+    "specialization/images/ibm_specialization_devopscloudandagilefoundations.jpg",
+    "specialization/images/ibm_specialization_ibmdatawarehouseengineer.jpg",
+    "specialization/images/imperialcollegelondon_specialization_mathematicsformachinelearning.jpg",
+    "specialization/images/infosec_specialization_advpythonscripting4cybersecurity.jpg",
+    "specialization/images/deeplearningai_specialization_nlp.jpg",
+    "specialization/images/stanfordonline_specialization_machinelearning.jpg",
+    "specialization/images/dukeuniversity_specialization_pythonbashandsql4dataengineering.jpg",
+    "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg"
 ];
 
 // Certificate verification URLs - add the actual URLs for each certificate
 const verificationUrls = {
-    "images/ibm_specialization_ibmcybersecurityanalyst.jpg": "https://coursera.org/verify/specialization/TCBK8AVMN5BQ",
-    "images/ibm_specialization_securityanalystfundamentals.jpg": "https://coursera.org/verify/specialization/4MFFATRXDHAB",
-    "images/ibm_specialization_devopsandsoftwareengineering.jpg": "https://coursera.org/verify/specialization/WLTQLH326CS4",
-    "images/ibm_specialization_devopscloudandagilefoundations.jpg": "https://coursera.org/verify/specialization/BDN6GQW9C2E2",
-    "images/ibm_specialization_ibmdatawarehouseengineer.jpg": "https://coursera.org/verify/specialization/YD2GVW2SPMMM",
-    "images/imperialcollegelondon_specialization_mathematicsformachinelearning.jpg": "https://coursera.org/verify/specialization/M2M2BFJGYGBY",
-    "images/infosec_specialization_advpythonscripting4cybersecurity.jpg": "https://coursera.org/verify/specialization/3HSMQ7UJC34N",
-    "images/deeplearningai_specialization_nlp.jpg": "https://coursera.org/verify/specialization/YLMRHXVTLD99",
-    "images/stanfordonline_specialization_machinelearning.jpg": "https://coursera.org/verify/specialization/SBTRWCR5DS8W",
-    "images/dukeuniversity_specialization_pythonbashandsql4dataengineering.jpg": "https://coursera.org/verify/specialization/5WTD6LEKYDVA",
-    "images/johnhopkinsuniversity_specialization_datascience.jpg": "https://coursera.org/verify/specialization/LKJX5VJVGZ9V"
+    "specialization/images/ibm_specialization_ibmcybersecurityanalyst.jpg": "https://coursera.org/verify/specialization/TCBK8AVMN5BQ",
+    "specialization/images/ibm_specialization_securityanalystfundamentals.jpg": "https://coursera.org/verify/specialization/4MFFATRXDHAB",
+    "specialization/images/ibm_specialization_devopsandsoftwareengineering.jpg": "https://coursera.org/verify/specialization/WLTQLH326CS4",
+    "specialization/images/ibm_specialization_devopscloudandagilefoundations.jpg": "https://coursera.org/verify/specialization/BDN6GQW9C2E2",
+    "specialization/images/ibm_specialization_ibmdatawarehouseengineer.jpg": "https://coursera.org/verify/specialization/YD2GVW2SPMMM",
+    "specialization/images/imperialcollegelondon_specialization_mathematicsformachinelearning.jpg": "https://coursera.org/verify/specialization/M2M2BFJGYGBY",
+    "specialization/images/infosec_specialization_advpythonscripting4cybersecurity.jpg": "https://coursera.org/verify/specialization/3HSMQ7UJC34N",
+    "specialization/images/deeplearningai_specialization_nlp.jpg": "https://coursera.org/verify/specialization/YLMRHXVTLD99",
+    "specialization/images/stanfordonline_specialization_machinelearning.jpg": "https://coursera.org/verify/specialization/SBTRWCR5DS8W",
+    "specialization/images/dukeuniversity_specialization_pythonbashandsql4dataengineering.jpg": "https://coursera.org/verify/specialization/5WTD6LEKYDVA",
+    "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg": "https://coursera.org/verify/specialization/LKJX5VJVGZ9V"
 };
 
 // Function to open verification URL

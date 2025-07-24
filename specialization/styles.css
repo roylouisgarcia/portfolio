@@ -1,11 +1,11 @@
-body {
+/* Specialization Section Styles */
+#specialization {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
+    padding: 20px 0;
 }
 
-.slideshow-container {
+#specialization .slideshow-container {
     width: 85%;
     max-width: 1200px;
     margin: auto;
@@ -17,12 +17,12 @@ body {
     padding: 20px;
 }
 
-.slideshow-wrapper {
+#specialization .slideshow-wrapper {
     position: relative;
     max-width: 100%;
 }
 
-.slideshow-wrapper::after {
+#specialization .slideshow-wrapper::after {
     content: "🔗 Click to verify certificate";
     position: absolute;
     bottom: 10px;
@@ -38,27 +38,27 @@ body {
     z-index: 10;
 }
 
-.slideshow-wrapper:hover::after {
+#specialization .slideshow-wrapper:hover::after {
     opacity: 1;
 }
 
-.slides {
+#specialization .slides {
     display: none;
 }
 
-.slides img {
+#specialization .slides img {
     max-width: 100%;
     height: auto;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.slides img:hover {
+#specialization .slides img:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.nav-btn {
+#specialization .nav-btn {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -72,23 +72,24 @@ body {
     border-radius: 0 3px 3px 0;
     user-select: none;
     background-color: rgba(0, 0, 0, 0.5);
+    border: none;
 }
 
-.next-btn {
+#specialization .next-btn {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-.prev-btn {
+#specialization .prev-btn {
     left: 0;
 }
 
-.slide-counter {
+#specialization .slide-counter {
     margin: 20px 0;
     font-size: 18px;
 }
 
-.thumbnail-container {
+#specialization .thumbnail-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -100,25 +101,25 @@ body {
     max-width: 100%;
 }
 
-.thumbnail-container::-webkit-scrollbar {
+#specialization .thumbnail-container::-webkit-scrollbar {
     height: 8px;
 }
 
-.thumbnail-container::-webkit-scrollbar-track {
+#specialization .thumbnail-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
 }
 
-.thumbnail-container::-webkit-scrollbar-thumb {
+#specialization .thumbnail-container::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 4px;
 }
 
-.thumbnail-container::-webkit-scrollbar-thumb:hover {
+#specialization .thumbnail-container::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
-.thumb {
+#specialization .thumb {
     cursor: pointer;
     height: 50px;
     opacity: 0.6;
@@ -128,11 +129,11 @@ body {
     border-radius: 4px;
 }
 
-.thumb:hover, .active {
+#specialization .thumb:hover, #specialization .active {
     opacity: 1;
 }
 
-.thumb.current-thumb {
+#specialization .thumb.current-thumb {
     opacity: 1;
     box-shadow: 0 0 5px #63615f, 0 0 8px #FFA500;
     border: 1px solid #FFD700;
@@ -141,25 +142,25 @@ body {
     transition: all 0.3s ease;
 }
 
-.thumb.current-thumb.specialization {
+#specialization .thumb.current-thumb.specialization {
     box-shadow: 0 0 5px #22375f, 0 0 8px #70b0fa;
     border: 1px solid #4b60db;
 }
 
-.controls {
+#specialization .controls {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-.control-btn {
+#specialization .control-btn {
     padding: 10px;
     margin: 0 10px;
     cursor: pointer;
 }
 
-.modal {
+#specialization .modal {
     display: none; 
     position: fixed; 
     z-index: 1; 
@@ -173,13 +174,13 @@ body {
     background-color: rgba(0,0,0,0.9); 
 }
 
-.modal-content {
+#specialization .modal-content {
     max-width: 100%;
     margin: auto;
     display: block;
 }
 
-.close {
+#specialization .close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -190,7 +191,7 @@ body {
     cursor: pointer;
 }
 
-.close:hover, .close:focus {
+#specialization .close:hover, #specialization .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;

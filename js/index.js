@@ -1,5 +1,7 @@
 $(document).ready(function(){
     
+    // Set default state - Academic tab open
+    defaultProjects();
  
  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
@@ -226,13 +228,13 @@ $(document).ready(function(){
     
     function defaultProjects(){
         $(".featured").hide("slow", function(){});
-        $(".academic").hide("slow", function(){});
+        $(".academic").show("slow", function(){}); // Show Academic by default
         $(".professional").hide("slow", function(){});
         $(".personal").hide("slow", function(){});
-        $("#link2Featured").removeClass("btnNonActive");
-        $("#link2Academic").removeClass("btnNonActive");
-        $("#link2Professional").removeClass("btnNonActive");
-        $("#link2Personal").removeClass("btnNonActive"); 
+        $("#link2Featured").addClass("btnNonActive");
+        $("#link2Academic").removeClass("btnNonActive"); // Academic button active
+        $("#link2Professional").addClass("btnNonActive");
+        $("#link2Personal").addClass("btnNonActive"); 
         $("#hartnell").hide("fast", function () {});
         $("#csumb").hide("fast", function () {});
         $("#capella").hide("fast", function () {});

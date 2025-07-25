@@ -9,21 +9,30 @@ $(document).ready(function(){
 
       event.preventDefault();
 
-
       var hash = this.hash;
 
+      // Handle specialization section visibility
+      if (hash === '#specialization') {
+        // Show specialization section and its jumbotron
+        $('#specialization').show('fast');
+        $('.jumbotron-before-specialization').show('fast');
+      } else {
+        // Hide specialization section and its jumbotron when navigating to other sections
+        $('#specialization').hide('fast');
+        $('.jumbotron-before-specialization').hide('fast');
+        // Only call defaultProjects when NOT going to specialization
+        defaultProjects();
+      }
 
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
    
-
         window.location.hash = hash;
       });
     }
      
     defaultAbout();
-    defaultProjects();
   });
     
     $("#books-toggle").click(function(){
@@ -245,7 +254,12 @@ $(document).ready(function(){
         hideAcademicProjects();
         hideProProjects();
         hideLyricsProjects();
-
+        hideSpecializationSection();
+    }
+    
+    function hideSpecializationSection(){
+        $("#specialization").hide("fast", function(){});
+        $(".jumbotron-before-specialization").hide("fast", function(){});
     }
     
      function hideFeaturedProjects(){

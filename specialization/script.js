@@ -45,6 +45,13 @@ function openVerificationUrl(filename) {
 function loadSlides() {
     const slidesContainer = document.getElementById('slidesContainer');
     const thumbnailContainer = document.getElementById('thumbnailContainer');
+    
+    if (!slidesContainer || !thumbnailContainer) {
+        console.error('Slideshow containers not found');
+        return;
+    }
+
+    console.log('Loading slides:', imageFilenames.length, 'images');
 
     imageFilenames.forEach((filename, index) => {
         const slideDiv = document.createElement('div');
@@ -54,6 +61,12 @@ function loadSlides() {
         img.src = filename;
         img.style.cursor = 'pointer';
         img.title = 'Click to verify certificate';
+        img.onerror = function() {
+            console.error('Failed to load image:', filename);
+        };
+        img.onload = function() {
+            console.log('Successfully loaded image:', filename);
+        };
         img.onclick = () => openVerificationUrl(filename);
         slideDiv.appendChild(img);
         slidesContainer.appendChild(slideDiv);
@@ -63,6 +76,9 @@ function loadSlides() {
         thumb.classList.add('thumb');
         thumb.style.cursor = 'pointer';
         thumb.title = 'Click to verify certificate or view slide';
+        thumb.onerror = function() {
+            console.error('Failed to load thumbnail:', filename);
+        };
         thumb.onclick = (event) => {
             // Check if Ctrl/Cmd key is pressed for verification, otherwise show slide
             if (event.ctrlKey || event.metaKey) {
@@ -76,10 +92,13 @@ function loadSlides() {
         slides.push(slideDiv);
     });
 
+    console.log('Loaded', slides.length, 'slides');
     updateSlideCounter();
 }
 
 function showSlide(index) {
+    console.log('showSlide called with index:', index, 'slides.length:', slides.length);
+    
     if (index >= slides.length) {
         currentSlideIndex = 0;
     } else if (index < 0) {
@@ -88,12 +107,16 @@ function showSlide(index) {
         currentSlideIndex = index;
     }
 
+    console.log('Setting currentSlideIndex to:', currentSlideIndex);
+
     slides.forEach((slide, i) => {
         slide.style.display = i === currentSlideIndex ? 'block' : 'none';
     });
     
     // Update thumbnail highlighting
     const thumbnails = document.querySelectorAll('.thumb');
+    console.log('Found', thumbnails.length, 'thumbnails');
+    
     thumbnails.forEach((thumb, i) => {
         if (i === currentSlideIndex) {
             thumb.classList.add('current-thumb');
@@ -102,6 +125,7 @@ function showSlide(index) {
             if (filename.includes('specialization')) {
                 thumb.classList.add('specialization');
             }
+            console.log('Highlighting thumbnail', i);
         } else {
             thumb.classList.remove('current-thumb');
             thumb.classList.remove('specialization');
@@ -123,11 +147,34 @@ function centerCurrentThumbnail() {
         const containerWidth = thumbnailContainer.clientWidth;
         const thumbnailWidth = currentThumbnail.offsetWidth + 10; // Including margin
         
-        // Calculate the position to center the current thumbnail
-        const thumbnailOffsetLeft = currentThumbnail.offsetLeft;
-        const scrollPosition = thumbnailOffsetLeft - (containerWidth / 2) + (thumbnailWidth / 2);
+        let scrollPosition;
         
-        // Smooth scroll to center the current thumbnail
+        // For thumbnails 1-4 (indices 0-3), use right justification to center them
+        if (currentSlideIndex <= 3) {
+            // Right justify: scroll to show thumbnails from the right side
+            // This will center thumbnails 1-4 by showing them aligned to the right
+            const totalThumbnailsWidth = thumbnails.length * thumbnailWidth;
+            const rightJustifyPosition = totalThumbnailsWidth - containerWidth;
+            
+            // For the first few thumbnails, we want to show them centered
+            // by positioning them so they appear in the center of the visible area
+            const visibleThumbnailsCount = Math.floor(containerWidth / thumbnailWidth);
+            const centerOffset = (visibleThumbnailsCount - 1) / 2;
+            const targetPosition = currentSlideIndex - centerOffset;
+            
+            scrollPosition = Math.max(0, targetPosition * thumbnailWidth);
+            
+            // If we're near the beginning, ensure we don't scroll past the right edge
+            scrollPosition = Math.min(scrollPosition, Math.max(0, totalThumbnailsWidth - containerWidth));
+        } else {
+            // For thumbnails 5+ (index 4+), use normal centering
+            const thumbnailOffsetLeft = currentThumbnail.offsetLeft;
+            scrollPosition = thumbnailOffsetLeft - (containerWidth / 2) + (thumbnailWidth / 2);
+        }
+        
+        console.log('Centering thumbnail', currentSlideIndex + 1, 'with scroll position:', scrollPosition);
+        
+        // Smooth scroll to the calculated position
         thumbnailContainer.scrollTo({
             left: scrollPosition,
             behavior: 'smooth'
@@ -152,21 +199,27 @@ function updateSlideCounter() {
     document.getElementById('totalSlides').innerText = slides.length.toString();
 }
 
-function goBack() {
-    // Check if there's history to go back to
-    if (window.history.length > 1) {
-        window.history.back();
-    } else {
-        // Fallback: try to go to a common home page
-        window.location.href = 'index.html';
-    }
-}
-
 document.getElementById('nextBtn').onclick = nextSlide;
 document.getElementById('prevBtn').onclick = prevSlide;
-document.getElementById('goBackBtn').onclick = goBack;
 
-window.onload = function() {
+// Initialize the slideshow immediately and also on window load
+function initializeSlideshow() {
     loadSlides();
     showSlide(currentSlideIndex);
-};
+}
+
+// Use multiple initialization methods to ensure it works
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSlideshow);
+} else {
+    // DOM is already ready
+    initializeSlideshow();
+}
+
+// Also keep the window.onload as backup
+window.addEventListener('load', function() {
+    // Only initialize if slides haven't been loaded yet
+    if (slides.length === 0) {
+        initializeSlideshow();
+    }
+});

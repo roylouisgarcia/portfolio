@@ -13,7 +13,10 @@ const imageFilenames = [
     "specialization/images/deeplearningai_specialization_nlp.jpg",
     "specialization/images/stanfordonline_specialization_machinelearning.jpg",
     "specialization/images/dukeuniversity_specialization_pythonbashandsql4dataengineering.jpg",
-    "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg"
+    "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg",
+    "specialization/images/learnlinuxadministration.png",
+    "specialization/images/learnlinuxin5days.png",
+    "specialization/images/linuxintherealworld.png"
 ];
 
 // Certificate verification URLs - add the actual URLs for each certificate
@@ -28,7 +31,10 @@ const verificationUrls = {
     "specialization/images/deeplearningai_specialization_nlp.jpg": "https://coursera.org/verify/specialization/YLMRHXVTLD99",
     "specialization/images/stanfordonline_specialization_machinelearning.jpg": "https://coursera.org/verify/specialization/SBTRWCR5DS8W",
     "specialization/images/dukeuniversity_specialization_pythonbashandsql4dataengineering.jpg": "https://coursera.org/verify/specialization/5WTD6LEKYDVA",
-    "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg": "https://coursera.org/verify/specialization/LKJX5VJVGZ9V"
+    "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg": "https://coursera.org/verify/specialization/LKJX5VJVGZ9V",
+    "specialization/images/learnlinuxadministration.png": "https://courses.linuxtrainingacademy.com/courses/",
+    "specialization/images/learnlinuxin5days.png": "https://courses.linuxtrainingacademy.com/courses/",
+    "specialization/images/linuxintherealworld.png": "https://courses.linuxtrainingacademy.com/courses/"
 };
 
 // Function to open verification URL

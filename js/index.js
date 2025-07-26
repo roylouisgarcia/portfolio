@@ -5,6 +5,13 @@ $(document).ready(function(){
  
  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
+    // Auto-hide mobile menu after 3 seconds on smaller devices
+    if ($(window).width() <= 768) {
+      setTimeout(function() {
+        $('.navbar-collapse').collapse('hide');
+      }, 3000);
+    }
+
     if (this.hash !== "") {
 
       event.preventDefault();

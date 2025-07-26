@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
-    // Set default state - Academic tab open
-    defaultProjects();
+    // Set default state - all project tabs hidden
+    hideAllProjectTabs();
  
  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
@@ -16,12 +16,20 @@ $(document).ready(function(){
         // Show specialization section and its jumbotron
         $('#specialization').show('fast');
         $('.jumbotron-before-specialization').show('fast');
+        // Hide all project tabs when going to specialization
+        hideAllProjectTabs();
+      } else if (hash === '#projects') {
+        // Hide specialization section and its jumbotron when navigating to projects
+        $('#specialization').hide('fast');
+        $('.jumbotron-before-specialization').hide('fast');
+        // Show Academic tab when going to projects
+        showAcademicTab();
       } else {
         // Hide specialization section and its jumbotron when navigating to other sections
         $('#specialization').hide('fast');
         $('.jumbotron-before-specialization').hide('fast');
-        // Only call defaultProjects when NOT going to specialization
-        defaultProjects();
+        // Hide all project tabs when going to other sections
+        hideAllProjectTabs();
       }
 
       $('html, body').animate({
@@ -30,6 +38,9 @@ $(document).ready(function(){
    
         window.location.hash = hash;
       });
+    } else {
+      // Handle external links (like COURSES) - hide all project tabs
+      hideAllProjectTabs();
     }
      
     defaultAbout();
@@ -237,11 +248,11 @@ $(document).ready(function(){
     
     function defaultProjects(){
         $(".featured").hide("slow", function(){});
-        $(".academic").show("slow", function(){}); // Show Academic by default
+        $(".academic").hide("slow", function(){}); // Hide Academic by default now
         $(".professional").hide("slow", function(){});
         $(".personal").hide("slow", function(){});
         $("#link2Featured").addClass("btnNonActive");
-        $("#link2Academic").removeClass("btnNonActive"); // Academic button active
+        $("#link2Academic").addClass("btnNonActive"); // Academic button inactive by default
         $("#link2Professional").addClass("btnNonActive");
         $("#link2Personal").addClass("btnNonActive"); 
         $("#hartnell").hide("fast", function () {});
@@ -296,6 +307,48 @@ $(document).ready(function(){
        $("#angellyrics").hide("fast", function(){});
        $("#uulitinlyrics").hide("fast", function(){});
        $("#moonlyrics").hide("fast", function(){});
+     }
+
+     function hideAllProjectTabs(){
+        $(".featured").hide("fast", function(){});
+        $(".academic").hide("fast", function(){});
+        $(".professional").hide("fast", function(){});
+        $(".personal").hide("fast", function(){});
+        $("#link2Featured").addClass("btnNonActive");
+        $("#link2Academic").addClass("btnNonActive");
+        $("#link2Professional").addClass("btnNonActive");
+        $("#link2Personal").addClass("btnNonActive");
+        $("#hartnell").hide("fast", function () {});
+        $("#csumb").hide("fast", function () {});
+        $("#capella").hide("fast", function () {});
+        $("#associate").css("opacity", "1");
+        $("#bachelors").css("opacity", "1");
+        $("#graduate").css("opacity", "1");
+        hideFeaturedProjects();
+        hideAcademicProjects();
+        hideProProjects();
+        hideLyricsProjects();
+     }
+
+     function showAcademicTab(){
+        $(".featured").hide("fast", function(){});
+        $(".academic").show("fast", function(){});
+        $(".professional").hide("fast", function(){});
+        $(".personal").hide("fast", function(){});
+        $("#link2Featured").addClass("btnNonActive");
+        $("#link2Academic").removeClass("btnNonActive");
+        $("#link2Professional").addClass("btnNonActive");
+        $("#link2Personal").addClass("btnNonActive");
+        $("#hartnell").hide("fast", function () {});
+        $("#csumb").hide("fast", function () {});
+        $("#capella").hide("fast", function () {});
+        $("#associate").css("opacity", "1");
+        $("#bachelors").css("opacity", "1");
+        $("#graduate").css("opacity", "1");
+        hideFeaturedProjects();
+        hideAcademicProjects();
+        hideProProjects();
+        hideLyricsProjects();
      }
 
 });

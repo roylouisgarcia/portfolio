@@ -16,7 +16,10 @@ const imageFilenames = [
     "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg",
     "specialization/images/learnlinuxadministration.png",
     "specialization/images/learnlinuxin5days.png",
-    "specialization/images/linuxintherealworld.png"
+    "specialization/images/linuxintherealworld.png",
+    "specialization/images/Bertelsmann_nanodegree_enterprisesecurity.jpg",
+    "specialization/images/google_nanodegree_androidbasics.jpg",
+    "specialization/images/udacity_nanodegree_intro2cybersecurity.jpg"
 ];
 
 // Certificate verification URLs - add the actual URLs for each certificate
@@ -34,7 +37,10 @@ const verificationUrls = {
     "specialization/images/johnhopkinsuniversity_specialization_datascience.jpg": "https://coursera.org/verify/specialization/LKJX5VJVGZ9V",
     "specialization/images/learnlinuxadministration.png": "https://courses.linuxtrainingacademy.com/courses/",
     "specialization/images/learnlinuxin5days.png": "https://courses.linuxtrainingacademy.com/courses/",
-    "specialization/images/linuxintherealworld.png": "https://courses.linuxtrainingacademy.com/courses/"
+    "specialization/images/linuxintherealworld.png": "https://courses.linuxtrainingacademy.com/courses/",
+    "specialization/images/Bertelsmann_nanodegree_enterprisesecurity.jpg": "https://www.udacity.com/certificate/e/62640e82-dc54-11ee-9eea-67f288b7f50b",
+    "specialization/images/google_nanodegree_androidbasics.jpg": "https://www.udacity.com/certificate/e/22856ce2-4732-11e8-9f3e-bffc91fad5a2",
+    "specialization/images/udacity_nanodegree_intro2cybersecurity.jpg": "https://www.udacity.com/certificate/e/2ae2c3b8-c38c-11ed-9ad5-9773f6e4bbe3"
 };
 
 // Function to open verification URL

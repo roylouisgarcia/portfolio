@@ -1351,3 +1351,135 @@ figure video {
     font-size: 0.8em !important;
   }
 }
+
+/* Professional Details Button Styling */
+#professionalDetailsbtn {
+  background: linear-gradient(135deg, #337ab7 0%, #2e6da4 100%);
+  border: 2px solid #2e6da4;
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+}
+
+#professionalDetailsbtn:hover {
+  background: linear-gradient(135deg, #2e6da4 0%, #245580 100%);
+  border-color: #245580;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#professionalDetailsbtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Professional Details Button Class - Shared styling for both Professional and Personal buttons */
+.professional-details-btn {
+  background: linear-gradient(135deg, #337ab7 0%, #2e6da4 100%);
+  border: 2px solid #2e6da4;
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+}
+
+.professional-details-btn:hover {
+  background: linear-gradient(135deg, #2e6da4 0%, #245580 100%);
+  border-color: #245580;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.professional-details-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styling for smaller devices */
+@media (max-width: 768px) {
+  #professionalDetailsbtn {
+    min-width: 250px;
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+
+/* Professional Details Headings Styling */
+#professionalDetails h4 {
+  color: #2e6da4;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-left: 5px solid #337ab7;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#professionalDetails h5 {
+  color: #495057;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
+  border-left: 3px solid #6c757d;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+}
+
+#professionalDetails h4:first-child {
+  margin-top: 15px;
+}
+
+/* Enhanced styling for Professional Details lists */
+#professionalDetails ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+#professionalDetails li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+#professionalDetails li strong {
+  color: #2e6da4;
+  font-weight: 600;
+}
+
+/* Responsive adjustments for Professional Details */
+@media (max-width: 768px) {
+  #professionalDetails h4 {
+    font-size: 18px;
+    padding: 8px 12px;
+    margin-top: 20px;
+  }
+  
+  #professionalDetails h5 {
+    font-size: 15px;
+    padding: 6px 10px;
+    margin-top: 15px;
+  }
+}

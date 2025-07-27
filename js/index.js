@@ -57,6 +57,28 @@ $(document).ready(function(){
         $(".books").toggle("fast", function(){}); 
     });
     
+    $("#professionalDetailsbtn").click(function(){
+        $("#professionalDetails").toggle("fast", function(){
+            // Update button text based on visibility
+            if ($("#professionalDetails").is(":visible")) {
+                $("#professionalDetailsbtn").text("HIDE DETAILS");
+            } else {
+                $("#professionalDetailsbtn").text("CLICK HERE FOR MORE DETAILS");
+            }
+        }); 
+    });
+    
+    $("#personalDetailsBtn").click(function(){
+        $("#personalDetails").toggle("fast", function(){
+            // Update button text based on visibility
+            if ($("#personalDetails").is(":visible")) {
+                $("#personalDetailsBtn").text("HIDE DETAILS");
+            } else {
+                $("#personalDetailsBtn").text("CLICK HERE FOR MORE DETAILS");
+            }
+        }); 
+    });
+    
   $("#link2Featured").click(function(){  
     $(".featured").show("fast", function(){});  
     $(".academic").hide("fast", function(){});
@@ -309,6 +331,17 @@ $(document).ready(function(){
         $("#nostradmsxbtn").removeClass("totiebtnActive", function(){});
         $("#redboxbtn").removeClass("totiebtnActive", function(){});    
      }
+
+     // Click outside handler for professional project showcases
+     $(document).on('click', function(e) {
+        // Check if click is outside the showcase divs and buttons
+        if (!$(e.target).closest('#nostradmsxdiv, #redboxdiv, #nostradmsxbtn, #redboxbtn').length) {
+            // If either showcase is currently visible, hide them
+            if ($("#nostradmsxdiv").is(":visible") || $("#redboxdiv").is(":visible")) {
+                hideProProjects();
+            }
+        }
+     });
     
      function hideLyricsProjects(){    
        $("#angellyrics").hide("fast", function(){});

@@ -99,7 +99,22 @@
     <div id="about" class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
+          <!-- Summary Section -->
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="postit-summary handwritten">
+                <h2>About Roy Louis L. Garcia</h2>
+                <p><strong>Welcome!</strong> I'm a cybersecurity and software development professional driven by curiosity and ethical technology practices. My journey began with childhood tinkering - breaking toys to understand and rebuild them - which evolved into a career focused on secure, accessible solutions.</p>
+                
+                <p>From electronics and programming in high school to advanced studies in Information Assurance, I'm committed to using technology for positive impact. I specialize in the intersections of cybersecurity, software development, data analytics, and machine learning.</p>
+                
+                <p><em>Explore the polaroid pictures below for different phases of my journey, or navigate to projects, tools, and skills sections.</em></p>
+              </div>
+            </div>
+          </div>
+          
           <div id="polanav" class="row">
+            <!-- Original postit introduction commented out
             <div class="col-xs-3 col-md-6 postit handwritten">
               <p>Welcome, I am Roy Louis L. Garcia.</p>
               <p>
@@ -111,23 +126,30 @@
                 sections.
               </p>
             </div>
+            -->
 
-            <div class="col-xs-3 col-md-2 polaroid lowered">
-              <img
-                id="adultimage"
-                class="img-responsive"
-                src="images/adult2.jpg"
-              />
+            <div class="col-xs-4 col-md-3 col-md-offset-1 text-right">
+              <div class="polaroid lowered">
+                <img
+                  id="adultimage"
+                  class="img-responsive"
+                  src="images/adult2.jpg"
+                />
+              </div>
             </div>
-            <div class="col-xs-3 col-md-2 polaroid lowered">
-              <img
-                id="teenagerimage"
-                class="img-responsive"
-                src="images/teen.jpg"
-              />
+            <div class="col-xs-4 col-md-3 text-center">
+              <div class="polaroid lowered">
+                <img
+                  id="teenagerimage"
+                  class="img-responsive"
+                  src="images/teen.jpg"
+                />
+              </div>
             </div>
-            <div class="col-xs-3 col-md-2 polaroid lowered">
-              <img id="boyimage" class="img-responsive" src="images/boy.jpg" />
+            <div class="col-xs-4 col-md-3 text-left">
+              <div class="polaroid lowered">
+                <img id="boyimage" class="img-responsive" src="images/boy.jpg" />
+              </div>
             </div>
           </div>
 
@@ -257,15 +279,33 @@
       <h2 class="text-center">Projects</h2>
       <br />
 
-      <div class="foldertabs">
-        <div id="link2Academic" class="btn">Academic</div>
-        <div id="link2Professional" class="btn">Professional</div>
-        <div id="link2Personal" class="btn">Personal</div>
-        <div id="link2Featured" class="btn">Featured</div>
-        <div id="link2Certifications" class="btn">Certifications</div>
-      </div>
+      <div class="folder-container">
+        <div class="foldertabs">
+          <div id="link2Academic" class="folder-tab btn">
+            <span class="tab-label">Academic</span>
+            <div class="tab-notch"></div>
+          </div>
+          <div id="link2Professional" class="folder-tab btn">
+            <span class="tab-label">Professional</span>
+            <div class="tab-notch"></div>
+          </div>
+          <div id="link2Personal" class="folder-tab btn">
+            <span class="tab-label">Personal</span>
+            <div class="tab-notch"></div>
+          </div>
+          <div id="link2Featured" class="folder-tab btn">
+            <span class="tab-label">Featured</span>
+            <div class="tab-notch"></div>
+          </div>
+          <div id="link2Certifications" class="folder-tab btn">
+            <span class="tab-label">Certifications</span>
+            <div class="tab-notch"></div>
+          </div>
+        </div>
 
-      <div class="projecttext row">
+        <div class="folder-body">
+          <div class="folder-edge"></div>
+          <div class="projecttext row">
         <!-- begin Academic Div -->
         <div class="col-sm-12 academic">
           <div class="projectheader">Academic</div>
@@ -1214,6 +1254,8 @@
         <div class="projecttail">
           Projects of <span class="handwritten">Roy Louis L. Garcia</span>
         </div>
+        </div>
+      </div>
       </div>
     </div>
 

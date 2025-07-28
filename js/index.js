@@ -91,11 +91,11 @@ $(document).ready(function(){
     $(".professional").hide("fast", function(){});
     $(".personal").hide("fast", function(){});
     $(".certifications").hide("fast", function(){});
-    $("#link2Featured").removeClass("btnNonActive");
-    $("#link2Academic").addClass("btnNonActive");
-    $("#link2Professional").addClass("btnNonActive");
-    $("#link2Personal").addClass("btnNonActive");
-    $("#link2Certifications").addClass("btnNonActive");  
+    $("#link2Featured").addClass("active");
+    $("#link2Academic").removeClass("active");
+    $("#link2Professional").removeClass("active");
+    $("#link2Personal").removeClass("active");
+    $("#link2Certifications").removeClass("active");  
   });    
     
   
@@ -105,11 +105,11 @@ $(document).ready(function(){
     $(".professional").hide("fast", function(){});
     $(".personal").hide("fast", function(){});
     $(".certifications").hide("fast", function(){});
-    $("#link2Featured").addClass("btnNonActive");  
-    $("#link2Academic").removeClass("btnNonActive");
-    $("#link2Professional").addClass("btnNonActive");
-    $("#link2Personal").addClass("btnNonActive");
-    $("#link2Certifications").addClass("btnNonActive");  
+    $("#link2Featured").removeClass("active");  
+    $("#link2Academic").addClass("active");
+    $("#link2Professional").removeClass("active");
+    $("#link2Personal").removeClass("active");
+    $("#link2Certifications").removeClass("active");  
   });
 
   $("#link2Professional").click(function(){
@@ -118,11 +118,11 @@ $(document).ready(function(){
     $(".professional").show("fast", function(){});
     $(".personal").hide("fast", function(){});
     $(".certifications").hide("fast", function(){});
-    $("#link2Featured").addClass("btnNonActive");      
-    $("#link2Academic").addClass("btnNonActive");
-    $("#link2Professional").removeClass("btnNonActive");
-    $("#link2Personal").addClass("btnNonActive");
-    $("#link2Certifications").addClass("btnNonActive");       
+    $("#link2Featured").removeClass("active");      
+    $("#link2Academic").removeClass("active");
+    $("#link2Professional").addClass("active");
+    $("#link2Personal").removeClass("active");
+    $("#link2Certifications").removeClass("active");       
   });
 
   $("#link2Personal").click(function(){    
@@ -131,11 +131,11 @@ $(document).ready(function(){
     $(".professional").hide("fast", function(){});
     $(".personal").show("fast", function(){});
     $(".certifications").hide("fast", function(){});
-    $("#link2Featured").addClass("btnNonActive");      
-    $("#link2Academic").addClass("btnNonActive");
-    $("#link2Professional").addClass("btnNonActive");
-    $("#link2Personal").removeClass("btnNonActive");
-    $("#link2Certifications").addClass("btnNonActive");       
+    $("#link2Featured").removeClass("active");      
+    $("#link2Academic").removeClass("active");
+    $("#link2Professional").removeClass("active");
+    $("#link2Personal").addClass("active");
+    $("#link2Certifications").removeClass("active");       
   });
 
   $("#link2Certifications").click(function(){    
@@ -150,11 +150,11 @@ $(document).ready(function(){
         window.certificationsInitialized = true;
       }
     });
-    $("#link2Featured").addClass("btnNonActive");      
-    $("#link2Academic").addClass("btnNonActive");
-    $("#link2Professional").addClass("btnNonActive");
-    $("#link2Personal").addClass("btnNonActive");
-    $("#link2Certifications").removeClass("btnNonActive");       
+    $("#link2Featured").removeClass("active");      
+    $("#link2Academic").removeClass("active");
+    $("#link2Professional").removeClass("active");
+    $("#link2Personal").removeClass("active");
+    $("#link2Certifications").addClass("active");       
   });
     
   $("#associate").click(function () {
@@ -388,11 +388,11 @@ $(document).ready(function(){
         $(".professional").hide("fast", function(){});
         $(".personal").hide("fast", function(){});
         $(".certifications").hide("fast", function(){});
-        $("#link2Featured").addClass("btnNonActive");
-        $("#link2Academic").addClass("btnNonActive");
-        $("#link2Professional").addClass("btnNonActive");
-        $("#link2Personal").addClass("btnNonActive");
-        $("#link2Certifications").addClass("btnNonActive");
+        $("#link2Featured").removeClass("active");
+        $("#link2Academic").removeClass("active");
+        $("#link2Professional").removeClass("active");
+        $("#link2Personal").removeClass("active");
+        $("#link2Certifications").removeClass("active");
         $("#hartnell").hide("fast", function () {});
         $("#csumb").hide("fast", function () {});
         $("#capella").hide("fast", function () {});
@@ -411,11 +411,11 @@ $(document).ready(function(){
         $(".professional").hide("fast", function(){});
         $(".personal").hide("fast", function(){});
         $(".certifications").hide("fast", function(){});
-        $("#link2Featured").addClass("btnNonActive");
-        $("#link2Academic").removeClass("btnNonActive");
-        $("#link2Professional").addClass("btnNonActive");
-        $("#link2Personal").addClass("btnNonActive");
-        $("#link2Certifications").addClass("btnNonActive");
+        $("#link2Featured").removeClass("active");
+        $("#link2Academic").addClass("active");
+        $("#link2Professional").removeClass("active");
+        $("#link2Personal").removeClass("active");
+        $("#link2Certifications").removeClass("active");
         $("#hartnell").hide("fast", function () {});
         $("#csumb").hide("fast", function () {});
         $("#capella").hide("fast", function () {});

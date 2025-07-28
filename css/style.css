@@ -1414,26 +1414,51 @@ figure video {
 /* Responsive styling for smaller devices */
 @media (max-width: 768px) {
   #professionalDetailsbtn {
-    min-width: 250px;
-    padding: 12px 25px;
+    min-width: calc(100% - 40px);
+    max-width: 350px;
+    width: 100%;
+    padding: 12px 20px;
     font-size: 14px;
+    letter-spacing: 0.5px;
   }
   
   .professional-details-btn {
-    min-width: 250px;
-    padding: 12px 25px;
+    min-width: calc(100% - 40px);
+    max-width: 350px;
+    width: 100%;
+    padding: 12px 20px;
     font-size: 14px;
     letter-spacing: 0.5px;
+    margin: 0 auto;
+    display: block;
   }
 }
 
 @media (max-width: 480px) {
   .professional-details-btn {
-    min-width: 200px;
-    padding: 10px 20px;
+    min-width: calc(100% - 20px);
+    max-width: 300px;
+    width: 100%;
+    padding: 10px 15px;
     font-size: 12px;
     letter-spacing: 0.3px;
     border-radius: 6px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: 320px) {
+  .professional-details-btn {
+    min-width: calc(100% - 10px);
+    max-width: 280px;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
   }
 }
 

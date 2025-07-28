@@ -489,6 +489,7 @@ h3.handwritten {
   border: none;
   margin: 0;
   position: relative;
+  font-family: "typewriter", "Nothing You Could Do", cursive, monospace;
 }
 
 .projecttext p {
@@ -913,12 +914,16 @@ h4 {
 }
 
 .panel {
-  border: 0px solid #3c4a7a;
-  transition: box-shadow 0.5s;
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: transparent;
+  margin-bottom: 30px;
 }
 
 .panel:hover {
-  box-shadow: 5px 0px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .panel-footer .btn:hover {
@@ -929,30 +934,153 @@ h4 {
 
 .panel-heading {
   color: #ffffff !important;
-  background-color: #37358a !important;
+  background: linear-gradient(135deg, #37358a 0%, #4c67a5 100%) !important;
   min-height: 420px;
-  padding: 25px;
-  padding: 25px;
+  padding: 30px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+  background-size: 300% 100%;
+  animation: gradient-animation 3s ease-in-out infinite;
+}
+
+@keyframes gradient-animation {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.panel-heading:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.panel-heading h1 {
+  font-family: "letterpressed", "PWSchoolScript", serif;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.panel-heading ul {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.panel-heading ul li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+.panel-heading ul li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #ffeaa7;
+  font-size: 0.8em;
+  top: 2px;
 }
 
 .panel-interests {
   color: #ffffff !important;
-  background-color: #4c67a5 !important;
+  background: linear-gradient(135deg, #4c67a5 0%, #5a7bc8 100%) !important;
   min-height: 520px;
-  padding: 25px;
+  padding: 30px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  /* Responsive: allow content to wrap and scale */
   box-sizing: border-box;
   word-break: break-word;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-interests::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #fecfef, #a8edea, #fed6e3);
+  background-size: 300% 100%;
+  animation: gradient-animation 4s ease-in-out infinite;
+}
+
+.panel-interests:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.panel-interests h1 {
+  font-family: "letterpressed", "PWSchoolScript", serif;
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.panel-interests p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.panel-interests img {
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  height: auto;
+}
+
+.panel-interests img:hover {
+  transform: scale(1.05);
+}
+
+.panel-interests .totiebtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.panel-interests .totiebtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 @media (max-width: 768px) {
@@ -993,7 +1121,32 @@ h4 {
   }
 }
 
-/* Skills section responsive styles */
+/* Enhanced Skills and Interests section styling */
+#skills, #interests {
+  padding-bottom: 80px;
+}
+
+#skills .text-center, #interests .text-center {
+  margin-bottom: 50px;
+}
+
+#skills h2, #interests h2 {
+  font-family: "letterpressed", "PWSchoolScript", serif;
+  font-size: 3em;
+  color: #37358a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+#skills .handwritten, #interests .handwritten {
+  font-family: "HomemadeApple", cursive;
+  color: #666;
+  font-size: 1.2em;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
 @media (max-width: 768px) {
   #skills .panel-heading {
     min-height: auto !important;
@@ -1300,10 +1453,10 @@ figure video {
   }
   
   .folder-tab {
-    margin: 2px;
-    padding: 6px 12px 3px 12px;
-    font-size: 0.9em;
-    min-width: 80px;
+    margin: 1px;
+    padding: 4px 6px 2px 6px;
+    font-size: 0.75em;
+    min-width: 60px;
   }
   
   .folder-tab:before {
@@ -1329,6 +1482,7 @@ figure video {
     padding-bottom: 20px;
     margin-bottom: 0px;
     color: #003153;
+    font-family: "typewriter", "Nothing You Could Do", cursive, monospace;
   }
   .projecttext h3 {
     font-family: "script2";
@@ -1510,6 +1664,26 @@ figure video {
     border-radius: 20px;
     margin: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+/* Extra small devices - ensure all tabs fit in one row */
+@media (max-width: 350px) {
+  .foldertabs {
+    font-size: 0.7em;
+    gap: 0;
+  }
+  
+  .folder-tab {
+    margin: 0.5px;
+    padding: 3px 4px 2px 4px;
+    font-size: 0.7em;
+    min-width: 50px;
+    flex: 1;
+  }
+  
+  .tab-label {
+    font-size: 0.85em;
   }
 }
 

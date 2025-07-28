@@ -1156,7 +1156,9 @@ h4 {
   }
   
   #skills .col-md-6 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
   
   #skills .panel-heading ul {
@@ -1179,6 +1181,12 @@ h4 {
 @media (max-width: 480px) {
   #skills .panel-heading {
     padding: 15px 10px;
+  }
+  
+  #skills .col-md-6 {
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   
   #skills .panel-heading h1 {
@@ -1465,7 +1473,7 @@ figure video {
   
   .folder-body {
     border-radius: 8px;
-    margin-top: 5px;
+    margin-top: 0px;
   }
   
   .container-fluid {

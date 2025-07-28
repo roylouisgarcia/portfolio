@@ -1,0 +1,33 @@
+title: Coursera/Meta HTML and CSS in Depth
+github url: https://github.com/roylouisgarcia/meta-coursera-html-css-project/tree/main
+image 1: https://github.com/roylouisgarcia/meta-coursera-html-css-project/blob/main/images/readme_wholepicture.jpg
+image 2: https://github.com/roylouisgarcia/meta-coursera-html-css-project/blob/main/images/readme_visualcode.jpg
+description: the project is a portfolio website as part of the Meta Front-End Developer Specialization course on Coursera, specifically for the HTML & CSS module.
+actual site: https://roylouisgarcia.github.io/meta-coursera-html-css-project/
+Read more: Technologies Used: HTML5, CSS3, Flexbox, Grid Layout; Key Features: Responsive design, semantic HTML, modern CSS techniques; Learning Outcomes: Advanced CSS selectors, animations, and responsive web design principles
+
+title: Exploring Python and Windows API
+github url: https://github.com/roylouisgarcia/python4windowsapi
+image 1: https://github.com/roylouisgarcia/python4windowsapi/blob/main/images/00_helloworld_code.png
+image 2: https://github.com/roylouisgarcia/python4windowsapi/blob/main/images/01_project_ss.png?raw=true
+description: A traditional HelloWorld script that explores the concept of Windows DLL, handles and the necessary parameters to call the Windows API call MessageBoxW().  A script that uses the Windows API calls or systems calls via Python Script that in order to kill any Windows Process
+Read More: 
+Technologies Used: Python, Windows API, ctypes library; Key Features: Direct system calls, process management, native Windows integration; Learning Outcomes: Low-level programming, system architecture, API interaction
+
+
+title: Android Programming - Court Counter
+github url: https://github.com/roylouisgarcia/ABNProject2
+image 1: https://github.com/roylouisgarcia/ABNProject2/blob/master/Capture.PNG
+image 2: https://github.com/roylouisgarcia/ABNProject2/blob/master/ss.gif
+description: As part of the Grow With Google Challenge Scholarship course hosted in Udacity , this project explores the concept of Android XML Layouts and Java Programming. 
+Read more: Technologies Used: Java, Android SDK, XML Layouts; Key Features: Interactive UI, state management, basketball scoring system; Learning Outcomes: Mobile app development, Android lifecycle, UI/UX design
+
+
+
+
+
+
+
+
+
+

@@ -1414,13 +1414,17 @@ figure video {
 /* Responsive styling for smaller devices */
 @media (max-width: 768px) {
   #professionalDetailsbtn {
-    min-width: 250px;
+    min-width: calc(100% - 2px);
+    max-width: 350px;
+    margin-left: 1px;
     padding: 12px 25px;
     font-size: 14px;
   }
   
   .professional-details-btn {
-    min-width: 250px;
+    min-width: calc(100% - 2px);
+    max-width: 350px;
+    margin-left: 1px;
     padding: 12px 25px;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -1429,11 +1433,25 @@ figure video {
 
 @media (max-width: 480px) {
   .professional-details-btn {
-    min-width: 200px;
+    min-width: calc(100% - 2px);
+    max-width: 300px;
+    margin-left: 1px;
     padding: 10px 20px;
     font-size: 12px;
     letter-spacing: 0.3px;
     border-radius: 6px;
+  }
+}
+
+@media (max-width: 320px) {
+  .professional-details-btn {
+    min-width: calc(100% - 2px);
+    max-width: 250px;
+    margin-left: 1px;
+    padding: 8px 15px;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    border-radius: 5px;
   }
 }
 

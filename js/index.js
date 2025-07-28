@@ -80,7 +80,13 @@ $(document).ready(function(){
     });
     
   $("#link2Featured").click(function(){  
-    $(".featured").show("fast", function(){});  
+    $(".featured").show("fast", function(){
+      // Initialize the featured slideshow if not already done
+      if (!window.featuredInitialized) {
+        initializeFeaturedSlideshow();
+        window.featuredInitialized = true;
+      }
+    });  
     $(".academic").hide("fast", function(){});
     $(".professional").hide("fast", function(){});
     $(".personal").hide("fast", function(){});
@@ -928,6 +934,272 @@ function initializeCertificationsSlideshow() {
   
   // Load the data and slides
   loadCertificationsData();
+}
+
+// Featured slideshow variables
+let currentFeaturedSlideIndex = 0;
+let featuredSlides = [];
+
+// Featured projects data - based on the original static grid layout
+const featuredProjectsData = [
+  {
+    title: "Rhythm Brown Box",
+    image: "./images/featured/drummachine.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/currentprojects/rhythmbrownbox/"
+  },
+  {
+    title: "Recorded Bliss",
+    image: "./images/featured/recordedbliss.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/rb/"
+  },
+  {
+    title: "Summer Beads",
+    image: "./images/featured/summerbeads.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/personal/summerbeads/"
+  },
+  {
+    title: "Rock Paper Scissors",
+    image: "./images/featured/rockerpaperscissors.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/currentprojects/rockpaperscissors/"
+  },
+  {
+    title: "Heathwood Hardware Inc. (HHI)",
+    image: "./images/featured/hhi.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/academic/hhi/index.html"
+  },
+  {
+    title: "Flames Calculator - Input",
+    image: "./images/featured/flames.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/currentprojects/flames/"
+  },
+  {
+    title: "Flames Calculator - Results ",
+    image: "./images/featured/flames2.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/currentprojects/flames/"
+  },
+  {
+    title: "League of Legends - LUA template generator for LeaguePedia",
+    image: "./images/featured/form2lua.png",
+    url: "https://roylouisgarcia.github.io/portfolio/portfolioentries/personal/form2lua/"
+  }
+];
+
+// Load featured slides dynamically
+function loadFeaturedSlides() {
+  const slidesContainer = document.getElementById('featuredSlides');
+  const thumbnailContainer = document.getElementById('featuredThumbnailContainer');
+  
+  if (!slidesContainer || !thumbnailContainer) {
+    console.error('Featured slideshow containers not found');
+    return;
+  }
+
+  console.log('Loading featured slides:', featuredProjectsData.length, 'projects');
+
+  // Clear existing content
+  slidesContainer.innerHTML = '';
+  thumbnailContainer.innerHTML = '';
+  featuredSlides = [];
+
+  featuredProjectsData.forEach((project, index) => {
+    // Create slide
+    const slideDiv = document.createElement('div');
+    slideDiv.classList.add('featured-slides');
+
+    // Create slide content
+    const slideContent = document.createElement('div');
+    slideContent.classList.add('featured-slide-content');
+    
+    const titleElement = document.createElement('h2');
+    titleElement.textContent = project.title;
+    titleElement.style.textAlign = 'center';
+    titleElement.style.marginBottom = '15px';
+    titleElement.style.color = '#333';
+    titleElement.style.fontSize = '20px';
+    titleElement.style.fontWeight = 'bold';
+    
+    // Add responsive styling for titles on smaller devices
+    titleElement.style.cssText += `
+      @media (max-width: 768px) {
+        font-size: 14px !important;
+        margin-bottom: 10px !important;
+      }
+      @media (max-width: 480px) {
+        font-size: 12px !important;
+        margin-bottom: 8px !important;
+      }
+    `;
+    
+    slideContent.appendChild(titleElement);
+
+    const img = document.createElement('img');
+    img.src = project.image;
+    img.style.cursor = 'pointer';
+    img.style.maxWidth = '100%';
+    img.style.height = 'auto';
+    img.style.display = 'block';
+    img.style.margin = '0 auto';
+    img.title = 'Click to view project';
+    img.onerror = function() {
+      console.error('Failed to load image:', project.image);
+      // Create a placeholder if image fails to load
+      const placeholder = document.createElement('div');
+      placeholder.style.width = '300px';
+      placeholder.style.height = '200px';
+      placeholder.style.backgroundColor = '#f0f0f0';
+      placeholder.style.display = 'flex';
+      placeholder.style.alignItems = 'center';
+      placeholder.style.justifyContent = 'center';
+      placeholder.style.margin = '0 auto';
+      placeholder.style.border = '2px dashed #ccc';
+      placeholder.style.borderRadius = '8px';
+      placeholder.textContent = 'Image not available';
+      placeholder.style.cursor = 'pointer';
+      placeholder.onclick = () => window.open(project.url, '_blank');
+      img.parentNode.replaceChild(placeholder, img);
+    };
+    img.onclick = () => window.open(project.url, '_blank');
+    slideContent.appendChild(img);
+    
+    // Add link button
+    const linkContainer = document.createElement('div');
+    linkContainer.style.textAlign = 'center';
+    linkContainer.style.marginTop = '20px';
+    
+    const projectLink = document.createElement('a');
+    projectLink.href = project.url;
+    projectLink.target = '_blank';
+    projectLink.textContent = 'View Project';
+    projectLink.style.display = 'inline-block';
+    projectLink.style.padding = '10px 20px';
+    projectLink.style.backgroundColor = '#007bff';
+    projectLink.style.color = 'white';
+    projectLink.style.textDecoration = 'none';
+    projectLink.style.borderRadius = '5px';
+    projectLink.style.transition = 'background-color 0.3s ease';
+    projectLink.onmouseover = () => projectLink.style.backgroundColor = '#0056b3';
+    projectLink.onmouseout = () => projectLink.style.backgroundColor = '#007bff';
+    
+    linkContainer.appendChild(projectLink);
+    slideContent.appendChild(linkContainer);
+    
+    slideDiv.appendChild(slideContent);
+    slidesContainer.appendChild(slideDiv);
+
+    // Create thumbnail
+    const thumb = document.createElement('img');
+    thumb.src = project.image;
+    thumb.classList.add('featured-thumb');
+    thumb.style.cursor = 'pointer';
+    thumb.title = project.title + ' - Click to view slide or Ctrl+Click to open project';
+    thumb.onerror = function() {
+      console.error('Failed to load thumbnail:', project.image);
+      // Create a simple text thumbnail if image fails
+      const textThumb = document.createElement('div');
+      textThumb.classList.add('featured-thumb');
+      textThumb.style.width = '80px';
+      textThumb.style.height = '60px';
+      textThumb.style.backgroundColor = '#f0f0f0';
+      textThumb.style.display = 'flex';
+      textThumb.style.alignItems = 'center';
+      textThumb.style.justifyContent = 'center';
+      textThumb.style.border = '2px solid #ccc';
+      textThumb.style.borderRadius = '5px';
+      textThumb.style.fontSize = '10px';
+      textThumb.style.color = '#666';
+      textThumb.style.cursor = 'pointer';
+      textThumb.title = project.title + ' - Click to view slide or Ctrl+Click to open project';
+      textThumb.textContent = project.title.substring(0, 8) + '...';
+      textThumb.onclick = (event) => {
+        if (event.ctrlKey || event.metaKey) {
+          window.open(project.url, '_blank');
+        } else {
+          setCurrentFeaturedSlide(index);
+        }
+      };
+      thumb.parentNode.replaceChild(textThumb, thumb);
+    };
+    thumb.onclick = (event) => {
+      if (event.ctrlKey || event.metaKey) {
+        window.open(project.url, '_blank');
+      } else {
+        setCurrentFeaturedSlide(index);
+      }
+    };
+    thumbnailContainer.appendChild(thumb);
+
+    featuredSlides.push(slideDiv);
+  });
+
+  console.log('Loaded', featuredSlides.length, 'featured slides');
+  updateFeaturedSlideCounter();
+  
+  // Show first slide
+  if (featuredSlides.length > 0) {
+    showFeaturedSlide(0);
+  }
+}
+
+function showFeaturedSlide(index) {
+  console.log('showFeaturedSlide called with index:', index, 'featuredSlides.length:', featuredSlides.length);
+  
+  if (index >= featuredSlides.length) {
+    currentFeaturedSlideIndex = 0;
+  } else if (index < 0) {
+    currentFeaturedSlideIndex = featuredSlides.length - 1;
+  } else {
+    currentFeaturedSlideIndex = index;
+  }
+
+  console.log('Setting currentFeaturedSlideIndex to:', currentFeaturedSlideIndex);
+
+  featuredSlides.forEach((slide, i) => {
+    slide.style.display = i === currentFeaturedSlideIndex ? 'block' : 'none';
+  });
+  
+  // Update thumbnail highlighting
+  const thumbnails = document.querySelectorAll('.featured-thumb');
+  console.log('Found', thumbnails.length, 'featured thumbnails');
+  
+  thumbnails.forEach((thumb, i) => {
+    if (i === currentFeaturedSlideIndex) {
+      thumb.classList.add('current-featured-thumb');
+      console.log('Highlighting featured thumbnail', i);
+    } else {
+      thumb.classList.remove('current-featured-thumb');
+    }
+  });
+  
+  updateFeaturedSlideCounter();
+}
+
+function nextFeaturedSlide() {
+  showFeaturedSlide(currentFeaturedSlideIndex + 1);
+}
+
+function prevFeaturedSlide() {
+  showFeaturedSlide(currentFeaturedSlideIndex - 1);
+}
+
+function setCurrentFeaturedSlide(index) {
+  showFeaturedSlide(index);
+}
+
+function updateFeaturedSlideCounter() {
+  const currentSlideEl = document.getElementById('featuredCurrentSlide');
+  const totalSlidesEl = document.getElementById('featuredTotalSlides');
+  if (currentSlideEl && totalSlidesEl) {
+    currentSlideEl.innerText = currentFeaturedSlideIndex + 1;
+    totalSlidesEl.innerText = featuredSlides.length.toString();
+  }
+}
+
+// Initialize the featured slideshow
+function initializeFeaturedSlideshow() {
+  console.log('Initializing featured slideshow');
+  
+  // Load the featured slides
+  loadFeaturedSlides();
 }
 
 });

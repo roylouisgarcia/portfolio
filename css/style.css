@@ -1834,3 +1834,147 @@ figure video {
     height: 38px;
   }
 }
+
+/* Featured Projects Slideshow Styles */
+.featured-slideshow-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.featured-slides-container {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+}
+
+.featured-slides {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+.featured-slides.active {
+  display: block;
+}
+
+.featured-slide-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.featured-slide-content img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+}
+
+.featured-slide-content img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.featured-nav-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 10px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.featured-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.featured-next-btn {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.featured-prev-btn {
+  left: 0;
+}
+
+.featured-slide-counter {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+}
+
+.featured-thumbnail-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.featured-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.featured-thumb:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.featured-thumb.current-featured-thumb {
+  border-color: #007bff;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Responsive styles for featured slideshow */
+@media (max-width: 768px) {
+  .featured-slideshow-container {
+    padding: 15px;
+  }
+  
+  .featured-nav-btn {
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .featured-thumb {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .featured-slide-counter {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-thumbnail-container {
+    gap: 5px;
+  }
+  
+  .featured-thumb {
+    width: 50px;
+    height: 38px;
+  }
+}

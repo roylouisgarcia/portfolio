@@ -1064,7 +1064,8 @@ function loadFeaturedSlides() {
     // Add link button
     const linkContainer = document.createElement('div');
     linkContainer.style.textAlign = 'center';
-    linkContainer.style.marginTop = '20px';
+    linkContainer.style.marginTop = '10px';
+    linkContainer.style.marginBottom = '10px';
     
     const projectLink = document.createElement('a');
     projectLink.href = project.url;

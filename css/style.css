@@ -72,7 +72,7 @@ img.logoBody {
 }
 
 .typewriter {
-  font-family: "Nothing You Could Do", cursive;
+  font-family: "typewriter", "Courier New", "Lucida Console", Monaco, monospace;
   font-size: 1.2em;
 }
 #nostraheader,
@@ -225,6 +225,52 @@ h3.handwritten {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Font toggle button styling */
+.font-toggle-container {
+  position: absolute;
+  top: -50px;
+  right: 20px;
+  z-index: 10;
+}
+
+.font-toggle-container-below {
+  text-align: right;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.font-toggle-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.font-toggle-btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.font-toggle-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.font-toggle-btn i {
+  margin-right: 5px;
+}
+
+/* Font transition effects */
+.postit-summary.transitioning {
+  transition: font-family 0.3s ease;
+}
+
 .postit-summary h2 {
   color: #003153;
   margin-top: 0;
@@ -266,6 +312,97 @@ h3.handwritten {
 .polaroid img {
   width: 130px;
   height: 89px;
+}
+
+/* Polaroid images grouped in Bootstrap grid layout */
+.polaroid-group-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+  padding: 20px 0;
+}
+
+.polaroid-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.polaroid-item {
+  flex: 0 0 auto;
+}
+
+/* Responsive adjustments for polaroid group */
+@media (max-width: 768px) {
+  /* About section mobile spacing to avoid navbar overlap */
+  #about {
+    padding-top: 80px;
+    margin-top: 0;
+  }
+  
+  .polaroid-group-container {
+    min-height: auto;
+    padding: 20px 0;
+  }
+  
+  .polaroid-group {
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .polaroid-item {
+    flex: 0 0 calc(33.333% - 10px);
+  }
+  
+  /* Font toggle responsive adjustments */
+  .font-toggle-container {
+    top: -45px;
+    right: 10px;
+  }
+  
+  .font-toggle-container-below {
+    margin-top: 8px;
+    margin-right: 15px;
+  }
+  
+  .font-toggle-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .polaroid-group {
+    gap: 8px;
+  }
+  
+  .polaroid-item {
+    flex: 0 0 calc(33.333% - 6px);
+  }
+  
+  /* Font toggle mobile adjustments */
+  .font-toggle-container {
+    top: -40px;
+    right: 5px;
+  }
+  
+  .font-toggle-container-below {
+    margin-top: 6px;
+    margin-right: 10px;
+  }
+  
+  .font-toggle-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .font-toggle-btn i {
+    margin-right: 3px;
+  }
 }
 
 #adultimage {
@@ -1131,18 +1268,19 @@ h4 {
 }
 
 #skills h2, #interests h2 {
-  font-family: "letterpressed", "PWSchoolScript", serif;
-  font-size: 3em;
-  color: #37358a;
+  color: #003153;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
   letter-spacing: 2px;
 }
 
 #skills .handwritten, #interests .handwritten {
-  font-family: "HomemadeApple", cursive;
-  color: #666;
-  font-size: 1.2em;
+  font-family: "Nothing You Could Do", cursive;
+  font-weight: bolder;
+  font-size: 1em;
   line-height: 1.5;
   max-width: 800px;
   margin: 0 auto;
@@ -1654,7 +1792,7 @@ figure video {
     width: 50px;
   }
   .typewriter {
-    font-family: "typewriter";
+    font-family: "typewriter", "Courier New", "Lucida Console", Monaco, monospace;
     font-size: 0.9em;
   }
   #hartnellprojects,
@@ -2571,13 +2709,13 @@ figure video {
   }
   
   .postit-summary h2 {
-    font-size: 1.6em;
+    font-size: 1.4em;
     margin-bottom: 12px;
     line-height: 1.3;
   }
   
   .postit-summary p {
-    font-size: 1.1em;
+    font-size: 0.95em;
     margin-bottom: 12px;
     line-height: 1.5;
   }
@@ -2592,13 +2730,13 @@ figure video {
   }
   
   .postit-summary h2 {
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin-bottom: 10px;
     line-height: 1.3;
   }
   
   .postit-summary p {
-    font-size: 1em;
+    font-size: 0.85em;
     margin-bottom: 10px;
     line-height: 1.5;
   }
@@ -2613,13 +2751,13 @@ figure video {
   }
   
   .postit-summary h2 {
-    font-size: 1.3em;
+    font-size: 1.1em;
     margin-bottom: 8px;
     line-height: 1.3;
   }
   
   .postit-summary p {
-    font-size: 0.95em;
+    font-size: 0.8em;
     margin-bottom: 8px;
     line-height: 1.5;
   }

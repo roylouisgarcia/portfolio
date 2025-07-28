@@ -99,56 +99,50 @@
     <div id="about" class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
-          <!-- Summary Section -->
+          <!-- Summary Section and Polaroid Images in one row for large devices -->
           <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="postit-summary handwritten">
+            <div class="col-xs-12 col-md-8">
+              <div class="postit-summary handwritten" id="about-summary">
+                <div class="font-toggle-container">
+                  <button class="font-toggle-btn" id="about-font-toggle" title="Toggle between handwritten and typewriter font">
+                    <i class="fa fa-font"></i> <span class="toggle-text">Typewriter</span>
+                  </button>
+                </div>
                 <h2>About Roy Louis L. Garcia</h2>
                 <p><strong>Welcome!</strong> I'm a cybersecurity and software development professional driven by curiosity and ethical technology practices. My journey began with childhood tinkering - breaking toys to understand and rebuild them - which evolved into a career focused on secure, accessible solutions.</p>
                 
                 <p>From electronics and programming in high school to advanced studies in Information Assurance, I'm committed to using technology for positive impact. I specialize in the intersections of cybersecurity, software development, data analytics, and machine learning.</p>
                 
-                <p><em>Explore the polaroid pictures below for different phases of my journey, or navigate to projects, tools, and skills sections.</em></p>
+                <p><em>Explore the polaroid pictures on the right for different phases of my journey, or navigate to projects, tools, and skills sections.</em></p>
               </div>
             </div>
-          </div>
-          
-          <div id="polanav" class="row">
-            <!-- Original postit introduction commented out
-            <div class="col-xs-3 col-md-6 postit handwritten">
-              <p>Welcome, I am Roy Louis L. Garcia.</p>
-              <p>
-                To get to know more about me, click on the polaroid pictures on
-                the right.
-              </p>
-              <p>
-                Also, Feel free to explore the projects, tools and skills
-                sections.
-              </p>
-            </div>
-            -->
-
-            <div class="col-xs-4 col-md-3 col-md-offset-1 text-right">
-              <div class="polaroid lowered">
-                <img
-                  id="adultimage"
-                  class="img-responsive"
-                  src="images/adult2.jpg"
-                />
-              </div>
-            </div>
-            <div class="col-xs-4 col-md-3 text-center">
-              <div class="polaroid lowered">
-                <img
-                  id="teenagerimage"
-                  class="img-responsive"
-                  src="images/teen.jpg"
-                />
-              </div>
-            </div>
-            <div class="col-xs-4 col-md-3 text-left">
-              <div class="polaroid lowered">
-                <img id="boyimage" class="img-responsive" src="images/boy.jpg" />
+            <div class="col-xs-12 col-md-4">
+              <div class="polaroid-group-container">
+                <div class="polaroid-group">
+                  <div class="polaroid-item">
+                    <div class="polaroid lowered">
+                      <img
+                        id="adultimage"
+                        class="img-responsive"
+                        src="images/adult2.jpg"
+                      />
+                    </div>
+                  </div>
+                  <div class="polaroid-item">
+                    <div class="polaroid lowered">
+                      <img
+                        id="teenagerimage"
+                        class="img-responsive"
+                        src="images/teen.jpg"
+                      />
+                    </div>
+                  </div>
+                  <div class="polaroid-item">
+                    <div class="polaroid lowered">
+                      <img id="boyimage" class="img-responsive" src="images/boy.jpg" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1394,7 +1388,7 @@
               <h1>Web Development</h1>
 
               <h5>
-                <ul class="text-left">
+                <ul class="text-left typewriter">
                   <li>Static and Dynamic Web Design and Development</li>
                   <li>
                     Usability Testings, Accessibility Standards, and Sentiment
@@ -1422,7 +1416,7 @@
               <h1>Programming</h1>
 
               <h5>
-                <ul class="text-left">
+                <ul class="text-left typewriter">
                   <li>
                     knowledge and experience with time-saving programming
                     tools/IDE extensions
@@ -1449,7 +1443,7 @@
               <h1>Computer Security</h1>
 
               <h5>
-                <ul class="text-left">
+                <ul class="text-left typewriter">
                   <li>penetration testing</li>
                   <li>
                     user account, password, authentication, directory and file
@@ -1468,7 +1462,7 @@
             <div class="panel-heading">
               <h1>Data Science</h1>
               <h5>
-                <ul class="text-left">
+                <ul class="text-left typewriter">
                   <li>
                     exploration of datasets to produce business intelligence to
                     help create business decisions
@@ -1494,7 +1488,7 @@
               <h1>Network Administration</h1>
 
               <h5>
-                <ul class="text-left">
+                <ul class="text-left typewriter">
                   <li>maintained Linux and Windows servers</li>
                   <li>
                     managing account creation and maintenance, access control
@@ -1519,7 +1513,7 @@
               <h1>Research, Learning and Teaching</h1>
 
               <h5>
-                <ul class="text-left">
+                <ul class="text-left typewriter">
                   <li>
                     Ability to sort out needed information for any task at hand
                     from knowledge-based repositories
@@ -1601,7 +1595,7 @@
                 </button>
               </p>
 
-              <p>
+              <p class="typewriter">
                 NOTE: I own lots of electronic books that I read via my Kindle
                 Fire tablet. In terms of subject matters, they are almost the
                 same as the books I actually own and carry around.

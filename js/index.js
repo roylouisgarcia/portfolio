@@ -1213,3 +1213,83 @@ $(document).on('mousedown touchstart', function(event) {
     $('.adult, .teenager, .boy').hide('slow');
   }
 });
+
+// Font toggle functionality
+$(document).ready(function() {
+  // About section font toggle
+  $('#about-font-toggle').on('click', function() {
+    var $summary = $('#about-summary');
+    var $toggleBtn = $(this);
+    var $toggleText = $toggleBtn.find('.toggle-text');
+    
+    // Add transition class
+    $summary.addClass('transitioning');
+    
+    if ($summary.hasClass('handwritten')) {
+      // Switch to typewriter
+      $summary.removeClass('handwritten').addClass('typewriter');
+      $toggleText.text('Handwritten');
+    } else {
+      // Switch to handwritten
+      $summary.removeClass('typewriter').addClass('handwritten');
+      $toggleText.text('Typewriter');
+    }
+    
+    // Remove transition class after animation
+    setTimeout(function() {
+      $summary.removeClass('transitioning');
+    }, 300);
+  });
+  
+  // Generic function to add font toggles to other handwritten elements
+  function addFontToggle(selector, containerId) {
+    var $container = $(containerId);
+    var $element = $(selector);
+    
+    if ($element.length && $container.length) {
+      // Create toggle button
+      var toggleHtml = '<div class="font-toggle-container">' +
+                      '<button class="font-toggle-btn generic-font-toggle" data-target="' + selector + '" title="Toggle between handwritten and typewriter font">' +
+                      '<i class="fa fa-font"></i> <span class="toggle-text">Typewriter</span>' +
+                      '</button>' +
+                      '</div>';
+      
+      // Add toggle button to container
+      $container.prepend(toggleHtml);
+    }
+  }
+  
+  // Handle generic font toggles
+  $(document).on('click', '.generic-font-toggle', function() {
+    var targetSelector = $(this).data('target');
+    var $target = $(targetSelector);
+    var $toggleText = $(this).find('.toggle-text');
+    
+    // Add transition class
+    $target.addClass('transitioning');
+    
+    if ($target.hasClass('handwritten')) {
+      // Switch to typewriter
+      $target.removeClass('handwritten').addClass('typewriter');
+      $toggleText.text('Handwritten');
+    } else {
+      // Switch to handwritten
+      $target.removeClass('typewriter').addClass('handwritten');
+      $toggleText.text('Typewriter');
+    }
+    
+    // Remove transition class after animation
+    setTimeout(function() {
+      $target.removeClass('transitioning');
+    }, 300);
+  });
+  
+  // Add font toggles to Skills and Interests sections
+  if ($('#skills .handwritten').length) {
+    addFontToggle('#skills .handwritten', '#skills');
+  }
+  
+  if ($('#interests .handwritten').length) {
+    addFontToggle('#interests .handwritten', '#interests');
+  }
+});

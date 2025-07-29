@@ -1351,10 +1351,6 @@ function loadHartnellSlides() {
         const slideDiv = document.createElement('div');
         slideDiv.classList.add('hartnell-slides');
 
-        // Create slide content
-        const slideContent = document.createElement('div');
-        slideContent.classList.add('hartnell-slide-content');
-
         // Create image container
         const imageContainer = document.createElement('div');
         imageContainer.classList.add('hartnell-image-container');
@@ -1380,7 +1376,7 @@ function loadHartnellSlides() {
             imageContainer.appendChild(additionalImg);
         }
 
-        // Create text content
+        // Create text content container
         const textContainer = document.createElement('div');
         textContainer.classList.add('hartnell-text-container');
 
@@ -1400,9 +1396,9 @@ function loadHartnellSlides() {
         textContainer.appendChild(title);
         textContainer.appendChild(description);
 
-        slideContent.appendChild(imageContainer);
-        slideContent.appendChild(textContainer);
-        slideDiv.appendChild(slideContent);
+        // Append image and text directly to slide (vertical layout)
+        slideDiv.appendChild(imageContainer);
+        slideDiv.appendChild(textContainer);
         slidesContainer.appendChild(slideDiv);
 
         // Create thumbnail

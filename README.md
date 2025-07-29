@@ -2,11 +2,11 @@
 
 ## Screenshots:
 
-![Screenshot of my online portfolio](ss_1.jpg)
+![Screenshot of my online portfolio](images/ss_1.jpg)
 
-![Screenshot of my online portfolio](ss_2.jpg)
+![Screenshot of my online portfolio](images/ss_2.jpg)
 
-![Screenshot of my online portfolio](ss_3.jpg)
+![Screenshot of my online portfolio](images/ss_3.jpg)
 
 
 

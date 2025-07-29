@@ -1971,3 +1971,64 @@ function toggleAdditionalImages(slideIndex) {
         });
     }
 }
+
+// PERFORMANCE OPTIMIZATION: Lazy Loading Implementation
+$(document).ready(function() {
+    // Initialize lazy loading for images
+    initializeLazyLoading();
+    
+    // Preload critical above-the-fold images
+    preloadCriticalImages();
+});
+
+function initializeLazyLoading() {
+    // Only initialize if IntersectionObserver is supported
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    // Load the actual image
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    // Remove lazy class and stop observing
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            // Start loading when image is 200px away from viewport
+            rootMargin: '200px'
+        });
+
+        // Observe all images that should be lazy loaded
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver support
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        });
+    }
+}
+
+function preloadCriticalImages() {
+    // Preload hero/above-the-fold images for immediate display
+    const criticalImages = [
+        'images/boy.jpg',
+        'images/teenager.png',
+        'images/me.jpg'
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+}

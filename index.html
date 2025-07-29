@@ -10,27 +10,53 @@
 
     <title>My Online Portfolio</title>
 
+    <!-- PERFORMANCE OPTIMIZATION: DNS prefetch and preconnect for external resources -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.rawgit.com">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- PERFORMANCE OPTIMIZATION: Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="images/boy.jpg" as="image">
+    <link rel="preload" href="images/teenager.png" as="image">
+    
+    <!-- External stylesheets with optimized loading -->
     <link
-      rel="stylesheet prefetch"
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+      media="print" onload="this.media='all'"
     />
-    <link
-      rel="stylesheet prefetch"
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-    />
-    <link
-      rel="stylesheet prefetch"
-      href="https://fonts.googleapis.com/css?family=Lato"
-    />
-    <link
-      rel="stylesheet prefetch"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet prefetch"
-      href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css"
-    />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"></noscript>
+    
+    <!-- Critical CSS loaded synchronously -->
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      media="print" onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato"
+      media="print" onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+      media="print" onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css"
+      media="print" onload="this.media='all'"
+    />
     <link rel="stylesheet" href="specialization/styles.css" />
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   </head>

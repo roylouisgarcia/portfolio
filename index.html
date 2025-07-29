@@ -1328,182 +1328,28 @@
           freelancing, taking MOOC courses, etc..
         </h3>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h1>Web Development</h1>
-
-              <h5>
-                <ul class="text-left typewriter">
-                  <li>Static and Dynamic Web Design and Development</li>
-                  <li>
-                    Usability Testings, Accessibility Standards, and Sentiment
-                    Analysis
-                  </li>
-                  <li>Customization of vanilla open source solutions</li>
-                  <li>
-                    Using existing social media for branding and marketing
-                  </li>
-                  <li>
-                    Search Engine Optimization and Knowledge of Web Analytics
-                  </li>
-                  <li>
-                    WordPress, Joomla, Drupal, CPanel, Shopify and some AWS
-                    Cloud Services
-                  </li>
-                </ul>
-              </h5>
-            </div>
-          </div>
+      
+      <!-- Skills Slideshow Container -->
+      <div class="skills-slideshow-container">
+        <!-- Navigation Buttons -->
+        <div class="skills-navigation">
+          <button class="skills-prev-btn" onclick="skillsPrevSlide()">❮</button>
+          <button class="skills-next-btn" onclick="skillsNextSlide()">❯</button>
         </div>
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h1>Programming</h1>
-
-              <h5>
-                <ul class="text-left typewriter">
-                  <li>
-                    knowledge and experience with time-saving programming
-                    tools/IDE extensions
-                  </li>
-                  <li>
-                    efficient programming using reusable codes from programming
-                    cookbooks
-                  </li>
-                  <li>progressive learner of newer programming practices</li>
-                  <li>
-                    procedural, object-oriented, modular and functional
-                    programming
-                  </li>
-                </ul>
-              </h5>
-            </div>
-          </div>
+        
+        <!-- Slides Container -->
+        <div id="skillsSlidesContainer" class="skills-slides-wrapper">
+          <!-- Slides will be loaded here dynamically -->
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h1>Computer Security</h1>
-
-              <h5>
-                <ul class="text-left typewriter">
-                  <li>penetration testing</li>
-                  <li>
-                    user account, password, authentication, directory and file
-                    system security
-                  </li>
-                  <li>audits and account clean ups</li>
-                  <li>multilayered security and risk mitigation</li>
-                </ul>
-              </h5>
-            </div>
-          </div>
+        
+        <!-- Thumbnails Container -->
+        <div id="skillsThumbnailContainer" class="skills-thumbnail-container">
+          <!-- Thumbnails will be loaded here dynamically -->
         </div>
-
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h1>Data Science</h1>
-              <h5>
-                <ul class="text-left typewriter">
-                  <li>
-                    exploration of datasets to produce business intelligence to
-                    help create business decisions
-                  </li>
-                  <li>
-                    using existing social media data mining to optimize website
-                    and social media strategies
-                  </li>
-                  <li>
-                    using various tools for sentiment analysis, data
-                    visualization, business metrics, insights, etc..
-                  </li>
-                </ul>
-              </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h1>Network Administration</h1>
-
-              <h5>
-                <ul class="text-left typewriter">
-                  <li>maintained Linux and Windows servers</li>
-                  <li>
-                    managing account creation and maintenance, access control
-                    list (ACLs), and implementing security policies
-                  </li>
-                  <li>
-                    promotes change management procedures to ease audit and
-                    compliance requirements
-                  </li>
-                  <li>
-                    Installation of hardware equipments and software upgrades
-                    and patches
-                  </li>
-                </ul>
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h1>Research, Learning and Teaching</h1>
-
-              <h5>
-                <ul class="text-left typewriter">
-                  <li>
-                    Ability to sort out needed information for any task at hand
-                    from knowledge-based repositories
-                  </li>
-                  <li>
-                    Worked for brick-and-mortar academic institutions and
-                    distance learning environments
-                  </li>
-                  <li>
-                    Adapted the concept of 'Information Literacy for Lifelong
-                    Learning' (see
-                    <strong
-                      ><a
-                        href="https://files.eric.ed.gov/fulltext/ED084368.pdf"
-                        target="_blank"
-                        >Malcolm Knowles book</a
-                      ></strong
-                    >)
-                  </li>
-                  <li>
-                    Passing on knowledge to other people to enhance learning
-                    (see <strong>the power of Protege' Effect</strong>
-                    <a href="protege.pdf" target="_blank">here</a>)
-                  </li>
-                  <li>
-                    Reviewed available massive open online courses and platforms
-                    by
-                    <a
-                      href="https://sites.google.com/site/reflection4learning/why-reflect"
-                      target="_blank"
-                      >reflecting as a learner</a
-                    >
-                    (also, see a study by Jack Mezirow on Reflection Triggers
-                    <a
-                      href="portfolioentries/otherpeopleswork/reflectiontriggers.pdf"
-                      target="_blank"
-                      >here</a
-                    >)
-                  </li>
-                </ul>
-              </h5>
-            </div>
-          </div>
+        
+        <!-- Slide Counter -->
+        <div class="skills-slide-counter">
+          <span id="skillsSlideCounter"></span>
         </div>
       </div>
     </div>

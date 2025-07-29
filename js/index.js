@@ -1514,3 +1514,219 @@ function initializeHartnellSlideshow() {
         showHartnellSlide(hartnellCurrentSlideIndex);
     }
 }
+
+// Skills Slideshow
+let skillsCurrentSlideIndex = 0;
+let skillsSlides = [];
+
+// Skills data
+const skillsData = [
+    {
+        title: "Web Development",
+        icon: "🌐",
+        skills: [
+            "Static and Dynamic Web Design and Development",
+            "Usability Testings, Accessibility Standards, and Sentiment Analysis",
+            "Customization of vanilla open source solutions",
+            "Using existing social media for branding and marketing",
+            "Search Engine Optimization and Knowledge of Web Analytics",
+            "WordPress, Joomla, Drupal, CPanel, Shopify and some AWS Cloud Services"
+        ]
+    },
+    {
+        title: "Programming",
+        icon: "💻",
+        skills: [
+            "knowledge and experience with time-saving programming tools/IDE extensions",
+            "efficient programming using reusable codes from programming cookbooks",
+            "progressive learner of newer programming practices",
+            "procedural, object-oriented, modular and functional programming"
+        ]
+    },
+    {
+        title: "Computer Security",
+        icon: "🔒",
+        skills: [
+            "penetration testing",
+            "user account, password, authentication, directory and file system security",
+            "audits and account clean ups",
+            "multilayered security and risk mitigation"
+        ]
+    },
+    {
+        title: "Data Science",
+        icon: "📊",
+        skills: [
+            "exploration of datasets to produce business intelligence to help create business decisions",
+            "using existing social media data mining to optimize website and social media strategies",
+            "using various tools for sentiment analysis, data visualization, business metrics, insights, etc.."
+        ]
+    },
+    {
+        title: "Network Administration",
+        icon: "🖧",
+        skills: [
+            "maintained Linux and Windows servers",
+            "managing account creation and maintenance, access control list (ACLs), and implementing security policies",
+            "promotes change management procedures to ease audit and compliance requirements",
+            "Installation of hardware equipments and software upgrades and patches"
+        ]
+    },
+    {
+        title: "Research, Learning and Teaching",
+        icon: "📚",
+        skills: [
+            "Ability to sort out needed information for any task at hand from knowledge-based repositories",
+            "Worked for brick-and-mortar academic institutions and distance learning environments",
+            "Adapted the concept of 'Information Literacy for Lifelong Learning' (see <strong><a href='https://files.eric.ed.gov/fulltext/ED084368.pdf' target='_blank'>Malcolm Knowles book</a></strong>)",
+            "Passing on knowledge to other people to enhance learning (see <strong>the power of Protege' Effect</strong> <a href='protege.pdf' target='_blank'>here</a>)",
+            "Reviewed available massive open online courses and platforms by <a href='https://sites.google.com/site/reflection4learning/why-reflect' target='_blank'>reflecting as a learner</a> (also, see a study by Jack Mezirow on Reflection Triggers <a href='portfolioentries/otherpeopleswork/reflectiontriggers.pdf' target='_blank'>here</a>)"
+        ]
+    }
+];
+
+// Load Skills slides dynamically
+function loadSkillsSlides() {
+    const slidesContainer = document.getElementById('skillsSlidesContainer');
+    const thumbnailContainer = document.getElementById('skillsThumbnailContainer');
+    
+    if (!slidesContainer || !thumbnailContainer) {
+        console.error('Skills slideshow containers not found');
+        return;
+    }
+
+    console.log('Loading Skills slides:', skillsData.length, 'skills');
+
+    skillsData.forEach((skill, index) => {
+        // Create slide div
+        const slideDiv = document.createElement('div');
+        slideDiv.classList.add('skills-slides');
+        slideDiv.style.display = 'none'; // Explicitly hide all slides initially
+
+        // Create panel structure similar to original
+        const panel = document.createElement('div');
+        panel.classList.add('panel', 'panel-default', 'text-center', 'skills-panel');
+
+        const panelHeading = document.createElement('div');
+        panelHeading.classList.add('panel-heading');
+
+        // Add icon
+        const icon = document.createElement('div');
+        icon.classList.add('skills-icon');
+        icon.textContent = skill.icon;
+        panelHeading.appendChild(icon);
+
+        // Add title
+        const title = document.createElement('h1');
+        title.textContent = skill.title;
+        panelHeading.appendChild(title);
+
+        // Add skills list
+        const skillsList = document.createElement('h5');
+        const ul = document.createElement('ul');
+        ul.classList.add('text-left', 'typewriter');
+        
+        skill.skills.forEach(skillItem => {
+            const li = document.createElement('li');
+            li.innerHTML = skillItem;
+            ul.appendChild(li);
+        });
+        
+        skillsList.appendChild(ul);
+        panelHeading.appendChild(skillsList);
+        panel.appendChild(panelHeading);
+        slideDiv.appendChild(panel);
+        slidesContainer.appendChild(slideDiv);
+
+        // Create thumbnail
+        const thumb = document.createElement('div');
+        thumb.classList.add('skills-thumb');
+        thumb.title = skill.title;
+        
+        const thumbIcon = document.createElement('span');
+        thumbIcon.classList.add('skills-thumb-icon');
+        thumbIcon.textContent = skill.icon;
+        
+        const thumbTitle = document.createElement('span');
+        thumbTitle.classList.add('skills-thumb-title');
+        thumbTitle.textContent = skill.title;
+        
+        thumb.appendChild(thumbIcon);
+        thumb.appendChild(thumbTitle);
+        thumb.onclick = () => setSkillsCurrentSlide(index);
+        thumbnailContainer.appendChild(thumb);
+
+        skillsSlides.push(slideDiv);
+    });
+
+    console.log('Loaded', skillsSlides.length, 'Skills slides');
+    updateSkillsSlideCounter();
+}
+
+function showSkillsSlide(index) {
+    console.log('showSkillsSlide called with index:', index, 'slides.length:', skillsSlides.length);
+    
+    if (index >= skillsSlides.length) {
+        skillsCurrentSlideIndex = 0;
+    } else if (index < 0) {
+        skillsCurrentSlideIndex = skillsSlides.length - 1;
+    } else {
+        skillsCurrentSlideIndex = index;
+    }
+
+    console.log('Setting skillsCurrentSlideIndex to:', skillsCurrentSlideIndex);
+
+    skillsSlides.forEach((slide, i) => {
+        if (i === skillsCurrentSlideIndex) {
+            slide.style.display = 'flex';
+        } else {
+            slide.style.display = 'none';
+        }
+    });
+    
+    // Update thumbnail highlighting
+    const thumbnails = document.querySelectorAll('.skills-thumb');
+    console.log('Found', thumbnails.length, 'Skills thumbnails');
+    
+    thumbnails.forEach((thumb, i) => {
+        if (i === skillsCurrentSlideIndex) {
+            thumb.classList.add('skills-current-thumb');
+            console.log('Highlighting Skills thumbnail', i);
+        } else {
+            thumb.classList.remove('skills-current-thumb');
+        }
+    });
+    
+    updateSkillsSlideCounter();
+}
+
+function updateSkillsSlideCounter() {
+    const counter = document.getElementById('skillsSlideCounter');
+    if (counter && skillsSlides.length > 0) {
+        counter.textContent = `${skillsCurrentSlideIndex + 1} / ${skillsSlides.length}`;
+    }
+}
+
+function skillsNextSlide() {
+    showSkillsSlide(skillsCurrentSlideIndex + 1);
+}
+
+function skillsPrevSlide() {
+    showSkillsSlide(skillsCurrentSlideIndex - 1);
+}
+
+function setSkillsCurrentSlide(index) {
+    showSkillsSlide(index);
+}
+
+// Initialize Skills slideshow when document loads
+$(document).ready(function() {
+    // Initialize Skills slideshow
+    if (!window.skillsInitialized) {
+        loadSkillsSlides();
+        if (skillsSlides.length > 0) {
+            showSkillsSlide(skillsCurrentSlideIndex);
+        }
+        window.skillsInitialized = true;
+    }
+});

@@ -53,9 +53,10 @@ $(document).ready(function(){
     defaultAbout();
   });
     
-    $("#books-toggle").click(function(){
-        $(".books").toggle("fast", function(){}); 
-    });
+    // Books toggle now handled by interests slideshow
+    // $("#books-toggle").click(function(){
+    //     $(".books").toggle("fast", function(){}); 
+    // });
     
     $("#professionalDetailsbtn").click(function(){
         $("#professionalDetails").toggle("fast", function(){
@@ -1610,12 +1611,6 @@ function loadSkillsSlides() {
         const panelHeading = document.createElement('div');
         panelHeading.classList.add('panel-heading');
 
-        // Add icon
-        const icon = document.createElement('div');
-        icon.classList.add('skills-icon');
-        icon.textContent = skill.icon;
-        panelHeading.appendChild(icon);
-
         // Add title
         const title = document.createElement('h1');
         title.textContent = skill.title;
@@ -1643,15 +1638,10 @@ function loadSkillsSlides() {
         thumb.classList.add('skills-thumb');
         thumb.title = skill.title;
         
-        const thumbIcon = document.createElement('span');
-        thumbIcon.classList.add('skills-thumb-icon');
-        thumbIcon.textContent = skill.icon;
-        
         const thumbTitle = document.createElement('span');
         thumbTitle.classList.add('skills-thumb-title');
         thumbTitle.textContent = skill.title;
         
-        thumb.appendChild(thumbIcon);
         thumb.appendChild(thumbTitle);
         thumb.onclick = () => setSkillsCurrentSlide(index);
         thumbnailContainer.appendChild(thumb);
@@ -1729,4 +1719,255 @@ $(document).ready(function() {
         }
         window.skillsInitialized = true;
     }
+    
+    // Initialize Interests slideshow
+    if (!window.interestsInitialized) {
+        loadInterestsSlides();
+        if (interestsSlides.length > 0) {
+            showInterestsSlide(interestsCurrentSlideIndex);
+        }
+        window.interestsInitialized = true;
+    }
 });
+
+// Interests Slideshow
+let interestsCurrentSlideIndex = 0;
+let interestsSlides = [];
+
+// Interests data
+const interestsData = [
+    {
+        title: "Printed Books I Own",
+        icon: "📚",
+        mainImage: "images/books/books.jpg",
+        additionalImages: [
+            "images/books/books2.jpg",
+            "images/books/books3.jpg", 
+            "images/books/books4.jpg"
+        ],
+        description: "NOTE: I own lots of electronic books that I read via my Kindle Fire tablet. In terms of subject matters, they are almost the same as the books I actually own and carry around.",
+        link: "http://www.librarything.com/catalog/roylouisgarcia",
+        linkText: "Go to my Online List",
+        hasToggle: true,
+        toggleText: "More Images Show/Hide"
+    },
+    {
+        title: "Infographics and Visual Arts I like",
+        icon: "🎨",
+        mainImage: "images/books/pinterests.jpg",
+        additionalImages: [],
+        description: "",
+        link: "https://www.pinterest.com/roylouisgarcia/",
+        linkText: "Go to my Online Pinboard",
+        hasToggle: false,
+        toggleText: ""
+    },
+    {
+        title: "My Radiohead Tribute page",
+        icon: "🎵",
+        mainImage: "images/interests/radiohead.png",
+        additionalImages: [],
+        description: "",
+        link: "https://roylouisgarcia.github.io/radioheadtribute/",
+        linkText: "Go to My Radiohead Tribute Page",
+        hasToggle: false,
+        toggleText: ""
+    },
+    {
+        title: "Recorded Bliss",
+        icon: "🎧",
+        mainImage: "images/interests/rr.png",
+        additionalImages: [],
+        description: "",
+        link: "https://recordedbliss.com/",
+        linkText: "Go to my Recorded Bliss Site",
+        hasToggle: false,
+        toggleText: ""
+    }
+];
+
+// Load Interests slides dynamically
+function loadInterestsSlides() {
+    const slidesContainer = document.getElementById('interestsSlidesContainer');
+    const thumbnailContainer = document.getElementById('interestsThumbnailContainer');
+    
+    if (!slidesContainer || !thumbnailContainer) {
+        console.error('Interests slideshow containers not found');
+        return;
+    }
+
+    console.log('Loading Interests slides:', interestsData.length, 'interests');
+
+    interestsData.forEach((interest, index) => {
+        // Create slide div
+        const slideDiv = document.createElement('div');
+        slideDiv.classList.add('interests-slides');
+        slideDiv.style.display = 'none'; // Explicitly hide all slides initially
+
+        // Create panel structure similar to original
+        const panel = document.createElement('div');
+        panel.classList.add('panel', 'panel-default', 'text-center', 'interests-panel');
+
+        const panelInterests = document.createElement('div');
+        panelInterests.classList.add('panel-interests');
+
+        // Add title
+        const title = document.createElement('h1');
+        title.textContent = interest.title;
+        panelInterests.appendChild(title);
+
+        // Add main image
+        const mainImageP = document.createElement('p');
+        const mainImg = document.createElement('img');
+        mainImg.classList.add('books-default');
+        mainImg.src = interest.mainImage;
+        mainImg.alt = interest.title;
+        mainImageP.appendChild(mainImg);
+        panelInterests.appendChild(mainImageP);
+
+        // Add additional images if they exist
+        if (interest.additionalImages.length > 0) {
+            interest.additionalImages.forEach(imgSrc => {
+                const imgP = document.createElement('p');
+                const img = document.createElement('img');
+                img.classList.add('books');
+                img.src = imgSrc;
+                img.alt = interest.title;
+                imgP.appendChild(img);
+                panelInterests.appendChild(imgP);
+            });
+        }
+
+        // Add buttons container
+        const buttonsP = document.createElement('p');
+        
+        // Add main link button
+        if (interest.link) {
+            const linkA = document.createElement('a');
+            linkA.href = interest.link;
+            linkA.target = '_blank';
+            
+            const linkBtn = document.createElement('button');
+            linkBtn.classList.add('totiebtn');
+            linkBtn.textContent = interest.linkText;
+            
+            linkA.appendChild(linkBtn);
+            buttonsP.appendChild(linkA);
+        }
+
+        // Add toggle button if applicable
+        if (interest.hasToggle) {
+            const toggleBtn = document.createElement('button');
+            toggleBtn.classList.add('totiebtn', 'inline-block');
+            toggleBtn.textContent = interest.toggleText;
+            toggleBtn.id = `books-toggle-${index}`;
+            toggleBtn.onclick = () => toggleAdditionalImages(index);
+            buttonsP.appendChild(toggleBtn);
+        }
+
+        if (interest.link || interest.hasToggle) {
+            panelInterests.appendChild(buttonsP);
+        }
+
+        // Add description if it exists
+        if (interest.description) {
+            const descP = document.createElement('p');
+            descP.classList.add('typewriter');
+            descP.textContent = interest.description;
+            panelInterests.appendChild(descP);
+        }
+
+        panel.appendChild(panelInterests);
+        slideDiv.appendChild(panel);
+        slidesContainer.appendChild(slideDiv);
+
+        // Create thumbnail
+        const thumb = document.createElement('div');
+        thumb.classList.add('interests-thumb');
+        thumb.title = interest.title;
+        
+        const thumbTitle = document.createElement('span');
+        thumbTitle.classList.add('interests-thumb-title');
+        thumbTitle.textContent = interest.title;
+        
+        thumb.appendChild(thumbTitle);
+        thumb.onclick = () => setInterestsCurrentSlide(index);
+        thumbnailContainer.appendChild(thumb);
+
+        interestsSlides.push(slideDiv);
+    });
+
+    console.log('Loaded', interestsSlides.length, 'Interests slides');
+    updateInterestsSlideCounter();
+}
+
+function showInterestsSlide(index) {
+    console.log('showInterestsSlide called with index:', index, 'slides.length:', interestsSlides.length);
+    
+    if (index >= interestsSlides.length) {
+        interestsCurrentSlideIndex = 0;
+    } else if (index < 0) {
+        interestsCurrentSlideIndex = interestsSlides.length - 1;
+    } else {
+        interestsCurrentSlideIndex = index;
+    }
+
+    console.log('Setting interestsCurrentSlideIndex to:', interestsCurrentSlideIndex);
+
+    interestsSlides.forEach((slide, i) => {
+        if (i === interestsCurrentSlideIndex) {
+            slide.style.display = 'flex';
+        } else {
+            slide.style.display = 'none';
+        }
+    });
+    
+    // Update thumbnail highlighting
+    const thumbnails = document.querySelectorAll('.interests-thumb');
+    console.log('Found', thumbnails.length, 'Interests thumbnails');
+    
+    thumbnails.forEach((thumb, i) => {
+        if (i === interestsCurrentSlideIndex) {
+            thumb.classList.add('interests-current-thumb');
+            console.log('Highlighting Interests thumbnail', i);
+        } else {
+            thumb.classList.remove('interests-current-thumb');
+        }
+    });
+    
+    updateInterestsSlideCounter();
+}
+
+function updateInterestsSlideCounter() {
+    const counter = document.getElementById('interestsSlideCounter');
+    if (counter && interestsSlides.length > 0) {
+        counter.textContent = `${interestsCurrentSlideIndex + 1} / ${interestsSlides.length}`;
+    }
+}
+
+function interestsNextSlide() {
+    showInterestsSlide(interestsCurrentSlideIndex + 1);
+}
+
+function interestsPrevSlide() {
+    showInterestsSlide(interestsCurrentSlideIndex - 1);
+}
+
+function setInterestsCurrentSlide(index) {
+    showInterestsSlide(index);
+}
+
+// Toggle function for additional images (specifically for books)
+function toggleAdditionalImages(slideIndex) {
+    const currentSlide = interestsSlides[slideIndex];
+    if (currentSlide) {
+        const additionalImages = currentSlide.querySelectorAll('.books');
+        additionalImages.forEach(img => {
+            if (img.style.display === 'none' || img.style.display === '') {
+                img.style.display = 'block';
+            } else {
+                img.style.display = 'none';
+            }
+        });
+    }
+}

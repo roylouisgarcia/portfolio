@@ -3193,12 +3193,6 @@ figure video {
     padding: 30px;
 }
 
-.skills-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-    display: block;
-}
-
 .skills-panel h1 {
     color: #2c3e50 !important;
     font-size: 2.2em !important;
@@ -3281,12 +3275,6 @@ figure video {
     box-shadow: 0 8px 20px rgba(229, 203, 18, 0.4);
 }
 
-.skills-thumb-icon {
-    font-size: 2em;
-    margin-bottom: 8px;
-    display: block;
-}
-
 .skills-thumb-title {
     font-size: 0.9em;
     font-weight: bold;
@@ -3351,10 +3339,6 @@ figure video {
         padding: 12px;
     }
     
-    .skills-thumb-icon {
-        font-size: 1.5em;
-    }
-    
     .skills-thumb-title {
         font-size: 0.8em;
     }
@@ -3387,11 +3371,6 @@ figure video {
         justify-content: flex-start;
         gap: 15px;
     }
-    
-    .skills-thumb-icon {
-        margin-bottom: 0;
-        font-size: 1.8em;
-    }
 }
 
 @media (max-width: 320px) {
@@ -3404,6 +3383,338 @@ figure video {
     }
     
     .skills-thumb {
+        min-width: 180px;
+        padding: 10px;
+    }
+}
+
+/* Interests Slideshow Styles */
+.interests-slideshow-container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.interests-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.interests-prev-btn,
+.interests-next-btn {
+    cursor: pointer;
+    padding: 15px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    user-select: none;
+    background-color: rgba(52, 152, 219, 0.8);
+    border: none;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.interests-prev-btn:hover,
+.interests-next-btn:hover {
+    background-color: rgba(52, 152, 219, 1);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.interests-slides-wrapper {
+    position: relative;
+    min-height: 450px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.interests-slides {
+    display: none;
+    padding: 40px 80px;
+    min-height: 450px;
+    align-items: center;
+    justify-content: center;
+}
+
+.interests-panel {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.interests-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(52, 152, 219, 0.3) !important;
+}
+
+.interests-panel .panel-interests {
+    padding: 30px;
+}
+
+.interests-panel h1 {
+    color: #2c3e50 !important;
+    font-size: 2.2em !important;
+    margin-bottom: 25px !important;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.interests-panel .books-default {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.interests-panel .books-default:hover {
+    transform: scale(1.02);
+}
+
+.interests-panel .books {
+    max-width: 48%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    transition: all 0.3s ease;
+    display: none; /* Hidden by default, shown by toggle */
+}
+
+.interests-panel .books:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.interests-panel .totiebtn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1em;
+    margin: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    text-decoration: none;
+}
+
+.interests-panel .totiebtn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1f5582 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.interests-panel .totiebtn.inline-block {
+    display: inline-block;
+}
+
+.interests-panel .typewriter {
+    color: #555 !important;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.interests-thumbnail-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #f8f9fa;
+    gap: 15px;
+}
+
+.interests-thumb {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    border: 2px solid transparent;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interests-thumb:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
+    border-color: #3498db;
+}
+
+.interests-thumb.interests-current-thumb {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border-color: #1f5582;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+.interests-thumb-icon {
+    font-size: 2em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.interests-thumb-title {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.interests-current-thumb .interests-thumb-title {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.interests-slide-counter {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #ecf0f1;
+}
+
+/* Mobile responsive styles for Interests slideshow */
+@media (max-width: 768px) {
+    .interests-slideshow-container {
+        width: 98%;
+        margin: 20px auto;
+    }
+    
+    .interests-slides {
+        padding: 30px 20px;
+        min-height: 400px;
+    }
+    
+    .interests-navigation {
+        padding: 0 10px;
+    }
+    
+    .interests-prev-btn,
+    .interests-next-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        padding: 12px;
+    }
+    
+    .interests-panel h1 {
+        font-size: 1.8em !important;
+    }
+    
+    .interests-icon {
+        font-size: 2.5em;
+    }
+    
+    .interests-panel .books {
+        max-width: 100%;
+        margin: 8px 0;
+    }
+    
+    .interests-thumbnail-container {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .interests-thumb {
+        min-width: 100px;
+        padding: 12px;
+    }
+    
+    .interests-thumb-icon {
+        font-size: 1.5em;
+    }
+    
+    .interests-thumb-title {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .interests-slides {
+        padding: 20px 15px;
+        min-height: 350px;
+    }
+    
+    .interests-panel h1 {
+        font-size: 1.5em !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .interests-icon {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    
+    .interests-panel .panel-interests {
+        padding: 20px;
+    }
+    
+    .interests-thumbnail-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .interests-thumb {
+        flex-direction: row;
+        min-width: 200px;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+    
+    .interests-thumb-icon {
+        margin-bottom: 0;
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 320px) {
+    .interests-slides {
+        padding: 15px 10px;
+    }
+    
+    .interests-panel .panel-interests {
+        padding: 15px;
+    }
+    
+    .interests-thumb {
         min-width: 180px;
         padding: 10px;
     }

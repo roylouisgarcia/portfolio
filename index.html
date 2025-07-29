@@ -1369,87 +1369,28 @@
           with, and pondering upon
         </h3>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-interests">
-              <h1>Printed Books I Own</h1>
-              <p><img class="books-default" src="images/books/books.jpg" /></p>
-              <p><img class="books" src="images/books/books2.jpg" /></p>
-              <p><img class="books" src="images/books/books3.jpg" /></p>
-              <p><img class="books" src="images/books/books4.jpg" /></p>
-              <p>
-                <a
-                  href="http://www.librarything.com/catalog/roylouisgarcia"
-                  target="_blank"
-                  ><button class="totiebtn">Go to my Online List</button></a
-                ><button id="books-toggle" class="totiebtn inline-block">
-                  More Images Show/Hide
-                </button>
-              </p>
-
-              <p class="typewriter">
-                NOTE: I own lots of electronic books that I read via my Kindle
-                Fire tablet. In terms of subject matters, they are almost the
-                same as the books I actually own and carry around.
-              </p>
-            </div>
-          </div>
+      
+      <!-- Interests Slideshow Container -->
+      <div class="interests-slideshow-container">
+        <!-- Navigation Buttons -->
+        <div class="interests-navigation">
+          <button class="interests-prev-btn" onclick="interestsPrevSlide()">❮</button>
+          <button class="interests-next-btn" onclick="interestsNextSlide()">❯</button>
         </div>
-
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-interests">
-              <h1>Infographics and Visual Arts I like</h1>
-              <p>
-                <img class="books-default" src="images/books/pinterests.jpg" />
-              </p>
-              <a
-                href="https://www.pinterest.com/roylouisgarcia/"
-                target="_blank"
-                ><button class="totiebtn inline-block">
-                  Go to my Online Pinboard
-                </button></a
-              >
-            </div>
-          </div>
+        
+        <!-- Slides Container -->
+        <div id="interestsSlidesContainer" class="interests-slides-wrapper">
+          <!-- Slides will be loaded here dynamically -->
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-interests">
-              <h1>My Radiohead Tribute page</h1>
-
-              <p>
-                <img
-                  class="books-default"
-                  src="./images/interests/radiohead.png"
-                />
-              </p>
-              <a
-                href="https://roylouisgarcia.github.io/radioheadtribute/"
-                target="_blank"
-                ><button class="totiebtn inline-block">
-                  Go to My Radiohead Tribute Page
-                </button></a
-              >
-            </div>
-          </div>
+        
+        <!-- Thumbnails Container -->
+        <div id="interestsThumbnailContainer" class="interests-thumbnail-container">
+          <!-- Thumbnails will be loaded here dynamically -->
         </div>
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default text-center">
-            <div class="panel-interests">
-              <h1>Recorded Bliss</h1>
-
-              <p><img class="books-default" src="images/interests/rr.png" /></p>
-              <a href="https://recordedbliss.com/" target="_blank"
-                ><button class="totiebtn inline-block">
-                  Go to my Recorded Bliss Site
-                </button></a
-              >
-            </div>
-          </div>
+        
+        <!-- Slide Counter -->
+        <div class="interests-slide-counter">
+          <span id="interestsSlideCounter"></span>
         </div>
       </div>
     </div>

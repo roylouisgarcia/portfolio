@@ -1292,4 +1292,229 @@ $(document).ready(function() {
   if ($('#interests .handwritten').length) {
     addFontToggle('#interests .handwritten', '#interests');
   }
+
+  // Hartnell Projects Slideshow functionality
+initializeHartnellSlideshow();
 });
+
+// Hartnell Projects Slideshow
+let hartnellCurrentSlideIndex = 0;
+let hartnellSlides = [];
+
+// Hartnell project data
+const hartnellProjects = [
+    {
+        image: "images/bridge.jpg",
+        title: "Physics Olympics",
+        description: "My favorite was a project to build a bridge made of popsicle sticks. Feel free to visit my school's Physics Olympics' Page:",
+        link: "https://www.hartnell.edu/physics-olympics",
+        linkText: "Go"
+    },
+    {
+        image: "images/academic/hartnell/hacker.jpg",
+        title: "Computer Security",
+        description: "Learning computer debugging and assembly language prompted my interest in computer security and forensics",
+        link: null,
+        linkText: null
+    },
+    {
+        image: "images/academic/hartnell/winxp2.jpg",
+        title: "Windows XP, Telnet, Virtualization",
+        description: "Learning about operating systems opened up appreciation to the power of CLI or Command Line Interface. I did not give up on GUI and actually learned more about Visual Basic and web development",
+        link: null,
+        linkText: null
+    },
+    {
+        image: "images/academic/hartnell/myspace.jpg",
+        title: "Web Design, MySpace Customizations, Web Servers",
+        description: "simple client-server applications, online portfolios, CSS and code customizations on MySpace and Soundclick. I also learned the power of web servers like LAMP systems (Linux, Apache, Mysql and Php)",
+        link: null,
+        linkText: null,
+        additionalImage: "images/academic/hartnell/soundclick.jpg"
+    }
+];
+
+// Load Hartnell slides dynamically
+function loadHartnellSlides() {
+    const slidesContainer = document.getElementById('hartnellSlidesContainer');
+    const thumbnailContainer = document.getElementById('hartnellThumbnailContainer');
+    
+    if (!slidesContainer || !thumbnailContainer) {
+        console.error('Hartnell slideshow containers not found');
+        return;
+    }
+
+    console.log('Loading Hartnell slides:', hartnellProjects.length, 'projects');
+
+    hartnellProjects.forEach((project, index) => {
+        // Create slide div
+        const slideDiv = document.createElement('div');
+        slideDiv.classList.add('hartnell-slides');
+
+        // Create slide content
+        const slideContent = document.createElement('div');
+        slideContent.classList.add('hartnell-slide-content');
+
+        // Create image container
+        const imageContainer = document.createElement('div');
+        imageContainer.classList.add('hartnell-image-container');
+
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.title;
+        img.classList.add('hartnell-slide-image');
+        img.onerror = function() {
+            console.error('Failed to load Hartnell image:', project.image);
+        };
+        imageContainer.appendChild(img);
+
+        // Add additional image if exists
+        if (project.additionalImage) {
+            const additionalImg = document.createElement('img');
+            additionalImg.src = project.additionalImage;
+            additionalImg.alt = project.title + " - Additional";
+            additionalImg.classList.add('hartnell-slide-image', 'additional-image');
+            additionalImg.onerror = function() {
+                console.error('Failed to load additional Hartnell image:', project.additionalImage);
+            };
+            imageContainer.appendChild(additionalImg);
+        }
+
+        // Create text content
+        const textContainer = document.createElement('div');
+        textContainer.classList.add('hartnell-text-container');
+
+        const title = document.createElement('h3');
+        title.textContent = project.title;
+        title.classList.add('hartnell-slide-title');
+
+        const description = document.createElement('p');
+        description.classList.add('hartnell-slide-description');
+        
+        if (project.link) {
+            description.innerHTML = project.description + ' <a class="linklight" href="' + project.link + '" target="_blank">' + project.linkText + '</a>';
+        } else {
+            description.textContent = project.description;
+        }
+
+        textContainer.appendChild(title);
+        textContainer.appendChild(description);
+
+        slideContent.appendChild(imageContainer);
+        slideContent.appendChild(textContainer);
+        slideDiv.appendChild(slideContent);
+        slidesContainer.appendChild(slideDiv);
+
+        // Create thumbnail
+        const thumb = document.createElement('img');
+        thumb.src = project.image;
+        thumb.classList.add('hartnell-thumb');
+        thumb.alt = project.title;
+        thumb.title = project.title;
+        thumb.onerror = function() {
+            console.error('Failed to load Hartnell thumbnail:', project.image);
+        };
+        thumb.onclick = () => setHartnellCurrentSlide(index);
+        thumbnailContainer.appendChild(thumb);
+
+        hartnellSlides.push(slideDiv);
+    });
+
+    console.log('Loaded', hartnellSlides.length, 'Hartnell slides');
+    updateHartnellSlideCounter();
+}
+
+function showHartnellSlide(index) {
+    console.log('showHartnellSlide called with index:', index, 'slides.length:', hartnellSlides.length);
+    
+    if (index >= hartnellSlides.length) {
+        hartnellCurrentSlideIndex = 0;
+    } else if (index < 0) {
+        hartnellCurrentSlideIndex = hartnellSlides.length - 1;
+    } else {
+        hartnellCurrentSlideIndex = index;
+    }
+
+    console.log('Setting hartnellCurrentSlideIndex to:', hartnellCurrentSlideIndex);
+
+    hartnellSlides.forEach((slide, i) => {
+        slide.style.display = i === hartnellCurrentSlideIndex ? 'block' : 'none';
+    });
+    
+    // Update thumbnail highlighting
+    const thumbnails = document.querySelectorAll('.hartnell-thumb');
+    console.log('Found', thumbnails.length, 'Hartnell thumbnails');
+    
+    thumbnails.forEach((thumb, i) => {
+        if (i === hartnellCurrentSlideIndex) {
+            thumb.classList.add('hartnell-current-thumb');
+            console.log('Highlighting Hartnell thumbnail', i);
+        } else {
+            thumb.classList.remove('hartnell-current-thumb');
+        }
+    });
+    
+    // Center the current thumbnail
+    centerHartnellCurrentThumbnail();
+    
+    updateHartnellSlideCounter();
+}
+
+function centerHartnellCurrentThumbnail() {
+    const thumbnailContainer = document.getElementById('hartnellThumbnailContainer');
+    const thumbnails = document.querySelectorAll('.hartnell-thumb');
+    
+    if (thumbnails.length > 0 && hartnellCurrentSlideIndex < thumbnails.length) {
+        const currentThumbnail = thumbnails[hartnellCurrentSlideIndex];
+        const containerWidth = thumbnailContainer.clientWidth;
+        const thumbnailWidth = currentThumbnail.offsetWidth + 10; // Including margin
+        
+        const thumbnailOffsetLeft = currentThumbnail.offsetLeft;
+        const scrollPosition = thumbnailOffsetLeft - (containerWidth / 2) + (thumbnailWidth / 2);
+        
+        console.log('Centering Hartnell thumbnail', hartnellCurrentSlideIndex + 1, 'with scroll position:', scrollPosition);
+        
+        // Smooth scroll to the calculated position
+        thumbnailContainer.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function nextHartnellSlide() {
+    showHartnellSlide(hartnellCurrentSlideIndex + 1);
+}
+
+function prevHartnellSlide() {
+    showHartnellSlide(hartnellCurrentSlideIndex - 1);
+}
+
+function setHartnellCurrentSlide(index) {
+    showHartnellSlide(index);
+}
+
+function updateHartnellSlideCounter() {
+    const currentSlideElement = document.getElementById('hartnellCurrentSlide');
+    const totalSlidesElement = document.getElementById('hartnellTotalSlides');
+    
+    if (currentSlideElement && totalSlidesElement) {
+        currentSlideElement.innerText = hartnellCurrentSlideIndex + 1;
+        totalSlidesElement.innerText = hartnellSlides.length.toString();
+    }
+}
+
+function initializeHartnellSlideshow() {
+    // Add event listeners for navigation buttons
+    const nextBtn = document.getElementById('hartnellNextBtn');
+    const prevBtn = document.getElementById('hartnellPrevBtn');
+    
+    if (nextBtn) nextBtn.onclick = nextHartnellSlide;
+    if (prevBtn) prevBtn.onclick = prevHartnellSlide;
+    
+    // Load slides and show first slide
+    loadHartnellSlides();
+    if (hartnellSlides.length > 0) {
+        showHartnellSlide(hartnellCurrentSlideIndex);
+    }
+}

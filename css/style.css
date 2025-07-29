@@ -2762,3 +2762,282 @@ figure video {
     line-height: 1.5;
   }
 }
+
+/* Hartnell Projects Slideshow Styles */
+.hartnell-slideshow-container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.hartnell-slideshow-wrapper {
+    position: relative;
+    max-width: 100%;
+    background-color: #f8f9fa;
+}
+
+.hartnell-slides {
+    display: none;
+    padding: 20px;
+}
+
+.hartnell-slides.active {
+    display: block;
+}
+
+.hartnell-slide-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.hartnell-image-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hartnell-slide-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.hartnell-slide-image.additional-image {
+    margin-top: 10px;
+}
+
+.hartnell-text-container {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.hartnell-slide-title {
+    color: #2c3e50;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+.hartnell-slide-description {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.hartnell-slide-description .linklight {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hartnell-slide-description .linklight:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.hartnell-nav-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 12px 16px;
+    margin-top: -25px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s ease;
+    border-radius: 0 4px 4px 0;
+    user-select: none;
+    background-color: rgba(52, 152, 219, 0.8);
+    border: none;
+    z-index: 10;
+}
+
+.hartnell-nav-btn:hover {
+    background-color: rgba(52, 152, 219, 1);
+    transform: scale(1.05);
+}
+
+.hartnell-next-btn {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+.hartnell-prev-btn {
+    left: 0;
+}
+
+.hartnell-slide-counter {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #ecf0f1;
+}
+
+.hartnell-thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
+
+.hartnell-thumbnail-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.hartnell-thumbnail-container::-webkit-scrollbar-track {
+    background: #ecf0f1;
+    border-radius: 3px;
+}
+
+.hartnell-thumbnail-container::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 3px;
+}
+
+.hartnell-thumbnail-container::-webkit-scrollbar-thumb:hover {
+    background: #95a5a6;
+}
+
+.hartnell-thumb {
+    cursor: pointer;
+    height: 60px;
+    width: auto;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    margin: 0 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+
+.hartnell-thumb:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.hartnell-thumb.hartnell-current-thumb {
+    opacity: 1;
+    transform: scale(1.1);
+    border: 2px solid #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+/* Mobile responsive styles for Hartnell slideshow */
+@media (max-width: 768px) {
+    .hartnell-slideshow-container {
+        width: 98%;
+        margin: 15px auto;
+    }
+    
+    .hartnell-slide-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hartnell-image-container {
+        min-width: auto;
+    }
+    
+    .hartnell-text-container {
+        padding-left: 0;
+    }
+    
+    .hartnell-slide-title {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+    
+    .hartnell-slide-description {
+        font-size: 0.95em;
+    }
+    
+    .hartnell-nav-btn {
+        padding: 10px 12px;
+        font-size: 16px;
+        margin-top: -20px;
+    }
+    
+    .hartnell-slide-counter {
+        font-size: 1em;
+        padding: 12px;
+    }
+    
+    .hartnell-thumb {
+        height: 50px;
+        margin: 0 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hartnell-slideshow-container {
+        width: 100%;
+        margin: 10px auto;
+        border-radius: 0;
+    }
+    
+    .hartnell-slides {
+        padding: 15px;
+    }
+    
+    .hartnell-slide-title {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+    
+    .hartnell-slide-description {
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+    
+    .hartnell-nav-btn {
+        padding: 8px 10px;
+        font-size: 14px;
+        margin-top: -15px;
+    }
+    
+    .hartnell-slide-counter {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+    
+    .hartnell-thumb {
+        height: 45px;
+        margin: 0 4px;
+    }
+}
+
+@media (max-width: 320px) {
+    .hartnell-slides {
+        padding: 10px;
+    }
+    
+    .hartnell-slide-title {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+    
+    .hartnell-slide-description {
+        font-size: 0.85em;
+    }
+    
+    .hartnell-thumb {
+        height: 40px;
+        margin: 0 3px;
+    }
+}

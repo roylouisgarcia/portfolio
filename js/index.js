@@ -216,45 +216,33 @@ $(document).ready(function(){
     });
     
     $("#hartnellcoursesbtn").click(function(){
-       $("#hartnellcourses").show("fast", function(){});
-       $("#hartnellprojects").hide("fast", function(){});
-       $("#hartnellcoursesbtn").addClass("totiebtnActive", function(){});
-       $("#hartnellprojectsbtn").removeClass("totiebtnActive", function(){});      
+       $("#hartnellcourses").toggle("fast");
+       $("#hartnellcoursesbtn").toggleClass("totiebtnActive");      
     });
     
     $("#hartnellprojectsbtn").click(function(){
-       $("#hartnellcourses").hide("fast", function(){});
-       $("#hartnellprojects").show("fast", function(){});
-       $("#hartnellcoursesbtn").removeClass("totiebtnActive", function(){});
-       $("#hartnellprojectsbtn").addClass("totiebtnActive", function(){});            
+       $("#hartnellprojects").toggle("fast");
+       $("#hartnellprojectsbtn").toggleClass("totiebtnActive");            
     });
     
     $("#csumbcoursesbtn").click(function(){
-       $("#csumbcourses").show("fast", function(){});
-       $("#csumbprojects").hide("fast", function(){});
-       $("#csumbcoursesbtn").addClass("totiebtnActive", function(){});
-       $("#csumbprojectsbtn").removeClass("totiebtnActive", function(){});        
+       $("#csumbcourses").toggle("fast");
+       $("#csumbcoursesbtn").toggleClass("totiebtnActive");        
     });
     
     $("#csumbprojectsbtn").click(function(){
-       $("#csumbcourses").hide("fast", function(){});
-       $("#csumbprojects").show("fast", function(){});
-       $("#csumbcoursesbtn").removeClass("totiebtnActive", function(){});
-       $("#csumbprojectsbtn").addClass("totiebtnActive", function(){});           
+       $("#csumbprojects").toggle("fast");
+       $("#csumbprojectsbtn").toggleClass("totiebtnActive");           
     });
     
     $("#capellacoursesbtn").click(function(){
-       $("#capellacourses").show("fast", function(){});
-       $("#capellaprojects").hide("fast", function(){});
-       $("#capellacoursesbtn").addClass("totiebtnActive", function(){});
-       $("#capellaprojectsbtn").removeClass("totiebtnActive", function(){});       
+       $("#capellacourses").toggle("fast");
+       $("#capellacoursesbtn").toggleClass("totiebtnActive");       
     });
     
     $("#capellaprojectsbtn").click(function(){
-       $("#capellacourses").hide("fast", function(){});
-       $("#capellaprojects").show("fast", function(){});
-       $("#capellacoursesbtn").removeClass("totiebtnActive", function(){});
-       $("#capellaprojectsbtn").removeClass("totiebtnActive", function(){});          
+       $("#capellaprojects").toggle("fast");
+       $("#capellaprojectsbtn").toggleClass("totiebtnActive");          
     });    
     $("#nostradmsxbtn").click(function(){
        $("#nostradmsxdiv").show("fast", function(){});
@@ -507,6 +495,26 @@ function findImageForTitle(title) {
   return 'certs_projects/meta_web_development.png';
 }
 
+// Function to format Read More content from text file into HTML
+function formatReadMoreContent(content) {
+  if (!content) return '';
+  
+  // Convert the plain text content to HTML with proper formatting
+  let formattedContent = content
+    .replace(/## ([^#\n]+)/g, '<h3 style="color: #007bff; margin: 20px 0 10px 0; font-size: 18px;">$1</h3>')
+    .replace(/### ([^#\n]+)/g, '<h4 style="color: #0056b3; margin: 15px 0 8px 0; font-size: 16px;">$1</h4>')
+    .replace(/# ([^#\n]+)/g, '<h2 style="color: #004085; margin: 25px 0 15px 0; font-size: 20px;">$1</h2>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/- \*\*([^*]+)\*\* - ([^\n]+)/g, '<div style="margin: 5px 0;"><strong>$1</strong> - $2</div>')
+    .replace(/\n\n/g, '</p><p style="margin: 10px 0; line-height: 1.6;">')
+    .replace(/\n/g, ' ');
+  
+  // Wrap in paragraph tags
+  formattedContent = '<p style="margin: 10px 0; line-height: 1.6; text-align: justify;">' + formattedContent + '</p>';
+  
+  return formattedContent;
+}
+
 // Function to get additional project information for Read More content
 function getAdditionalProjectInfo(title) {
   const lowerTitle = title.toLowerCase();
@@ -624,6 +632,7 @@ function parseMoocProjectsData(content) {
   }
   
   console.log('Parsed projects:', projects);
+  console.log('Projects with images:', projects.map(p => ({ title: p.title, image1: p.image1, image2: p.image2 })));
   return projects;
 }
 
@@ -670,9 +679,22 @@ function loadCertSlides() {
   certSlides = [];
 
   certificationsData.forEach((project, index) => {
-    // Find the appropriate local image for this project
-    const localImage = findImageForTitle(project.title);
-    console.log(`Project "${project.title}" mapped to image: ${localImage}`);
+    // Determine which image to use:
+    // 1. If project.image1 exists and is not empty, use it
+    // 2. Otherwise, fallback to findImageForTitle
+    let localImage;
+    
+    if (project.image1 && project.image1.trim() !== '' && project.image1 !== '#') {
+      localImage = project.image1;
+    } else {
+      localImage = findImageForTitle(project.title);
+    }
+    
+    console.log(`Project "${project.title}":`, {
+      image1: project.image1,
+      image2: project.image2,
+      finalImage: localImage
+    });
     
     // Create slide
     const slideDiv = document.createElement('div');
@@ -714,6 +736,18 @@ function loadCertSlides() {
     img.title = 'Click to view GitHub repository';
     img.onerror = function() {
       console.error('Failed to load image:', localImage);
+      
+      // Try fallback: if it was using project.image1, try findImageForTitle
+      if (localImage === project.image1) {
+        const fallbackImage = findImageForTitle(project.title);
+        console.log(`Trying fallback image for "${project.title}": ${fallbackImage}`);
+        
+        if (fallbackImage !== localImage) {
+          img.src = fallbackImage;
+          return; // Let the new image try to load
+        }
+      }
+      
       // Create a placeholder if image fails to load
       const placeholder = document.createElement('div');
       placeholder.style.width = '300px';
@@ -765,7 +799,20 @@ function loadCertSlides() {
     const githubLink = document.createElement('a');
     githubLink.href = project.githubUrl;
     githubLink.target = '_blank';
-    githubLink.textContent = 'View on GitHub';
+    
+    // Special handling for Bertelsmann nanodegree
+    if (project.title.includes('Bertelsmann')) {
+        githubLink.textContent = 'See Projects';
+        githubLink.href = '#'; // Since we're not linking to GitHub
+        githubLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Create and show the Bertelsmann projects div
+            showBertelsmannProjects();
+        });
+    } else {
+        githubLink.textContent = 'View on GitHub';
+    }
+    
     githubLink.classList.add('project-btn', 'project-btn-github');
     
     const readMoreBtn = document.createElement('button');
@@ -802,7 +849,7 @@ function loadCertSlides() {
     `;
     
     // Get additional info for this project
-    const additionalInfo = getAdditionalProjectInfo(project.title);
+    const additionalInfo = project.readMore ? formatReadMoreContent(project.readMore) : getAdditionalProjectInfo(project.title);
     readMoreContent.innerHTML = additionalInfo;
     
     slideContent.appendChild(readMoreContent);
@@ -829,6 +876,18 @@ function loadCertSlides() {
     thumb.title = project.title + ' - Click to view slide or Ctrl+Click for GitHub';
     thumb.onerror = function() {
       console.error('Failed to load thumbnail:', localImage);
+      
+      // Try fallback: if it was using project.image1, try findImageForTitle
+      if (localImage === project.image1) {
+        const fallbackImage = findImageForTitle(project.title);
+        console.log(`Trying fallback thumbnail for "${project.title}": ${fallbackImage}`);
+        
+        if (fallbackImage !== localImage) {
+          thumb.src = fallbackImage;
+          return; // Let the new image try to load
+        }
+      }
+      
       // Create a simple text thumbnail if image fails
       const textThumb = document.createElement('div');
       textThumb.classList.add('cert-thumb');
@@ -2031,4 +2090,312 @@ function preloadCriticalImages() {
         link.href = src;
         document.head.appendChild(link);
     });
+}
+
+// Function to show Bertelsmann projects with 4 slideshows
+function showBertelsmannProjects() {
+    // Remove existing Bertelsmann modal if it exists
+    const existingModal = document.getElementById('bertelsmannProjectsModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.id = 'bertelsmannProjectsModal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+    `;
+
+    // Create modal content
+    const modalContent = document.createElement('div');
+    modalContent.style.cssText = `
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 90%;
+        max-height: 90%;
+        overflow-y: auto;
+        position: relative;
+    `;
+
+    // Create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        color: #666;
+        z-index: 10001;
+    `;
+    closeBtn.onclick = () => modal.remove();
+
+    // Create title
+    const title = document.createElement('h2');
+    title.textContent = 'Bertelsmann Technology Scholarship - Enterprise Security Projects';
+    title.style.cssText = `
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    `;
+
+    // Create container for the 4 projects
+    const projectsContainer = document.createElement('div');
+    projectsContainer.style.cssText = `
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 20px;
+    `;
+
+    // Project data with descriptions
+    const projects = [
+        { 
+            name: 'Project 1', 
+            folder: 'Project1',
+            description: 'Comprehensive enterprise security framework analysis covering threat assessment methodologies, risk evaluation protocols, and security architecture design principles. This project demonstrates advanced understanding of cybersecurity fundamentals and practical implementation strategies.'
+        },
+        { 
+            name: 'Project 2', 
+            folder: 'Project2',
+            description: 'Advanced network security implementation focusing on intrusion detection systems, firewall configuration, and security monitoring protocols. Explores real-world security scenarios and defensive measures against common attack vectors.'
+        },
+        { 
+            name: 'Project 3', 
+            folder: 'Project3',
+            description: 'Enterprise security policy development and compliance framework design. Covers security governance, risk management procedures, and regulatory compliance requirements for enterprise-level security implementations.'
+        },
+        { 
+            name: 'Project 4', 
+            folder: 'Project4',
+            description: 'Cybersecurity incident response and digital forensics analysis. Demonstrates practical skills in security breach investigation, evidence collection, and incident mitigation strategies for enterprise environments.'
+        }
+    ];
+
+    // Create each project slideshow
+    projects.forEach((project, index) => {
+        const projectDiv = document.createElement('div');
+        projectDiv.style.cssText = `
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f9f9f9;
+        `;
+
+        const projectTitle = document.createElement('h3');
+        projectTitle.textContent = project.name;
+        projectTitle.style.cssText = `
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        `;
+
+        const slideshowContainer = document.createElement('div');
+        slideshowContainer.style.cssText = `
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        `;
+
+        const slideshowId = `bertelsmann-project-${index + 1}`;
+        slideshowContainer.id = slideshowId;
+
+        // Create slideshow wrapper
+        const slidesWrapper = document.createElement('div');
+        slidesWrapper.style.cssText = `
+            display: flex;
+            transition: transform 0.3s ease;
+            height: 100%;
+        `;
+
+        // Get images for this project
+        const images = getBertelsmannProjectImages(project.folder);
+        
+        images.forEach((imagePath, imgIndex) => {
+            const slide = document.createElement('div');
+            slide.style.cssText = `
+                min-width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            `;
+
+            const img = document.createElement('img');
+            img.src = imagePath;
+            img.style.cssText = `
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            `;
+            img.alt = `${project.name} - Image ${imgIndex + 1}`;
+
+            slide.appendChild(img);
+            slidesWrapper.appendChild(slide);
+        });
+
+        // Add navigation buttons if there are multiple images
+        if (images.length > 1) {
+            const prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '&#10094;';
+            prevBtn.style.cssText = `
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 3px;
+                z-index: 100;
+            `;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.innerHTML = '&#10095;';
+            nextBtn.style.cssText = `
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 3px;
+                z-index: 100;
+            `;
+
+            // Add slide counter
+            const slideCounter = document.createElement('div');
+            slideCounter.style.cssText = `
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0,0,0,0.5);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-size: 12px;
+            `;
+            slideCounter.textContent = `1 / ${images.length}`;
+
+            let currentSlide = 0;
+
+            const updateSlideshow = () => {
+                slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                slideCounter.textContent = `${currentSlide + 1} / ${images.length}`;
+            };
+
+            prevBtn.onclick = () => {
+                currentSlide = currentSlide > 0 ? currentSlide - 1 : images.length - 1;
+                updateSlideshow();
+            };
+
+            nextBtn.onclick = () => {
+                currentSlide = currentSlide < images.length - 1 ? currentSlide + 1 : 0;
+                updateSlideshow();
+            };
+
+            slideshowContainer.appendChild(prevBtn);
+            slideshowContainer.appendChild(nextBtn);
+            slideshowContainer.appendChild(slideCounter);
+        }
+
+        slideshowContainer.appendChild(slidesWrapper);
+        
+        // Create project description
+        const projectDescription = document.createElement('p');
+        projectDescription.textContent = project.description;
+        projectDescription.style.cssText = `
+            margin-top: 15px;
+            margin-bottom: 0;
+            color: #555;
+            line-height: 1.6;
+            font-size: 14px;
+            text-align: justify;
+        `;
+        
+        projectDiv.appendChild(projectTitle);
+        projectDiv.appendChild(slideshowContainer);
+        projectDiv.appendChild(projectDescription);
+        projectsContainer.appendChild(projectDiv);
+    });
+
+    // Assemble modal
+    modalContent.appendChild(closeBtn);
+    modalContent.appendChild(title);
+    modalContent.appendChild(projectsContainer);
+    modal.appendChild(modalContent);
+
+    // Add click outside to close
+    modal.onclick = (e) => {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    };
+
+    // Add to document
+    document.body.appendChild(modal);
+}
+
+// Helper function to get images for each Bertelsmann project
+function getBertelsmannProjectImages(projectFolder) {
+    const basePath = 'certs_projects/Udacity/';
+    
+    // Define images for each project folder
+    const projectImages = {
+        'Project1': [
+            'Project1-page-01.jpg', 'Project1-page-02.jpg', 'Project1-page-03.jpg', 'Project1-page-04.jpg',
+            'Project1-page-05.jpg', 'Project1-page-06.jpg', 'Project1-page-07.jpg', 'Project1-page-12.jpg',
+            'Project1-page-13.jpg', 'Project1-page-18.jpg', 'Project1-page-20.jpg', 'Project1-page-21.jpg',
+            'Project1-page-23.jpg', 'Project1-page-24.jpg', 'Project1-page-26.jpg', 'Project1-page-27.jpg',
+            'Project1-page-29.jpg', 'Project1-page-30.jpg', 'Project1-page-31.jpg', 'Project1-page-32.jpg',
+            'Project1-page-33.jpg', 'Project1-page-35.jpg', 'Project1-page-36.jpg', 'Project1-page-37.jpg',
+            'Project1-page-38.jpg', 'Project1-page-39.jpg', 'Project1-page-43.jpg', 'Project1-page-44.jpg',
+            'Project1-page-45.jpg', 'Project1-page-46.jpg', 'Project1-page-49.jpg', 'Project1-page-50.jpg',
+            'Project1-page-51.jpg', 'Project1-page-52.jpg', 'Project1-page-53.jpg', 'Project1-page-55.jpg',
+            'Project1-page-56.jpg', 'Project1-page-60.jpg', 'Project1-page-61.jpg', 'Project1-page-62.jpg',
+            'Project1-page-63.jpg'
+        ],
+        'Project2': [
+            'Project2-page-08.jpg', 'Project2-page-09.jpg', 'Project2-page-10.jpg',
+            'Project2-page-18.jpg', 'Project2-page-19.jpg', 'Project2-page-20.jpg'
+        ],
+        'Project3': [
+            'Project3-page-01.jpg', 'Project3-page-10.jpg', 'Project3-page-15.jpg', 'Project3-page-17.jpg',
+            'Project3-page-18.jpg', 'Project3-page-19.jpg', 'Project3-page-20.jpg', 'Project3-page-21.jpg',
+            'Project3-page-23.jpg', 'Project3-page-24.jpg', 'Project3-page-25.jpg', 'Project3-page-26.jpg'
+        ],
+        'Project4': [
+            'Project4-page-01.jpg', 'Project4-page-08.jpg', 'Project4-page-09.jpg', 'Project4-page-10.jpg',
+            'Project4-page-11.jpg', 'Project4-page-12.jpg', 'Project4-page-14.jpg', 'Project4-page-15.jpg',
+            'Project4-page-16.jpg', 'Project4-page-18.jpg', 'Project4-page-19.jpg', 'Project4-page-20.jpg',
+            'Project4-page-21.jpg', 'Project4-page-22.jpg', 'Project4-page-27.jpg'
+        ]
+    };
+
+    const images = projectImages[projectFolder] || [];
+    return images.map(filename => `${basePath}${projectFolder}/${filename}`);
 }

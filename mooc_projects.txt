@@ -1,3 +1,11 @@
+title: Bertelsmann Technology Scholarship - Enterprise Security Nanodegree
+github url: #
+image 1: https://roylouisgarcia.github.io/portfolio/specialization/images/ibm_specialization_ibmcybersecurityanalyst.jpg 
+image 2: https://roylouisgarcia.github.io/portfolio/specialization/images/ibm_specialization_ibmcybersecurityanalyst.jpg 
+description: Advanced enterprise security nanodegree program focusing on cybersecurity frameworks, threat assessment, and security architecture design. Comprehensive coverage of enterprise-level security protocols and implementation strategies.
+actual site: #
+Read more: The project integrates cloud infrastructure using Microsoft Azure services like Virtual Networks, Entra (formerly Azure AD), Sentinel, Intune, and Defender for Endpoint, paired with Ubuntu-based VMs. For security monitoring, it utilizes ELK Stack (Elasticsearch, Logstash, Kibana, Filebeat), SIEM/SOAR platforms, and EDR/IDS technologies. Network defenses include DMZs, VPNs, TCP Wrappers, and segmented LANs. Authentication methods encompass MFA, biometrics, passwordless access, and identity management. Data protection is enforced via encryption, classification, and hashing. Threat detection relies on behavioral analysis, DDoS and brute force monitoring, and threat intelligence feeds, while incident response is guided by playbooks and IRTs. The stack emphasizes Zero Trust, defense-in-depth, and least privilege principles, aligned with compliance standards like NIST 800-61r2 and TIC 3.0. Additional layers include device management (MDM, remote wipe, patching), security testing (penetration, port scanning, traffic generation), analytics (machine learning, big data, threat hunting), monitored protocols (SSH, RDP, Kerberos, etc.), and risk management practices like asset inventory, BIA, SLA tracking, and compliance violation monitoring.
+
 title: Coursera/Meta HTML and CSS in Depth
 github url: https://github.com/roylouisgarcia/meta-coursera-html-css-project/tree/main
 image 1: https://github.com/roylouisgarcia/meta-coursera-html-css-project/blob/main/images/readme_wholepicture.jpg

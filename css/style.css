@@ -3842,3 +3842,44 @@ figure video {
 #capellaprojects {
     display: none;
 }
+
+/* Font Toggle Functionality for About Section */
+#about.transitioning * {
+  transition: font-family 0.3s ease-in-out;
+}
+
+/* About section mode classes */
+#about.handwritten-mode h3,
+#about.handwritten-mode p,
+#about.handwritten-mode .writing,
+#about.handwritten-mode .postit-summary {
+  font-family: "Nothing You Could Do", cursive !important;
+  font-weight: bolder;
+}
+
+#about.typewriter-mode h3,
+#about.typewriter-mode p,
+#about.typewriter-mode .writing,
+#about.typewriter-mode .postit-summary {
+  font-family: "Courier Prime", "Courier New", "Lucida Console", Monaco, monospace !important;
+  font-weight: normal;
+}
+
+/* Maintain specific styling for different text types */
+#about .boy .writing,
+#about .teenager .writing,
+#about .adult .writing {
+  font-size: 1.3em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  margin: 25px 0;
+}
+
+#about .boy .teentoys,
+#about .teenager .teentoys,
+#about .adult .teentoys {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-left: 3px solid #d4c4a8;
+  margin: 20px 0;
+  border-radius: 5px;
+}

@@ -29,8 +29,8 @@ $(document).ready(function(){
         // Hide specialization section and its jumbotron when navigating to projects
         $('#specialization').hide('fast');
         $('.jumbotron-before-specialization').hide('fast');
-        // Show Academic tab when going to projects
-        showAcademicTab();
+        // Show Featured tab when going to projects
+        showFeaturedTab();
       } else {
         // Hide specialization section and its jumbotron when navigating to other sections
         $('#specialization').hide('fast');
@@ -139,6 +139,10 @@ $(document).ready(function(){
         initializeFeaturedSlideshow();
         window.featuredInitialized = true;
       }
+      // Automatically show personal details and update button text
+      $("#personalDetails").show("fast", function(){
+        $("#personalDetailsBtn").text("HIDE DETAILS");
+      });
     });
     $(".certifications").hide("fast", function(){});
     $("#link2Featured").removeClass("active");      
@@ -414,6 +418,35 @@ $(document).ready(function(){
         $("#link2Professional").removeClass("active");
         $("#link2Personal").removeClass("active");
         $("#link2Certifications").removeClass("active");
+        $("#hartnell").hide("fast", function () {});
+        $("#csumb").hide("fast", function () {});
+        $("#capella").hide("fast", function () {});
+        $("#associate").css("opacity", "1");
+        $("#bachelors").css("opacity", "1");
+        $("#graduate").css("opacity", "1");
+        hideFeaturedProjects();
+        hideAcademicProjects();
+        hideProProjects();
+        hideLyricsProjects();
+     }
+
+     function showFeaturedTab(){
+        $(".featured").hide("fast", function(){});
+        $(".academic").hide("fast", function(){});
+        $(".professional").hide("fast", function(){});
+        $(".personal").hide("fast", function(){});
+        $(".certifications").show("fast", function(){
+          // Initialize the certifications slideshow if not already done
+          if (!window.certificationsInitialized) {
+            initializeCertificationsSlideshow();
+            window.certificationsInitialized = true;
+          }
+        });
+        $("#link2Featured").removeClass("active");
+        $("#link2Academic").removeClass("active");
+        $("#link2Professional").removeClass("active");
+        $("#link2Personal").removeClass("active");
+        $("#link2Certifications").addClass("active");
         $("#hartnell").hide("fast", function () {});
         $("#csumb").hide("fast", function () {});
         $("#capella").hide("fast", function () {});
@@ -1287,26 +1320,36 @@ $(document).on('mousedown touchstart', function(event) {
 $(document).ready(function() {
   // About section font toggle
   $('#about-font-toggle').on('click', function() {
-    var $summary = $('#about-summary');
+    var $aboutSection = $('#about');
     var $toggleBtn = $(this);
     var $toggleText = $toggleBtn.find('.toggle-text');
     
-    // Add transition class
-    $summary.addClass('transitioning');
+    // Add transition class to all text elements in about section
+    $aboutSection.addClass('transitioning');
     
-    if ($summary.hasClass('handwritten')) {
-      // Switch to typewriter
-      $summary.removeClass('handwritten').addClass('typewriter');
-      $toggleText.text('Handwritten');
-    } else {
-      // Switch to handwritten
-      $summary.removeClass('typewriter').addClass('handwritten');
+    if ($aboutSection.hasClass('typewriter-mode')) {
+      // Switch to handwritten mode
+      $aboutSection.removeClass('typewriter-mode').addClass('handwritten-mode');
+      
+      // Apply handwritten class to all text elements within about section
+      $aboutSection.find('h3, p, .writing, .typewriter').removeClass('typewriter').addClass('handwritten');
+      $aboutSection.find('.postit-summary').removeClass('typewriter').addClass('handwritten');
+      
       $toggleText.text('Typewriter');
+    } else {
+      // Switch to typewriter mode
+      $aboutSection.removeClass('handwritten-mode').addClass('typewriter-mode');
+      
+      // Apply typewriter class to all text elements within about section
+      $aboutSection.find('h3, p, .writing, .handwritten').removeClass('handwritten').addClass('typewriter');
+      $aboutSection.find('.postit-summary').removeClass('handwritten').addClass('typewriter');
+      
+      $toggleText.text('Handwritten');
     }
     
     // Remove transition class after animation
     setTimeout(function() {
-      $summary.removeClass('transitioning');
+      $aboutSection.removeClass('transitioning');
     }, 300);
   });
   

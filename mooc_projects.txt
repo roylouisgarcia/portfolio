@@ -4,7 +4,7 @@ image 1: https://roylouisgarcia.github.io/portfolio/specialization/images/ibm_sp
 image 2: https://roylouisgarcia.github.io/portfolio/specialization/images/ibm_specialization_ibmcybersecurityanalyst.jpg 
 description: Advanced enterprise security nanodegree program focusing on cybersecurity frameworks, threat assessment, and security architecture design. Comprehensive coverage of enterprise-level security protocols and implementation strategies.
 actual site: #
-Read more: The project integrates cloud infrastructure using Microsoft Azure services like Virtual Networks, Entra (formerly Azure AD), Sentinel, Intune, and Defender for Endpoint. We used ELK Stack (Elasticsearch, Logstash, Kibana, Filebeat), SIEM/SOAR platforms, and EDR/IDS technologies for Security Monitoring. Network defenses include DMZs, VPNs, TCP Wrappers, and segmented LANs. The stack emphasizes Zero Trust, defense-in-depth, and least privilege principles, aligned with compliance standards like NIST 800-61r2 and TIC 3.0. Additional layers include device management (MDM, remote wipe, patching), security testing (penetration, port scanning, traffic generation), analytics (machine learning, big data, threat hunting), monitored protocols (SSH, RDP, Kerberos, etc.), and risk management practices like asset inventory, BIA, SLA tracking, and compliance violation monitoring. 
+Read more: Technologies Used: Microsoft Azure services (Virtual Networks, Entra, Sentinel, Intune, Defender for Endpoint), ELK Stack (Elasticsearch, Logstash, Kibana, Filebeat), SIEM/SOAR platforms, EDR/IDS technologies; Key Features: Network defenses with DMZs and VPNs, Zero Trust security architecture, defense-in-depth strategies, compliance alignment with NIST 800-61r2 and TIC 3.0; Learning Outcomes: Enterprise security frameworks, threat assessment methodologies, cloud security implementation, risk management practices 
 
 title: Coursera/Meta HTML and CSS in Depth
 github url: https://github.com/roylouisgarcia/meta-coursera-html-css-project/tree/main
@@ -14,15 +14,6 @@ description: the project is a portfolio website as part of the Meta Front-End De
 actual site: https://roylouisgarcia.github.io/meta-coursera-html-css-project/
 Read more: Technologies Used: HTML5, CSS3, Flexbox, Grid Layout; Key Features: Responsive design, semantic HTML, modern CSS techniques; Learning Outcomes: Advanced CSS selectors, animations, and responsive web design principles
 
-title: Exploring Python and Windows API
-github url: https://github.com/roylouisgarcia/python4windowsapi
-image 1: https://github.com/roylouisgarcia/python4windowsapi/blob/main/images/00_helloworld_code.png
-image 2: https://github.com/roylouisgarcia/python4windowsapi/blob/main/images/01_project_ss.png?raw=true
-description: A traditional HelloWorld script that explores the concept of Windows DLL, handles and the necessary parameters to call the Windows API call MessageBoxW().  A script that uses the Windows API calls or systems calls via Python Script that in order to kill any Windows Process
-Read More: 
-Technologies Used: Python, Windows API, ctypes library; Key Features: Direct system calls, process management, native Windows integration; Learning Outcomes: Low-level programming, system architecture, API interaction
-
-
 title: Android Programming - Court Counter
 github url: https://github.com/roylouisgarcia/ABNProject2
 image 1: https://github.com/roylouisgarcia/ABNProject2/blob/master/Capture.PNG
@@ -30,7 +21,20 @@ image 2: https://github.com/roylouisgarcia/ABNProject2/blob/master/ss.gif
 description: As part of the Grow With Google Challenge Scholarship course hosted in Udacity , this project explores the concept of Android XML Layouts and Java Programming. 
 Read more: Technologies Used: Java, Android SDK, XML Layouts; Key Features: Interactive UI, state management, basketball scoring system; Learning Outcomes: Mobile app development, Android lifecycle, UI/UX design
 
+title: Exploring Python and Windows API
+github url: https://github.com/roylouisgarcia/python4windowsapi
+image 1: https://github.com/roylouisgarcia/python4windowsapi/blob/main/images/00_helloworld_code.png
+image 2: https://github.com/roylouisgarcia/python4windowsapi/blob/main/images/01_project_ss.png?raw=true
+description: A traditional HelloWorld script that explores the concept of Windows DLL, handles and the necessary parameters to call the Windows API call MessageBoxW().  A script that uses the Windows API calls or systems calls via Python Script that in order to kill any Windows Process
+Read more: Technologies Used: Python, Windows API, ctypes library; Key Features: Direct system calls, process management, native Windows integration; Learning Outcomes: Low-level programming, system architecture, API interaction
 
+
+title: My Coursera Certificate Slideshow
+github url :https://github.com/roylouisgarcia/courses?tab=readme-ov-file 
+image 1: https://github.com/roylouisgarcia/courses/raw/master/ss1.png
+image 2: https://github.com/roylouisgarcia/courses/raw/master/ss1.png
+description: A dynamic, interactive web application showcasing my professional development journey through various online courses and certifications from top institutions including IBM, Google, Meta, Stanford, DeepLearning.AI, and more. 
+Read more: Technologies Used: HTML, CSS, and JavaScript; Key Features: Dynamic slideshow functionality, responsive design, interactive thumbnail navigation, professional certification showcase; Learning Outcomes: DOM manipulation, responsive web design, dynamic content loading, user interface development
 
 
 

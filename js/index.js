@@ -541,18 +541,47 @@ function findImageForTitle(title) {
 function formatReadMoreContent(content) {
   if (!content) return '';
   
-  // Convert the plain text content to HTML with proper formatting
-  let formattedContent = content
-    .replace(/## ([^#\n]+)/g, '<h3 style="color: #007bff; margin: 20px 0 10px 0; font-size: 18px;">$1</h3>')
-    .replace(/### ([^#\n]+)/g, '<h4 style="color: #0056b3; margin: 15px 0 8px 0; font-size: 16px;">$1</h4>')
-    .replace(/# ([^#\n]+)/g, '<h2 style="color: #004085; margin: 25px 0 15px 0; font-size: 20px;">$1</h2>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/- \*\*([^*]+)\*\* - ([^\n]+)/g, '<div style="margin: 5px 0;"><strong>$1</strong> - $2</div>')
-    .replace(/\n\n/g, '</p><p style="margin: 10px 0; line-height: 1.6;">')
-    .replace(/\n/g, ' ');
+  // Parse the content to extract structured information
+  let formattedContent = '';
   
-  // Wrap in paragraph tags
-  formattedContent = '<p style="margin: 10px 0; line-height: 1.6; text-align: justify;">' + formattedContent + '</p>';
+  // Check if the content contains structured information with semicolons
+  if (content.includes('Technologies Used:') && content.includes(';')) {
+    // Parse structured content like "Technologies Used: HTML5, CSS3, Flexbox, Grid Layout; Key Features: ..."
+    const sections = content.split(';').map(s => s.trim());
+    
+    sections.forEach(section => {
+      if (section.includes('Technologies Used:')) {
+        const tech = section.replace('Technologies Used:', '').trim();
+        formattedContent += `
+          <h4 style="color: #007bff; margin-bottom: 15px; text-align: left;">Technologies Used</h4>
+          <p style="text-align: left; font-size: inherit; line-height: inherit;"><strong>${tech}</strong></p>
+        `;
+      } else if (section.includes('Key Features:')) {
+        const features = section.replace('Key Features:', '').trim();
+        formattedContent += `
+          <h4 style="color: #007bff; margin-bottom: 15px; margin-top: 20px; text-align: left;">Key Features</h4>
+          <p style="text-align: left; font-size: inherit; line-height: inherit;">${features}</p>
+        `;
+      } else if (section.includes('Learning Outcomes:')) {
+        const outcomes = section.replace('Learning Outcomes:', '').trim();
+        formattedContent += `
+          <h4 style="color: #007bff; margin-bottom: 15px; margin-top: 20px; text-align: left;">Learning Outcomes</h4>
+          <p style="text-align: left; font-size: inherit; line-height: inherit;">${outcomes}</p>
+        `;
+      }
+    });
+  } else {
+    // For unstructured content, format as a general project overview
+    let cleanContent = content
+      .replace(/\n\n/g, '</p><p style="margin: 10px 0; line-height: 1.6; text-align: justify;">')
+      .replace(/\n/g, ' ')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    
+    formattedContent = `
+      <h4 style="color: #007bff; margin-bottom: 15px; text-align: left;">Project Overview</h4>
+      <p style="margin: 10px 0; line-height: 1.6; text-align: justify;">${cleanContent}</p>
+    `;
+  }
   
   return formattedContent;
 }
@@ -2192,11 +2221,58 @@ function showBertelsmannProjects() {
         background: white;
         padding: 20px;
         border-radius: 10px;
-        max-width: 90%;
+        max-width: 700px;
+        width: 90%;
         max-height: 90%;
         overflow-y: auto;
         position: relative;
+        margin: 20px;
     `;
+
+    // Add responsive adjustments for smaller screens
+    const mediaQueryStyle = document.createElement('style');
+    mediaQueryStyle.textContent = `
+        @media (max-width: 768px) {
+            #bertelsmannProjectsModal .modal-content {
+                width: 95% !important;
+                max-width: 95% !important;
+                padding: 15px !important;
+                margin: 10px !important;
+            }
+            #bertelsmannProjectsModal .bertelsmann-slideshow {
+                height: 470px !important;
+            }
+            #bertelsmannProjectsModal .bertelsmann-project-title {
+                font-size: 16px !important;
+                margin-bottom: 10px !important;
+            }
+        }
+        @media (max-width: 480px) {
+            #bertelsmannProjectsModal .modal-content {
+                width: 98% !important;
+                max-width: 98% !important;
+                padding: 10px !important;
+                margin: 5px !important;
+            }
+            #bertelsmannProjectsModal .bertelsmann-slideshow {
+                height: 470px !important;
+            }
+            #bertelsmannProjectsModal .bertelsmann-project-title {
+                font-size: 14px !important;
+                margin-bottom: 8px !important;
+            }
+        }
+        @media (max-width: 360px) {
+            #bertelsmannProjectsModal .bertelsmann-slideshow {
+                height: 470px !important;
+            }
+            #bertelsmannProjectsModal .bertelsmann-project-title {
+                font-size: 13px !important;
+            }
+        }
+    `;
+    document.head.appendChild(mediaQueryStyle);
+    modalContent.classList.add('modal-content');
 
     // Create close button
     const closeBtn = document.createElement('button');
@@ -2272,17 +2348,20 @@ function showBertelsmannProjects() {
             text-align: center;
             margin-bottom: 15px;
             color: #333;
+            font-size: 18px;
         `;
+        projectTitle.classList.add('bertelsmann-project-title');
 
         const slideshowContainer = document.createElement('div');
         slideshowContainer.style.cssText = `
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 470px;
             overflow: hidden;
             border-radius: 5px;
             margin-bottom: 15px;
         `;
+        slideshowContainer.classList.add('bertelsmann-slideshow');
 
         const slideshowId = `bertelsmann-project-${index + 1}`;
         slideshowContainer.id = slideshowId;
@@ -2306,13 +2385,14 @@ function showBertelsmannProjects() {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 10px;
             `;
 
             const img = document.createElement('img');
             img.src = imagePath;
             img.style.cssText = `
-                max-width: 100%;
-                max-height: 100%;
+                width: 80%;
+                height: 450px;
                 object-fit: contain;
             `;
             img.alt = `${project.name} - Image ${imgIndex + 1}`;

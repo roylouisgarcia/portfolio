@@ -846,11 +846,86 @@ h4 {
 .teenager {
   text-align: center;
   display: none;
-  background-image: url("/images/spacewar.jpg");
-  background-repeat: repeat;
-  background-size: auto;
-  padding: 30px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* Scroll paper styling */
+  background: linear-gradient(135deg, #f5f1e8 0%, #e8e0d4 25%, #f0ead6 50%, #e8dcc6 75%, #f5f1e8 100%);
+  background-size: 100% 100%;
+  border: 2px solid #d4c4a8;
+  border-radius: 15px;
+  position: relative;
+  padding: 40px 30px;
+  margin: 20px auto;
+  max-width: 90%;
+  box-shadow: 
+    0 4px 8px 0 rgba(0, 0, 0, 0.15),
+    0 6px 20px 0 rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Add scroll paper texture and aged effect */
+.adult::before,
+.boy::before,
+.teenager::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(120, 120, 120, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(120, 120, 120, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(120, 120, 120, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px, 75px 75px, 60px 60px;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+/* Add rolled edge effect */
+.adult::after,
+.boy::after,
+.teenager::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, transparent 40%, rgba(210, 180, 140, 0.3) 50%, transparent 60%);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+/* Text styling for scroll paper effect */
+.adult p,
+.boy p,
+.teenager p {
+  color: #3a2f2a;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.adult .writing,
+.boy .writing,
+.teenager .writing {
+  font-family: "Nothing You Could Do", cursive;
+  color: #4a3429;
+  font-size: 1.3em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  margin: 25px 0;
+}
+
+.adult .typewriter,
+.boy .typewriter,
+.teenager .typewriter {
+  font-family: "Courier Prime", "Courier New", monospace;
+  color: #2d2520;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-left: 3px solid #d4c4a8;
+  margin: 20px 0;
+  border-radius: 5px;
 }
 
 .featured {

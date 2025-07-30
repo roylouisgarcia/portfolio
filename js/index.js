@@ -80,6 +80,8 @@ $(document).ready(function(){
         }); 
     });
     
+  // Featured tab removed - content moved to Personal section
+  /*
   $("#link2Featured").click(function(){  
     $(".featured").show("fast", function(){
       // Initialize the featured slideshow if not already done
@@ -97,7 +99,8 @@ $(document).ready(function(){
     $("#link2Professional").removeClass("active");
     $("#link2Personal").removeClass("active");
     $("#link2Certifications").removeClass("active");  
-  });    
+  });
+  */    
     
   
   $("#link2Academic").click(function(){    
@@ -130,7 +133,13 @@ $(document).ready(function(){
     $(".featured").hide("fast", function(){});      
     $(".academic").hide("fast", function(){});
     $(".professional").hide("fast", function(){});
-    $(".personal").show("fast", function(){});
+    $(".personal").show("fast", function(){
+      // Initialize the featured slideshow if not already done (since it's now in Personal section)
+      if (!window.featuredInitialized) {
+        initializeFeaturedSlideshow();
+        window.featuredInitialized = true;
+      }
+    });
     $(".certifications").hide("fast", function(){});
     $("#link2Featured").removeClass("active");      
     $("#link2Academic").removeClass("active");

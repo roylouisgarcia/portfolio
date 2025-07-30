@@ -134,12 +134,13 @@
                     <i class="fa fa-font"></i> <span class="toggle-text">Typewriter</span>
                   </button>
                 </div>
-                <h2>About Roy Louis L. Garcia</h2>
-                <p><strong>Welcome!</strong> I'm a cybersecurity and software development professional driven by curiosity and ethical technology practices. My journey began with childhood tinkering - breaking toys to understand and rebuild them - which evolved into a career focused on secure, accessible solutions.</p>
-                
-                <p>From electronics and programming in high school to advanced studies in Information Assurance, I'm committed to using technology for positive impact. I specialize in the intersections of cybersecurity, software development, data analytics, and machine learning.</p>
-                
-                <p><em>Explore the polaroid pictures on the right for different phases of my journey, or navigate to projects, tools, and skills sections.</em></p>
+                <h3>Welcome
+                to my journey as a cybersecurity and software development professional. - Roy Louis Garcia</h3>
+                <div style="background-color: #fff3cd; border: 2px solid #ffeaa7; border-radius: 8px; padding: 15px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                  <p style="margin: 0; font-size: 1.1em; color: #141106; text-align: center;">
+                    <strong><i class="fa fa-hand-pointer-o" style="margin-right: 8px;"></i>Click the polaroid pictures on the right to explore different phases of my journey, or navigate to the projects, tools, and skills sections below.</strong>
+                  </p>
+                </div>
               </div>
             </div>
             <div class="col-xs-12 col-md-4">
@@ -147,11 +148,7 @@
                 <div class="polaroid-group">
                   <div class="polaroid-item">
                     <div class="polaroid lowered">
-                      <img
-                        id="adultimage"
-                        class="img-responsive"
-                        src="images/adult2.jpg"
-                      />
+                      <img id="boyimage" class="img-responsive" src="images/boy.jpg" />
                     </div>
                   </div>
                   <div class="polaroid-item">
@@ -165,7 +162,11 @@
                   </div>
                   <div class="polaroid-item">
                     <div class="polaroid lowered">
-                      <img id="boyimage" class="img-responsive" src="images/boy.jpg" />
+                      <img
+                        id="adultimage"
+                        class="img-responsive"
+                        src="images/adult2.jpg"
+                      />
                     </div>
                   </div>
                 </div>
@@ -301,6 +302,10 @@
 
       <div class="folder-container">
         <div class="foldertabs">
+          <div id="link2Certifications" class="folder-tab btn">
+            <span class="tab-label">Featured</span>
+            <div class="tab-notch"></div>
+          </div>
           <div id="link2Academic" class="folder-tab btn">
             <span class="tab-label">Academic</span>
             <div class="tab-notch"></div>
@@ -311,14 +316,6 @@
           </div>
           <div id="link2Personal" class="folder-tab btn">
             <span class="tab-label">Personal</span>
-            <div class="tab-notch"></div>
-          </div>
-          <div id="link2Featured" class="folder-tab btn">
-            <span class="tab-label">Featured</span>
-            <div class="tab-notch"></div>
-          </div>
-          <div id="link2Certifications" class="folder-tab btn">
-            <span class="tab-label">Certifications</span>
             <div class="tab-notch"></div>
           </div>
         </div>
@@ -1082,6 +1079,29 @@
             My personal development journey focuses on continuous learning through innovative methodologies and hands-on experimentation. I've developed a comprehensive approach combining hardware projects like Raspberry Pi setups for penetration testing, creative coding projects such as the FLAMES game, and automated learning tools that enhance knowledge retention through Cherry Tree note organization and various scripting solutions. This blend of theoretical study through MOOCs, practical application with development sandboxes, and creative problem-solving with custom automation scripts demonstrates my commitment to perpetual learning and technological exploration.
           </p>
 
+          <!-- Featured Projects Section -->
+          <div class="featured-projects-section" style="margin: 20px 0;">
+            <h3 style="text-align: center; margin-bottom: 20px; color: #333;">Featured Projects</h3>
+            
+            <!-- Featured Projects Slideshow Container -->
+            <div class="featured-slideshow-container">
+              <!-- Slides container -->
+              <div id="featuredSlides" class="featured-slides-container">
+                <!-- Slides will be loaded dynamically -->
+              </div>
+
+              <!-- Slide counter -->
+              <div class="featured-slide-counter">
+                <span id="featuredCurrentSlide">1</span> / <span id="featuredTotalSlides">1</span>
+              </div>
+
+              <!-- Thumbnails -->
+              <div id="featuredThumbnailContainer" class="featured-thumbnail-container">
+                <!-- Thumbnails will be inserted here -->
+              </div>
+            </div>
+          </div>
+
           <!-- Click Here for More Details Button -->
           <div style="text-align: center; margin: 20px 0; padding: 0 20px;">
             <button id="personalDetailsBtn" class="professional-details-btn">
@@ -1183,37 +1203,8 @@
         <!-- end of Personal Project Div -->
 
         <!-- start of Featured Project Div -->
-
-        <div class="col-sm-12 featured">
-          <div class="projectheader">Featured</div>
-          <p>
-            
-          </p>
-
-          <!-- Featured Projects Slideshow Container -->
-          <div class="featured-slideshow-container">
-            <!-- Slides container -->
-            <div id="featuredSlides" class="featured-slides-container">
-              <!-- Slides will be loaded dynamically -->
-            </div>
-
-            <!-- Slide counter -->
-            <div class="featured-slide-counter">
-              <span id="featuredCurrentSlide">1</span> / <span id="featuredTotalSlides">1</span>
-            </div>
-
-            <!-- Thumbnails -->
-            <div id="featuredThumbnailContainer" class="featured-thumbnail-container">
-              <!-- Thumbnails will be inserted here -->
-            </div>
-          </div>
-        </div>
-
-        <!-- end of Featured Project Div -->
-
-        <!-- start of Certifications Project Div -->
         <div class="col-sm-12 certifications">
-          <div class="projectheader">Certifications</div>
+          <div class="projectheader">Featured</div>
           <p>
             My professional certifications and completed online courses showcase continuous learning and skill development across various technologies and platforms.
           </p>
@@ -1236,7 +1227,7 @@
             </div>
           </div>
         </div>
-        <!-- end of Certifications Project Div -->
+        <!-- end of Featured Project Div -->
 
         <div class="projecttail">
           Projects of <span class="handwritten">Roy Louis L. Garcia</span>

@@ -2509,6 +2509,16 @@ figure video {
   background-color: #218838;
 }
 
+.project-btn-demo {
+  background-color: #fd7e14;
+}
+
+.project-btn-demo:hover {
+  background-color: #e55a00;
+  text-decoration: none;
+  color: white;
+}
+
 /* Container for project buttons */
 .project-btn-container {
   text-align: center;

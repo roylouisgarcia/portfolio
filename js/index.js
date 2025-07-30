@@ -862,6 +862,17 @@ function loadCertSlides() {
     readMoreBtn.classList.add('project-btn', 'project-btn-readmore');
     
     linkContainer.appendChild(githubLink);
+    
+    // Add "See Demo" button for Coursera/Meta HTML and CSS project
+    if (project.title && project.title.toLowerCase().includes('coursera/meta html and css')) {
+        const demoLink = document.createElement('a');
+        demoLink.href = 'https://roylouisgarcia.github.io/meta-coursera-html-css-project/';
+        demoLink.target = '_blank';
+        demoLink.textContent = 'See Demo';
+        demoLink.classList.add('project-btn', 'project-btn-demo');
+        linkContainer.appendChild(demoLink);
+    }
+    
     linkContainer.appendChild(readMoreBtn);
     slideContent.appendChild(linkContainer);
 
@@ -990,7 +1001,13 @@ function showCertSlide(index) {
   console.log('Setting currentCertSlideIndex to:', currentCertSlideIndex);
 
   certSlides.forEach((slide, i) => {
-    slide.style.display = i === currentCertSlideIndex ? 'block' : 'none';
+    if (i === currentCertSlideIndex) {
+      slide.style.display = 'block';
+      slide.classList.add('active');
+    } else {
+      slide.style.display = 'none';
+      slide.classList.remove('active');
+    }
   });
   
   // Update thumbnail highlighting

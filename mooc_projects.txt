@@ -6,10 +6,16 @@ description: Advanced enterprise security nanodegree program focusing on cyberse
 actual site: #
 Read more: Technologies Used: Microsoft Azure services (Virtual Networks, Entra, Sentinel, Intune, Defender for Endpoint), ELK Stack (Elasticsearch, Logstash, Kibana, Filebeat), SIEM/SOAR platforms, EDR/IDS technologies; Key Features: Network defenses with DMZs and VPNs, Zero Trust security architecture, defense-in-depth strategies, compliance alignment with NIST 800-61r2 and TIC 3.0; Learning Outcomes: Enterprise security frameworks, threat assessment methodologies, cloud security implementation, risk management practices 
 
+title: Video Pitch Adjuster GUI
+github url: https://github.com/roylouisgarcia/videopitchshifter 
+image 1: https://raw.githubusercontent.com/roylouisgarcia/videopitchshifter/refs/heads/main/images/screenshot.png?token=GHSAT0AAAAAADH642337LMO7QH5HV6KODRE2EK4LEQ 
+image 2: https://github.com/roylouisgarcia/courses/raw/master/ss1.png
+description: A user-friendly GUI application that uses FFMPEG to adjust the pitch of audio in video files. This application extracts audio from video, adjusts the pitch by a specified amount, and merges the adjusted audio back with the original video.
+Read more: Technologies Used: Python, Tkinter (GUI), FFMPEG (audio/video processing), subprocess module; Key Features: User-friendly graphical interface, audio extraction from video files, pitch adjustment capabilities, automatic audio-video merging, file selection dialogs; Learning Outcomes: GUI development with Tkinter, multimedia processing with FFMPEG, Python subprocess management, audio signal processing concepts 
+
 title: Coursera/Meta HTML and CSS in Depth
 github url: https://github.com/roylouisgarcia/meta-coursera-html-css-project/tree/main
 image 1: https://github.com/roylouisgarcia/meta-coursera-html-css-project/blob/main/images/readme_wholepicture.jpg
-image 2: https://github.com/roylouisgarcia/meta-coursera-html-css-project/blob/main/images/readme_visualcode.jpg
 description: the project is a portfolio website as part of the Meta Front-End Developer Specialization course on Coursera, specifically for the HTML & CSS module.
 actual site: https://roylouisgarcia.github.io/meta-coursera-html-css-project/
 Read more: Technologies Used: HTML5, CSS3, Flexbox, Grid Layout; Key Features: Responsive design, semantic HTML, modern CSS techniques; Learning Outcomes: Advanced CSS selectors, animations, and responsive web design principles
@@ -28,18 +34,12 @@ image 2: https://github.com/roylouisgarcia/python4windowsapi/blob/main/images/01
 description: A traditional HelloWorld script that explores the concept of Windows DLL, handles and the necessary parameters to call the Windows API call MessageBoxW().  A script that uses the Windows API calls or systems calls via Python Script that in order to kill any Windows Process
 Read more: Technologies Used: Python, Windows API, ctypes library; Key Features: Direct system calls, process management, native Windows integration; Learning Outcomes: Low-level programming, system architecture, API interaction
 
-
 title: My Coursera Certificate Slideshow
-github url :https://github.com/roylouisgarcia/courses?tab=readme-ov-file 
+github url: https://github.com/roylouisgarcia/courses?tab=readme-ov-file 
 image 1: https://github.com/roylouisgarcia/courses/raw/master/ss1.png
 image 2: https://github.com/roylouisgarcia/courses/raw/master/ss1.png
 description: A dynamic, interactive web application showcasing my professional development journey through various online courses and certifications from top institutions including IBM, Google, Meta, Stanford, DeepLearning.AI, and more. 
 Read more: Technologies Used: HTML, CSS, and JavaScript; Key Features: Dynamic slideshow functionality, responsive design, interactive thumbnail navigation, professional certification showcase; Learning Outcomes: DOM manipulation, responsive web design, dynamic content loading, user interface development
-
-
-
-
-
 
 
 

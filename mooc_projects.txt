@@ -8,7 +8,7 @@ Read more: Technologies Used: Microsoft Azure services (Virtual Networks, Entra,
 
 title: Video Pitch Adjuster GUI
 github url: https://github.com/roylouisgarcia/videopitchshifter 
-image 1: https://raw.githubusercontent.com/roylouisgarcia/videopitchshifter/refs/heads/main/images/screenshot.png?token=GHSAT0AAAAAADH642337LMO7QH5HV6KODRE2EK4LEQ 
+image 1: https://roylouisgarcia.github.io/portfolio/images/featured/videopitchshifter.png
 image 2: https://github.com/roylouisgarcia/courses/raw/master/ss1.png
 description: A user-friendly GUI application that uses FFMPEG to adjust the pitch of audio in video files. This application extracts audio from video, adjusts the pitch by a specified amount, and merges the adjusted audio back with the original video.
 Read more: Technologies Used: Python, Tkinter (GUI), FFMPEG (audio/video processing), subprocess module; Key Features: User-friendly graphical interface, audio extraction from video files, pitch adjustment capabilities, automatic audio-video merging, file selection dialogs; Learning Outcomes: GUI development with Tkinter, multimedia processing with FFMPEG, Python subprocess management, audio signal processing concepts 

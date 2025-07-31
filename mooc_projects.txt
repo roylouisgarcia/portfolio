@@ -15,7 +15,7 @@ Read more: Technologies Used: Python, Tkinter (GUI), FFMPEG (audio/video process
 
 title: Coursera/Meta HTML and CSS in Depth
 github url: https://github.com/roylouisgarcia/meta-coursera-html-css-project/tree/main
-image 1: https://github.com/roylouisgarcia/meta-coursera-html-css-project/blob/main/images/readme_wholepicture.jpg
+image 1: https://raw.githubusercontent.com/roylouisgarcia/meta-coursera-html-css-project/main/images/readme_wholepicture.jpg
 description: the project is a portfolio website as part of the Meta Front-End Developer Specialization course on Coursera, specifically for the HTML & CSS module.
 actual site: https://roylouisgarcia.github.io/meta-coursera-html-css-project/
 Read more: Technologies Used: HTML5, CSS3, Flexbox, Grid Layout; Key Features: Responsive design, semantic HTML, modern CSS techniques; Learning Outcomes: Advanced CSS selectors, animations, and responsive web design principles

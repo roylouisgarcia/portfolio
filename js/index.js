@@ -2600,8 +2600,9 @@ function getBertelsmannProjectImages(projectFolder) {
             'Project1-page-63.jpg'
         ],
         'Project2': [
-            'Project2-page-08.jpg', 'Project2-page-09.jpg', 'Project2-page-10.jpg',
-            'Project2-page-18.jpg', 'Project2-page-19.jpg', 'Project2-page-20.jpg'
+            'Project2-page-01.jpg', 'Project2-page-08.jpg', 'Project2-page-09.jpg', 'Project2-page-10.jpg',
+            'Project2-page-16.jpg', 'Project2-page-18.jpg', 'Project2-page-19.jpg', 'Project2-page-20.jpg',
+            'Project2-page-23.jpg', 'Project2-page-25.jpg'
         ],
         'Project3': [
             'Project3-page-01.jpg', 'Project3-page-10.jpg', 'Project3-page-15.jpg', 'Project3-page-17.jpg',

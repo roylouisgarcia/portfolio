@@ -1,7 +1,6 @@
 title: Bertelsmann Technology Scholarship - Enterprise Security Nanodegree
 github url: #
-image 1: https://roylouisgarcia.github.io/portfolio/specialization/images/ibm_specialization_ibmcybersecurityanalyst.jpg 
-image 2: https://roylouisgarcia.github.io/portfolio/specialization/images/ibm_specialization_ibmcybersecurityanalyst.jpg 
+image 1:https://roylouisgarcia.github.io/portfolio/specialization/images/Bertelsmann_nanodegree_enterprisesecurity.jpg 
 description: Advanced enterprise security nanodegree program focusing on cybersecurity frameworks, threat assessment, and security architecture design. Comprehensive coverage of enterprise-level security protocols and implementation strategies.
 actual site: #
 Read more: Technologies Used: Microsoft Azure services (Virtual Networks, Entra, Sentinel, Intune, Defender for Endpoint), ELK Stack (Elasticsearch, Logstash, Kibana, Filebeat), SIEM/SOAR platforms, EDR/IDS technologies; Key Features: Network defenses with DMZs and VPNs, Zero Trust security architecture, defense-in-depth strategies, compliance alignment with NIST 800-61r2 and TIC 3.0; Learning Outcomes: Enterprise security frameworks, threat assessment methodologies, cloud security implementation, risk management practices 

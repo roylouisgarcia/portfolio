@@ -3212,6 +3212,7 @@ figure video {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     pointer-events: all;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -3387,6 +3388,7 @@ figure video {
         height: 50px;
         font-size: 20px;
         padding: 12px;
+        text-align: center;
     }
     
     .skills-panel h1 {
@@ -3405,6 +3407,7 @@ figure video {
     .skills-thumb {
         min-width: 100px;
         padding: 12px;
+        text-align: center;
     }
     
     .skills-thumb-title {
@@ -3436,8 +3439,9 @@ figure video {
     .skills-thumb {
         flex-direction: row;
         min-width: 200px;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 15px;
+        text-align: center;
     }
 }
 
@@ -3453,6 +3457,7 @@ figure video {
     .skills-thumb {
         min-width: 180px;
         padding: 10px;
+        text-align: center;
     }
 }
 
@@ -3497,6 +3502,7 @@ figure video {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     pointer-events: all;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -3697,6 +3703,7 @@ figure video {
         height: 50px;
         font-size: 20px;
         padding: 12px;
+        text-align: center;
     }
     
     .interests-panel h1 {
@@ -3720,6 +3727,7 @@ figure video {
     .interests-thumb {
         min-width: 100px;
         padding: 12px;
+        text-align: center;
     }
     
     .interests-thumb-title {
@@ -3755,8 +3763,9 @@ figure video {
     .interests-thumb {
         flex-direction: row;
         min-width: 200px;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 15px;
+        text-align: center;
     }
 }
 
@@ -3772,6 +3781,7 @@ figure video {
     .interests-thumb {
         min-width: 180px;
         padding: 10px;
+        text-align: center;
     }
 }
 

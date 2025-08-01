@@ -230,32 +230,50 @@ $(document).ready(function(){
     
     $("#hartnellcoursesbtn").click(function(){
        $("#hartnellcourses").toggle("fast");
-       $("#hartnellcoursesbtn").toggleClass("totiebtnActive");      
+       $("#hartnellcoursesbtn").toggleClass("totiebtnActive");
+       // Close projects panel if it's open
+       $("#hartnellprojects").hide("fast");
+       $("#hartnellprojectsbtn").removeClass("totiebtnActive");
     });
     
     $("#hartnellprojectsbtn").click(function(){
        $("#hartnellprojects").toggle("fast");
-       $("#hartnellprojectsbtn").toggleClass("totiebtnActive");            
+       $("#hartnellprojectsbtn").toggleClass("totiebtnActive");
+       // Close courses panel if it's open
+       $("#hartnellcourses").hide("fast");
+       $("#hartnellcoursesbtn").removeClass("totiebtnActive");
     });
     
     $("#csumbcoursesbtn").click(function(){
        $("#csumbcourses").toggle("fast");
-       $("#csumbcoursesbtn").toggleClass("totiebtnActive");        
+       $("#csumbcoursesbtn").toggleClass("totiebtnActive");
+       // Close projects panel if it's open
+       $("#csumbprojects").hide("fast");
+       $("#csumbprojectsbtn").removeClass("totiebtnActive");
     });
     
     $("#csumbprojectsbtn").click(function(){
        $("#csumbprojects").toggle("fast");
-       $("#csumbprojectsbtn").toggleClass("totiebtnActive");           
+       $("#csumbprojectsbtn").toggleClass("totiebtnActive");
+       // Close courses panel if it's open
+       $("#csumbcourses").hide("fast");
+       $("#csumbcoursesbtn").removeClass("totiebtnActive");
     });
     
     $("#capellacoursesbtn").click(function(){
        $("#capellacourses").toggle("fast");
-       $("#capellacoursesbtn").toggleClass("totiebtnActive");       
+       $("#capellacoursesbtn").toggleClass("totiebtnActive");
+       // Close projects panel if it's open
+       $("#capellaprojects").hide("fast");
+       $("#capellaprojectsbtn").removeClass("totiebtnActive");
     });
     
     $("#capellaprojectsbtn").click(function(){
        $("#capellaprojects").toggle("fast");
-       $("#capellaprojectsbtn").toggleClass("totiebtnActive");          
+       $("#capellaprojectsbtn").toggleClass("totiebtnActive");
+       // Close courses panel if it's open
+       $("#capellacourses").hide("fast");
+       $("#capellacoursesbtn").removeClass("totiebtnActive");
     });    
     $("#nostradmsxbtn").click(function(){
        $("#nostradmsxdiv").show("fast", function(){});
@@ -1064,7 +1082,60 @@ function prevCertSlide() {
 }
 
 function setCurrentCertSlide(index) {
+  // Close any open panels and modals
+  closeFeaturedSectionPanels();
+  
+  // Scroll to Featured heading
+  scrollToFeaturedHeading();
+  
   showCertSlide(index);
+}
+
+// Function to close all open panels and modals in the Featured section
+function closeFeaturedSectionPanels() {
+  // Close Bertelsmann modal if open
+  const bertelsmannModal = document.getElementById('bertelsmannProjectsModal');
+  if (bertelsmannModal) {
+    bertelsmannModal.remove();
+  }
+  
+  // Close professional details panel if open
+  if ($("#professionalDetails").is(":visible")) {
+    $("#professionalDetails").hide("fast");
+    $("#professionalDetailsbtn").text("CLICK HERE FOR MORE DETAILS");
+  }
+  
+  // Close personal details panel if open
+  if ($("#personalDetails").is(":visible")) {
+    $("#personalDetails").hide("fast");
+    $("#personalDetailsBtn").text("CLICK HERE FOR MORE DETAILS");
+  }
+  
+  // Close all open Read More content in Featured section
+  const readMoreContents = document.querySelectorAll('.cert-read-more-content');
+  readMoreContents.forEach(content => {
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+      // Find the corresponding Read More button and reset its text
+      const slide = content.closest('.cert-slide');
+      if (slide) {
+        const readMoreBtn = slide.querySelector('.project-btn-readmore');
+        if (readMoreBtn) {
+          readMoreBtn.textContent = 'Read More';
+        }
+      }
+    }
+  });
+}
+
+// Function to scroll to Featured heading
+function scrollToFeaturedHeading() {
+  const featuredHeader = $(".certifications .projectheader:contains('Featured')");
+  if (featuredHeader.length > 0) {
+    $('html, body').animate({
+      scrollTop: featuredHeader.offset().top - 100
+    }, 500);
+  }
 }
 
 function updateCertSlideCounter() {
